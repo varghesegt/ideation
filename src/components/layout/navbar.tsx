@@ -8,15 +8,11 @@ import {
   ChevronDown,
   Menu,
   X,
-  PhoneCall,
   Sparkles,
   Globe2,
-  BookOpen,
   ArrowRight,
   ShieldCheck,
-  CheckCircle2,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { cn } from "@/lib/utils/cn";
 import { DESTINATIONS } from "@/data/destinations";
@@ -36,7 +32,6 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close menus on route change
   useEffect(() => {
     setMobileMenuOpen(false);
     setActiveDropdown(null);
@@ -47,54 +42,55 @@ export function Navbar() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         scrolled
-          ? "bg-white/95 backdrop-blur-md shadow-md py-3 border-b border-slate-100"
-          : "bg-[#071d49]/80 backdrop-blur-md py-4 border-b border-white/10"
+          ? "bg-white/95 backdrop-blur-md shadow-lg py-3 border-b border-slate-200"
+          : "bg-[#041026]/90 backdrop-blur-md py-4 border-b border-white/10"
       )}
     >
       <Container size="large">
         <div className="flex items-center justify-between">
           {/* Brand Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-700 via-blue-600 to-indigo-500 flex items-center justify-center text-white shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform">
-              <GraduationCap className="w-6 h-6" />
-              <span className="absolute -top-1 -right-1 w-3 h-3 bg-amber-400 rounded-full border-2 border-white animate-pulse" />
+            <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-blue-700 via-blue-600 to-indigo-500 flex items-center justify-center text-white shadow-lg shadow-blue-500/25 group-hover:scale-105 transition-transform flex-shrink-0">
+              <GraduationCap className="w-6 h-6 text-white" />
             </div>
             <div>
-              <div
-                className={cn(
-                  "font-extrabold text-lg sm:text-xl tracking-tight leading-tight transition-colors",
-                  scrolled ? "text-slate-900" : "text-white"
-                )}
-              >
-                IDEATION
-                <span className="text-blue-500 text-sm ml-1.5 font-bold tracking-normal uppercase">
+              <div className="flex items-center gap-1.5">
+                <span
+                  className={cn(
+                    "font-black text-xl tracking-tight transition-colors",
+                    scrolled ? "text-slate-900" : "text-white"
+                  )}
+                >
+                  IDEATION
+                </span>
+                <span className="text-blue-500 text-xs font-black tracking-wider uppercase px-1.5 py-0.5 rounded bg-blue-500/10">
                   Edu Services
                 </span>
               </div>
               <p
                 className={cn(
-                  "text-[10px] uppercase tracking-wider font-semibold",
-                  scrolled ? "text-slate-500" : "text-blue-200"
+                  "text-[10px] uppercase tracking-widest font-bold",
+                  scrolled ? "text-slate-500" : "text-blue-300"
                 )}
               >
-                Study Abroad Experts · Since 2015
+                Study Abroad Experts · Est. 2015
               </p>
             </div>
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
+          <nav className="hidden md:flex items-center gap-1">
             <Link
               href="/"
               className={cn(
-                "px-3 py-2 text-sm font-semibold rounded-lg transition-colors",
+                "px-3.5 py-2 text-sm font-bold rounded-xl transition-all",
                 pathname === "/"
                   ? scrolled
                     ? "text-blue-600 bg-blue-50"
-                    : "text-white bg-white/10"
+                    : "text-white bg-white/15"
                   : scrolled
                   ? "text-slate-700 hover:text-blue-600 hover:bg-slate-50"
-                  : "text-slate-200 hover:text-white hover:bg-white/10"
+                  : "text-slate-100 hover:text-white hover:bg-white/10"
               )}
             >
               Home
@@ -103,17 +99,17 @@ export function Navbar() {
             <Link
               href="/about"
               className={cn(
-                "px-3 py-2 text-sm font-semibold rounded-lg transition-colors",
+                "px-3.5 py-2 text-sm font-bold rounded-xl transition-all",
                 pathname === "/about"
                   ? scrolled
                     ? "text-blue-600 bg-blue-50"
-                    : "text-white bg-white/10"
+                    : "text-white bg-white/15"
                   : scrolled
                   ? "text-slate-700 hover:text-blue-600 hover:bg-slate-50"
-                  : "text-slate-200 hover:text-white hover:bg-white/10"
+                  : "text-slate-100 hover:text-white hover:bg-white/10"
               )}
             >
-              About Us
+              About
             </Link>
 
             {/* Services Dropdown */}
@@ -124,14 +120,14 @@ export function Navbar() {
             >
               <button
                 className={cn(
-                  "px-3 py-2 text-sm font-semibold rounded-lg transition-colors flex items-center gap-1 cursor-pointer",
+                  "px-3.5 py-2 text-sm font-bold rounded-xl transition-all flex items-center gap-1 cursor-pointer",
                   activeDropdown === "services" || pathname.startsWith("/services")
                     ? scrolled
                       ? "text-blue-600 bg-blue-50"
-                      : "text-white bg-white/10"
+                      : "text-white bg-white/15"
                     : scrolled
                     ? "text-slate-700 hover:text-blue-600 hover:bg-slate-50"
-                    : "text-slate-200 hover:text-white hover:bg-white/10"
+                    : "text-slate-100 hover:text-white hover:bg-white/10"
                 )}
               >
                 Services
@@ -139,14 +135,14 @@ export function Navbar() {
               </button>
 
               {activeDropdown === "services" && (
-                <div className="absolute top-full left-0 w-[580px] bg-white rounded-2xl shadow-2xl border border-slate-100 p-6 grid grid-cols-2 gap-4 animate-fade-in mt-1">
+                <div className="absolute top-full left-0 w-[580px] bg-white rounded-3xl shadow-2xl border border-slate-200 p-6 grid grid-cols-2 gap-3 mt-2 animate-fade-in text-slate-900">
                   <div className="col-span-2 pb-2 border-b border-slate-100 flex items-center justify-between">
-                    <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                      Our End-to-End Overseas Guidance
+                    <span className="text-xs font-black uppercase tracking-wider text-slate-400">
+                      Our 8-Stage Admissions Journey
                     </span>
                     <Link
                       href="/services"
-                      className="text-xs font-semibold text-blue-600 hover:underline flex items-center gap-1"
+                      className="text-xs font-bold text-blue-600 hover:underline flex items-center gap-1"
                     >
                       View All 8 Stages <ArrowRight className="w-3 h-3" />
                     </Link>
@@ -155,13 +151,13 @@ export function Navbar() {
                     <Link
                       key={service.slug}
                       href={`/services/${service.slug}`}
-                      className="group p-3 rounded-xl hover:bg-blue-50/80 transition-colors flex items-start gap-3"
+                      className="p-3 rounded-2xl hover:bg-blue-50 transition-colors flex items-start gap-3 group"
                     >
-                      <div className="w-8 h-8 rounded-lg bg-blue-100 text-blue-700 font-bold flex items-center justify-center text-xs flex-shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                      <div className="w-8 h-8 rounded-xl bg-blue-100 text-blue-700 font-extrabold flex items-center justify-center text-xs flex-shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors">
                         {service.stepNumber}
                       </div>
                       <div>
-                        <h4 className="text-sm font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">
+                        <h4 className="text-sm font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
                           {service.title}
                         </h4>
                         <p className="text-xs text-slate-500 line-clamp-1 mt-0.5">
@@ -170,25 +166,11 @@ export function Navbar() {
                       </div>
                     </Link>
                   ))}
-                  <div className="col-span-2 bg-gradient-to-r from-blue-50 to-indigo-50 p-3 rounded-xl flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                      <span className="text-xs font-medium text-slate-700">
-                        100% Free Counseling with Zero Hidden Charges
-                      </span>
-                    </div>
-                    <Link
-                      href="/#register"
-                      className="text-xs font-bold text-blue-700 hover:text-blue-800"
-                    >
-                      Book Free Call →
-                    </Link>
-                  </div>
                 </div>
               )}
             </div>
 
-            {/* Destinations Dropdown */}
+            {/* Destinations */}
             <div
               className="relative"
               onMouseEnter={() => setActiveDropdown("destinations")}
@@ -196,55 +178,55 @@ export function Navbar() {
             >
               <button
                 className={cn(
-                  "px-3 py-2 text-sm font-semibold rounded-lg transition-colors flex items-center gap-1 cursor-pointer",
+                  "px-3.5 py-2 text-sm font-bold rounded-xl transition-all flex items-center gap-1 cursor-pointer",
                   activeDropdown === "destinations" || pathname.startsWith("/destinations")
                     ? scrolled
                       ? "text-blue-600 bg-blue-50"
-                      : "text-white bg-white/10"
+                      : "text-white bg-white/15"
                     : scrolled
                     ? "text-slate-700 hover:text-blue-600 hover:bg-slate-50"
-                    : "text-slate-200 hover:text-white hover:bg-white/10"
+                    : "text-slate-100 hover:text-white hover:bg-white/10"
                 )}
               >
                 Destinations
-                <span className="ml-1 px-1.5 py-0.5 text-[10px] font-bold rounded-full bg-amber-400 text-slate-950">
+                <span className="ml-1 px-1.5 py-0.5 text-[10px] font-black rounded-md bg-amber-400 text-slate-950">
                   25
                 </span>
                 <ChevronDown className="w-4 h-4 opacity-70" />
               </button>
 
               {activeDropdown === "destinations" && (
-                <div className="absolute top-full -left-20 w-[720px] bg-white rounded-2xl shadow-2xl border border-slate-100 p-6 animate-fade-in mt-1">
-                  <div className="flex items-center justify-between pb-3 mb-4 border-b border-slate-100">
+                <div className="absolute top-full -left-20 w-[720px] bg-white rounded-3xl shadow-2xl border border-slate-200 p-6 mt-2 animate-fade-in text-slate-900">
+                  <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-100">
                     <div>
-                      <h4 className="text-sm font-bold text-slate-900">
+                      <h4 className="text-sm font-extrabold text-slate-900">
                         Explore 25 Study Abroad Destinations
                       </h4>
                       <p className="text-xs text-slate-500">
-                        Accredited universities, visa rules & post-study work permits
+                        Top universities, tuition costs, post-study work permits & visas
                       </p>
                     </div>
                     <Link
                       href="/destinations"
-                      className="text-xs font-semibold text-blue-600 hover:underline flex items-center gap-1"
+                      className="text-xs font-bold text-blue-600 hover:underline flex items-center gap-1"
                     >
                       All 25 Countries <ArrowRight className="w-3 h-3" />
                     </Link>
                   </div>
-                  <div className="grid grid-cols-4 gap-3 max-h-[380px] overflow-y-auto pr-2">
+                  <div className="grid grid-cols-4 gap-2.5 max-h-[360px] overflow-y-auto pr-1">
                     {DESTINATIONS.map((c) => (
                       <Link
                         key={c.slug}
                         href={`/destinations/${c.slug}`}
-                        className="group p-2.5 rounded-xl hover:bg-blue-50 border border-transparent hover:border-blue-100 transition-all flex items-center gap-2"
+                        className="p-2.5 rounded-xl hover:bg-blue-50 border border-slate-100 transition-all flex items-center gap-2 group"
                       >
-                        <span className="text-xl flex-shrink-0">{c.flag}</span>
+                        <span className="text-2xl">{c.flag}</span>
                         <div className="min-w-0">
-                          <p className="text-xs font-semibold text-slate-800 truncate group-hover:text-blue-600">
+                          <p className="text-xs font-bold text-slate-900 truncate group-hover:text-blue-600">
                             {c.name}
                           </p>
                           <p className="text-[10px] text-slate-400 truncate">
-                            {c.topUniversities.length}+ Universities
+                            {c.region}
                           </p>
                         </div>
                       </Link>
@@ -255,111 +237,38 @@ export function Navbar() {
             </div>
 
             {/* AI Tools */}
-            <div
-              className="relative"
-              onMouseEnter={() => setActiveDropdown("tools")}
-              onMouseLeave={() => setActiveDropdown(null)}
-            >
-              <button
-                className={cn(
-                  "px-3 py-2 text-sm font-semibold rounded-lg transition-colors flex items-center gap-1 cursor-pointer",
-                  activeDropdown === "tools" || pathname.startsWith("/tools")
-                    ? scrolled
-                      ? "text-blue-600 bg-blue-50"
-                      : "text-white bg-white/10"
-                    : scrolled
-                    ? "text-slate-700 hover:text-blue-600 hover:bg-slate-50"
-                    : "text-slate-200 hover:text-white hover:bg-white/10"
-                )}
-              >
-                <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-                AI Tools
-                <ChevronDown className="w-4 h-4 opacity-70" />
-              </button>
-
-              {activeDropdown === "tools" && (
-                <div className="absolute top-full left-0 w-80 bg-white rounded-2xl shadow-2xl border border-slate-100 p-4 animate-fade-in mt-1 space-y-2">
-                  <Link
-                    href="/tools/profile-evaluator"
-                    className="p-3 rounded-xl hover:bg-blue-50 flex items-start gap-3 transition-colors group"
-                  >
-                    <div className="w-9 h-9 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center font-bold flex-shrink-0">
-                      🎯
-                    </div>
-                    <div>
-                      <h5 className="text-sm font-bold text-slate-900 group-hover:text-blue-600">
-                        AI Profile Evaluator
-                      </h5>
-                      <p className="text-xs text-slate-500">
-                        Check admission probability in 2 minutes
-                      </p>
-                    </div>
-                  </Link>
-
-                  <Link
-                    href="/tools/university-matcher"
-                    className="p-3 rounded-xl hover:bg-blue-50 flex items-start gap-3 transition-colors group"
-                  >
-                    <div className="w-9 h-9 rounded-lg bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold flex-shrink-0">
-                      🔍
-                    </div>
-                    <div>
-                      <h5 className="text-sm font-bold text-slate-900 group-hover:text-blue-600">
-                        University Matcher
-                      </h5>
-                      <p className="text-xs text-slate-500">
-                        Filter by budget, ranking & intake
-                      </p>
-                    </div>
-                  </Link>
-
-                  <Link
-                    href="/tools/cost-calculator"
-                    className="p-3 rounded-xl hover:bg-blue-50 flex items-start gap-3 transition-colors group"
-                  >
-                    <div className="w-9 h-9 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold flex-shrink-0">
-                      💰
-                    </div>
-                    <div>
-                      <h5 className="text-sm font-bold text-slate-900 group-hover:text-blue-600">
-                        Cost Calculator
-                      </h5>
-                      <p className="text-xs text-slate-500">
-                        Calculate tuition + living costs in INR
-                      </p>
-                    </div>
-                  </Link>
-                </div>
+            <Link
+              href="/tools/profile-evaluator"
+              className={cn(
+                "px-3.5 py-2 text-sm font-bold rounded-xl transition-all flex items-center gap-1.5",
+                scrolled
+                  ? "text-amber-700 bg-amber-50 hover:bg-amber-100"
+                  : "text-amber-300 bg-amber-400/10 hover:bg-amber-400/20"
               )}
-            </div>
+            >
+              <Sparkles className="w-4 h-4 text-amber-400" />
+              <span>AI Evaluator</span>
+            </Link>
 
             <Link
-              href="/blog"
+              href="/tools/cost-calculator"
               className={cn(
-                "px-3 py-2 text-sm font-semibold rounded-lg transition-colors",
-                pathname === "/blog"
-                  ? scrolled
-                    ? "text-blue-600 bg-blue-50"
-                    : "text-white bg-white/10"
-                  : scrolled
+                "px-3.5 py-2 text-sm font-bold rounded-xl transition-all",
+                scrolled
                   ? "text-slate-700 hover:text-blue-600 hover:bg-slate-50"
-                  : "text-slate-200 hover:text-white hover:bg-white/10"
+                  : "text-slate-100 hover:text-white hover:bg-white/10"
               )}
             >
-              Blog
+              Cost Calculator
             </Link>
 
             <Link
               href="/contact"
               className={cn(
-                "px-3 py-2 text-sm font-semibold rounded-lg transition-colors",
-                pathname === "/contact"
-                  ? scrolled
-                    ? "text-blue-600 bg-blue-50"
-                    : "text-white bg-white/10"
-                  : scrolled
+                "px-3.5 py-2 text-sm font-bold rounded-xl transition-all",
+                scrolled
                   ? "text-slate-700 hover:text-blue-600 hover:bg-slate-50"
-                  : "text-slate-200 hover:text-white hover:bg-white/10"
+                  : "text-slate-100 hover:text-white hover:bg-white/10"
               )}
             >
               Contact
@@ -367,42 +276,42 @@ export function Navbar() {
           </nav>
 
           {/* Right Action Buttons */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden md:flex items-center gap-3">
             <Link
               href="/student-login"
               className={cn(
-                "text-xs font-semibold px-3 py-2 rounded-lg transition-colors",
+                "text-xs font-bold px-3 py-2 rounded-xl transition-colors",
                 scrolled
-                  ? "text-slate-600 hover:text-blue-600 hover:bg-slate-100"
-                  : "text-slate-200 hover:text-white hover:bg-white/10"
+                  ? "text-slate-600 hover:text-blue-600"
+                  : "text-slate-200 hover:text-white"
               )}
             >
               Portal Login
             </Link>
 
             <Link href="/#register">
-              <Button
-                variant={scrolled ? "primary" : "secondary"}
-                size="md"
+              <button
                 className={cn(
-                  "font-bold text-xs uppercase tracking-wider shadow-md hover:scale-105 active:scale-95 transition-all",
-                  !scrolled && "bg-white text-blue-900 hover:bg-blue-50"
+                  "px-5 py-2.5 rounded-xl font-black text-xs uppercase tracking-wider shadow-lg hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center gap-2",
+                  scrolled
+                    ? "bg-blue-600 text-white hover:bg-blue-700"
+                    : "bg-amber-400 text-slate-950 hover:bg-amber-300"
                 )}
-                rightIcon={<ArrowRight className="w-3.5 h-3.5" />}
               >
-                Free Consultation
-              </Button>
+                <span>Free Consultation</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
             </Link>
           </div>
 
-          {/* Mobile Hamburger Button */}
+          {/* Mobile Menu Toggle Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className={cn(
-              "lg:hidden p-2 rounded-xl transition-colors",
+              "md:hidden p-2.5 rounded-xl transition-colors",
               scrolled
                 ? "text-slate-900 hover:bg-slate-100"
-                : "text-white hover:bg-white/10"
+                : "text-white hover:bg-white/15"
             )}
             aria-label="Toggle Navigation Menu"
           >
@@ -411,88 +320,68 @@ export function Navbar() {
         </div>
       </Container>
 
-      {/* Mobile Slide-Out Drawer */}
+      {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-x-0 top-[68px] bottom-0 bg-white z-50 overflow-y-auto p-6 space-y-6 shadow-2xl animate-slide-up">
-          <div className="space-y-2">
-            <Link
-              href="/"
-              className="block p-3 text-base font-semibold text-slate-900 rounded-xl hover:bg-blue-50"
-            >
-              Home
-            </Link>
-            <Link
-              href="/about"
-              className="block p-3 text-base font-semibold text-slate-900 rounded-xl hover:bg-blue-50"
-            >
-              About Us
-            </Link>
-            <Link
-              href="/services"
-              className="block p-3 text-base font-semibold text-slate-900 rounded-xl hover:bg-blue-50"
-            >
-              Services (8-Stage Process)
-            </Link>
-            <Link
-              href="/destinations"
-              className="block p-3 text-base font-semibold text-slate-900 rounded-xl hover:bg-blue-50 flex items-center justify-between"
-            >
-              <span>Study Destinations</span>
-              <span className="px-2 py-0.5 text-xs font-bold rounded-full bg-blue-100 text-blue-800">
-                25 Countries
-              </span>
-            </Link>
-            <Link
-              href="/tools/profile-evaluator"
-              className="block p-3 text-base font-semibold text-slate-900 rounded-xl hover:bg-blue-50 flex items-center gap-2"
-            >
-              <Sparkles className="w-4 h-4 text-amber-500" />
-              <span>AI Profile Evaluator</span>
-            </Link>
-            <Link
-              href="/tools/university-matcher"
-              className="block p-3 text-base font-semibold text-slate-900 rounded-xl hover:bg-blue-50"
-            >
-              University Matcher
-            </Link>
-            <Link
-              href="/tools/cost-calculator"
-              className="block p-3 text-base font-semibold text-slate-900 rounded-xl hover:bg-blue-50"
-            >
-              Cost & Budget Calculator
-            </Link>
-            <Link
-              href="/blog"
-              className="block p-3 text-base font-semibold text-slate-900 rounded-xl hover:bg-blue-50"
-            >
-              Blog & News
-            </Link>
-            <Link
-              href="/contact"
-              className="block p-3 text-base font-semibold text-slate-900 rounded-xl hover:bg-blue-50"
-            >
-              Contact Us
-            </Link>
-            <Link
-              href="/student-login"
-              className="block p-3 text-base font-semibold text-slate-900 rounded-xl hover:bg-blue-50"
-            >
-              Student Portal Login
-            </Link>
-          </div>
+        <div className="md:hidden fixed inset-x-0 top-[70px] bottom-0 bg-white z-50 overflow-y-auto p-6 space-y-4 shadow-2xl animate-fade-in text-slate-900 border-t border-slate-200">
+          <Link
+            href="/"
+            className="block p-3.5 text-base font-bold text-slate-900 rounded-xl hover:bg-slate-50"
+          >
+            Home
+          </Link>
+          <Link
+            href="/about"
+            className="block p-3.5 text-base font-bold text-slate-900 rounded-xl hover:bg-slate-50"
+          >
+            About Us & Leadership
+          </Link>
+          <Link
+            href="/services"
+            className="block p-3.5 text-base font-bold text-slate-900 rounded-xl hover:bg-slate-50"
+          >
+            Our 8-Stage Process
+          </Link>
+          <Link
+            href="/destinations"
+            className="block p-3.5 text-base font-bold text-slate-900 rounded-xl hover:bg-slate-50 flex items-center justify-between"
+          >
+            <span>All 25 Destinations</span>
+            <span className="px-2 py-0.5 text-xs font-black rounded-md bg-blue-100 text-blue-800">
+              25 Countries
+            </span>
+          </Link>
+          <Link
+            href="/tools/profile-evaluator"
+            className="block p-3.5 text-base font-bold text-amber-700 bg-amber-50 rounded-xl flex items-center gap-2"
+          >
+            <Sparkles className="w-4 h-4 text-amber-500" />
+            <span>AI Profile Evaluator</span>
+          </Link>
+          <Link
+            href="/tools/cost-calculator"
+            className="block p-3.5 text-base font-bold text-slate-900 rounded-xl hover:bg-slate-50"
+          >
+            Cost & Budget Calculator
+          </Link>
+          <Link
+            href="/contact"
+            className="block p-3.5 text-base font-bold text-slate-900 rounded-xl hover:bg-slate-50"
+          >
+            Contact Headquarters
+          </Link>
+          <Link
+            href="/student-login"
+            className="block p-3.5 text-base font-bold text-slate-900 rounded-xl hover:bg-slate-50"
+          >
+            Student Portal Login
+          </Link>
 
-          <div className="pt-4 border-t border-slate-100 space-y-3">
+          <div className="pt-4 border-t border-slate-200 space-y-3">
             <Link href="/#register" className="block w-full">
-              <Button fullWidth size="lg" variant="primary">
+              <button className="w-full py-3.5 rounded-2xl bg-blue-600 text-white font-extrabold text-sm uppercase tracking-wider shadow-lg">
                 Book Free Consultation
-              </Button>
+              </button>
             </Link>
-            <a
-              href="mailto:info@ideationedu.com"
-              className="block text-center text-xs text-slate-500 font-medium py-2"
-            >
-              info@ideationedu.com
-            </a>
           </div>
         </div>
       )}
