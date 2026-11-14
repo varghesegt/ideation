@@ -1,171 +1,263 @@
-import React from "react";
-import Link from "next/link";
-import { Metadata } from "next";
-import {
-  MapPin,
-  Mail,
-  Phone,
-  Clock,
-  MessageSquare,
-  ShieldCheck,
-  CheckCircle2,
-  Building2,
-  MessageCircle,
-} from "lucide-react";
+"use client";
+
+import React, { useState, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
-import { Container } from "@/components/ui/container";
-import { Section } from "@/components/ui/section";
-import { ConsultationForm } from "@/components/forms/consultation-form";
+import { COUNTRY_NAME_MAP } from "@/data/new-project-data";
 
-export const metadata: Metadata = {
-  title: "Admissions Directorate & Inquiries | Ideation Edu Services",
-  description:
-    "Direct contact channels for Ideation Edu Services (OPC) Private Limited. Reach our counseling center in Tiruchirappalli, Tamil Nadu or connect for virtual pan-India admissions advisory.",
-};
+function ContactFormInner() {
+  const searchParams = useSearchParams();
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [country, setCountry] = useState("Still exploring");
+  const [program, setProgram] = useState("");
+  const [message, setMessage] = useState("");
+  const [status, setStatus] = useState("");
+
+  useEffect(() => {
+    const paramCountry = searchParams.get("country");
+    if (paramCountry && COUNTRY_NAME_MAP[paramCountry.toLowerCase()]) {
+      setCountry(COUNTRY_NAME_MAP[paramCountry.toLowerCase()]);
+    }
+  }, [searchParams]);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const subject = encodeURIComponent(`Study abroad enquiry — ${name}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\nCountry: ${country}\nStudy area: ${program || "Not specified"}\nMessage: ${message || "Not specified"}`
+    );
+    setStatus("Opening your email app with your enquiry details.");
+    setTimeout(() => {
+      window.location.href = `mailto:info@ideationedu.com?subject=${subject}&body=${body}`;
+    }, 400);
+  };
+
+  const countries = [
+    "Still exploring",
+    "United Kingdom",
+    "Canada",
+    "Australia",
+    "United States",
+    "Ireland",
+    "New Zealand",
+    "Singapore",
+    "Germany",
+    "France",
+    "Netherlands",
+    "United Arab Emirates",
+    "Spain",
+    "Italy",
+    "Switzerland",
+    "Austria",
+    "Belgium",
+    "Hungary",
+    "Finland",
+    "Czech Republic",
+    "Portugal",
+    "Poland",
+    "Latvia",
+    "Malaysia",
+    "Japan",
+    "Timor-Leste",
+    "Other",
+  ];
+
+  return (
+    <form onSubmit={handleSubmit} className="card-clean p-6 sm:p-8 space-y-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label htmlFor="contact-name" className="block text-xs font-bold text-[#172b43] mb-1.5">
+            Your name *
+          </label>
+          <input
+            id="contact-name"
+            type="text"
+            required
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Full name"
+            className="w-full bg-white border border-[#dce4ef] rounded px-3 py-2.5 text-xs sm:text-sm text-[#172b43] outline-none focus:border-[#1a56db] focus:ring-1 focus:ring-[#1a56db]"
+          />
+        </div>
+
+        <div>
+          <label htmlFor="contact-phone" className="block text-xs font-bold text-[#172b43] mb-1.5">
+            Phone / WhatsApp *
+          </label>
+          <input
+            id="contact-phone"
+            type="tel"
+            required
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            placeholder="+91"
+            className="w-full bg-white border border-[#dce4ef] rounded px-3 py-2.5 text-xs sm:text-sm text-[#172b43] outline-none focus:border-[#1a56db] focus:ring-1 focus:ring-[#1a56db]"
+          />
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label htmlFor="contact-email" className="block text-xs font-bold text-[#172b43] mb-1.5">
+            Email address *
+          </label>
+          <input
+            id="contact-email"
+            type="email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="you@example.com"
+            className="w-full bg-white border border-[#dce4ef] rounded px-3 py-2.5 text-xs sm:text-sm text-[#172b43] outline-none focus:border-[#1a56db] focus:ring-1 focus:ring-[#1a56db]"
+          />
+        </div>
+
+        <div>
+          <label htmlFor="contact-country" className="block text-xs font-bold text-[#172b43] mb-1.5">
+            Country of interest
+          </label>
+          <select
+            id="contact-country"
+            value={country}
+            onChange={(e) => setCountry(e.target.value)}
+            className="w-full bg-white border border-[#dce4ef] rounded px-3 py-2.5 text-xs sm:text-sm text-[#172b43] outline-none focus:border-[#1a56db] focus:ring-1 focus:ring-[#1a56db]"
+          >
+            {countries.map((c) => (
+              <option key={c} value={c}>
+                {c}
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <label htmlFor="contact-program" className="block text-xs font-bold text-[#172b43] mb-1.5">
+          What would you like to study?
+        </label>
+        <input
+          id="contact-program"
+          type="text"
+          value={program}
+          onChange={(e) => setProgram(e.target.value)}
+          placeholder="Course or subject area"
+          className="w-full bg-white border border-[#dce4ef] rounded px-3 py-2.5 text-xs sm:text-sm text-[#172b43] outline-none focus:border-[#1a56db] focus:ring-1 focus:ring-[#1a56db]"
+        />
+      </div>
+
+      <div>
+        <label htmlFor="contact-message" className="block text-xs font-bold text-[#172b43] mb-1.5">
+          A little about your plans
+        </label>
+        <textarea
+          id="contact-message"
+          rows={4}
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          placeholder="Your current studies, preferred intake, or questions"
+          className="w-full bg-white border border-[#dce4ef] rounded px-3 py-2.5 text-xs sm:text-sm text-[#172b43] outline-none focus:border-[#1a56db] focus:ring-1 focus:ring-[#1a56db] resize-y"
+        />
+      </div>
+
+      <div className="pt-2 space-y-3">
+        <button
+          type="submit"
+          className="btn-primary w-full sm:w-auto"
+        >
+          <span>Prepare my enquiry</span>
+          <span>↗</span>
+        </button>
+
+        {status && (
+          <p className="text-xs text-[#1a56db] font-semibold" aria-live="polite">
+            {status}
+          </p>
+        )}
+
+        <p className="text-[11px] text-[#64748b] leading-normal">
+          Submitting will open your email app so you can review and send your enquiry.
+        </p>
+        <p className="text-[11px] text-[#64748b] leading-normal">
+          Your details will be used to respond to this enquiry. Do not include passport, financial or other sensitive documents in this form.
+        </p>
+      </div>
+    </form>
+  );
+}
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-[#faf8f5] text-slate-900 selection:bg-blue-900 selection:text-white">
+    <div className="min-h-screen bg-[#f7f9fc] text-[#172b43] font-sans-body">
       <Navbar />
 
-      {/* Header Banner */}
-      <section className="pt-36 pb-20 border-b border-[#ded9cd] bg-[#faf8f5] relative overflow-hidden">
-        <div className="absolute inset-0 bg-academic-mesh opacity-60 pointer-events-none" />
-        <Container size="large">
-          <div className="max-w-4xl space-y-6 relative z-10">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full badge-academic text-xs font-medium">
-              <MessageSquare className="w-3.5 h-3.5 text-amber-800" />
-              <span>Admissions Advisory & Direct Correspondence</span>
-            </div>
-
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-normal tracking-tight font-editorial text-slate-950 leading-[1.12]">
-              Connect with Our Senior Counseling Directorate
+      {/* Page Hero */}
+      <section className="py-16 sm:py-20 bg-radial-[at_84%_4%] from-[#dfeaff] via-[#edf3ff] to-[#f7f9fc] border-b border-[#dce4ef]">
+        <div className="max-w-[1160px] mx-auto px-4 sm:px-6">
+          <div className="max-w-3xl space-y-4">
+            <div className="eyebrow-accent">Your plans start with a conversation</div>
+            <h1 className="font-display text-4xl sm:text-5xl lg:text-[58px] font-bold leading-[1.06] tracking-[-0.07em] text-[#172b43]">
+              We’d love to hear what you’re dreaming of.
             </h1>
-
-            <p className="text-lg sm:text-xl text-slate-700 leading-relaxed font-light max-w-3xl">
-              Whether you require preliminary profile assessment, intake deadline verification, or financial documentation reviews, our advisory team in Tiruchirappalli is available via in-person appointment or secure virtual conference.
+            <p className="text-base sm:text-lg text-[#64748b] leading-relaxed max-w-2xl">
+              Share a little about your plans. Our team can help you understand the next steps and the options worth exploring.
             </p>
           </div>
-        </Container>
+        </div>
       </section>
 
-      {/* Main Grid */}
-      <section className="py-20">
-        <Container size="large">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            {/* Contact Details & Info */}
-            <div className="lg:col-span-5 space-y-8">
-              <div className="space-y-3">
-                <span className="text-xs font-semibold uppercase tracking-wider text-amber-900">
-                  Headquarters & Offices
-                </span>
-                <h2 className="text-3xl font-normal font-editorial text-slate-950">
-                  Official Communication Channels
+      {/* Main Content & Form Split */}
+      <section id="enquiry" className="py-16 sm:py-24">
+        <div className="max-w-[1160px] mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+            {/* Left Info Column */}
+            <div className="lg:col-span-5 space-y-6">
+              <div>
+                <div className="eyebrow-accent">Send us a note</div>
+                <h2 className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-[#172b43] mt-2 mb-3">
+                  Let’s talk about your study abroad plans.
                 </h2>
-                <p className="text-slate-600 text-sm leading-relaxed font-light">
-                  Ideation Edu Services (OPC) Private Limited provides dedicated support across Tamil Nadu and for students pan-India.
+                <p className="text-xs sm:text-sm text-[#64748b] leading-relaxed">
+                  Tell us where you are in your journey. A member of our team will be able to follow up using the details you provide.
                 </p>
               </div>
 
-              {/* Info Cards */}
-              <div className="space-y-4">
-                <div className="card-editorial p-6 flex items-start gap-4">
-                  <div className="w-11 h-11 rounded-xl bg-blue-950 text-amber-200 flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-slate-900 text-sm">Headquarters & Advisory Center</h4>
-                    <p className="text-xs text-slate-600 mt-1 leading-relaxed">
-                      Ideation Edu Services (OPC) Private Limited<br />
-                      Manapparai / Tiruchirappalli (Trichy),<br />
-                      Tamil Nadu - 621306, India.
-                    </p>
-                  </div>
-                </div>
+              {/* Photo Panel */}
+              <div
+                className="h-[220px] rounded-[5px] bg-cover bg-center shadow-lg"
+                style={{
+                  backgroundImage: `url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=900&q=85')`,
+                }}
+              />
 
-                <div className="card-editorial p-6 flex items-start gap-4">
-                  <div className="w-11 h-11 rounded-xl bg-blue-950 text-amber-200 flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-slate-900 text-sm">Direct Admissions Helpline</h4>
-                    <a
-                      href="tel:+919488553344"
-                      className="text-xs font-bold text-blue-900 hover:underline block mt-1"
-                    >
-                      +91 94885 53344
-                    </a>
-                    <p className="text-[11px] text-slate-500 mt-0.5 font-light">
-                      Monday to Saturday: 9:30 AM – 6:30 PM IST
-                    </p>
-                  </div>
-                </div>
-
-                <div className="card-editorial p-6 flex items-start gap-4">
-                  <div className="w-11 h-11 rounded-xl bg-blue-950 text-amber-200 flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-slate-900 text-sm">Electronic Correspondence</h4>
-                    <a
-                      href="mailto:info@ideationedu.com"
-                      className="text-xs font-semibold text-blue-900 hover:underline block mt-1"
-                    >
-                      info@ideationedu.com
-                    </a>
-                    <a
-                      href="mailto:ideationeduservices@gmail.com"
-                      className="text-xs text-slate-500 hover:underline block mt-0.5"
-                    >
-                      ideationeduservices@gmail.com
-                    </a>
-                  </div>
-                </div>
-
-                <div className="card-editorial p-6 flex items-start gap-4">
-                  <div className="w-11 h-11 rounded-xl bg-blue-950 text-amber-200 flex items-center justify-center flex-shrink-0">
-                    <Clock className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-slate-900 text-sm">Admissions Office Hours</h4>
-                    <p className="text-xs text-slate-600 mt-1 leading-relaxed">
-                      In-Person Consultations: Mon–Sat, 9:30 AM – 6:30 PM<br />
-                      Virtual Counseling: Prior booking required for evening and Sunday slots.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Direct WhatsApp Box */}
-              <div className="card-editorial p-6 border-l-4 border-l-emerald-600 space-y-3">
-                <div className="flex items-center gap-2 text-slate-900 font-bold text-sm">
-                  <MessageCircle className="w-4 h-4 text-emerald-700" />
-                  <span>Expedited WhatsApp Advisory Desk</span>
-                </div>
-                <p className="text-xs text-slate-600 leading-relaxed font-light">
-                  For immediate queries regarding specific university application deadlines or visa prerequisites, reach out directly to our counseling team.
-                </p>
-                <div>
-                  <a
-                    href="https://wa.me/919488553344?text=Hi%20Ideation%20Edu%20Services,%20I%20would%20like%20to%20inquire%20about%20university%20admissions."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-800 text-white font-medium text-xs hover:bg-emerald-900 transition-colors shadow-xs"
-                  >
-                    <span>Connect on WhatsApp</span>
-                    <span>→</span>
+              {/* Office Card */}
+              <div className="card-clean p-6 space-y-2.5">
+                <h3 className="font-display font-bold text-lg text-[#172b43]">
+                  Ideation Education Services
+                </h3>
+                <p className="text-xs text-[#1a56db]">
+                  <a href="mailto:info@ideationedu.com" className="hover:underline">
+                    info@ideationedu.com
                   </a>
-                </div>
+                </p>
+                <p className="text-xs text-[#64748b] leading-relaxed">
+                  Manapparai · Tiruchirappalli<br />
+                  Tamil Nadu, India
+                </p>
+                <p className="text-[11px] text-[#7385a3]">Appointments by arrangement</p>
               </div>
             </div>
 
-            {/* Right: Consultation Form */}
+            {/* Right Form Column */}
             <div className="lg:col-span-7">
-              <ConsultationForm />
+              <Suspense fallback={<div className="card-clean p-8 text-center text-sm text-[#64748b]">Loading form...</div>}>
+                <ContactFormInner />
+              </Suspense>
             </div>
           </div>
-        </Container>
+        </div>
       </section>
 
       <Footer />

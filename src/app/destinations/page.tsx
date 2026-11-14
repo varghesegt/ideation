@@ -2,200 +2,130 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import {
-  Globe2,
-  Search,
-  ArrowRight,
-  Building2,
-  Coins,
-  Briefcase,
-  CheckCircle2,
-  Landmark,
-} from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
-import { Container } from "@/components/ui/container";
-import { DESTINATIONS } from "@/data/destinations";
+import { LeadModal } from "@/components/ui/lead-modal";
+import { DESTINATIONS_25 } from "@/data/new-project-data";
 
 export default function DestinationsPage() {
-  const [search, setSearch] = useState("");
-  const [selectedRegion, setSelectedRegion] = useState("All");
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedCountry, setSelectedCountry] = useState("");
 
-  const regions = [
-    "All",
-    "Americas",
-    "UK & Ireland",
-    "Europe",
-    "Asia-Pacific & Middle East",
-  ];
-
-  const filtered = DESTINATIONS.filter((c) => {
-    const matchesSearch =
-      c.name.toLowerCase().includes(search.toLowerCase()) ||
-      c.tagline.toLowerCase().includes(search.toLowerCase()) ||
-      c.description.toLowerCase().includes(search.toLowerCase());
-    const matchesRegion =
-      selectedRegion === "All" || c.region === selectedRegion;
-    return matchesSearch && matchesRegion;
-  });
+  const handleOpenModal = (countryName: string) => {
+    setSelectedCountry(countryName);
+    setModalOpen(true);
+  };
 
   return (
-    <div className="min-h-screen bg-[#faf8f5] text-slate-900 selection:bg-blue-900 selection:text-white">
+    <div className="min-h-screen bg-[#f7f9fc] text-[#172b43] font-sans-body">
       <Navbar />
 
-      {/* Header Banner */}
-      <section className="pt-36 pb-20 border-b border-[#ded9cd] bg-[#faf8f5] relative overflow-hidden">
-        <div className="absolute inset-0 bg-academic-mesh opacity-60 pointer-events-none" />
-        <Container size="large">
-          <div className="max-w-4xl space-y-6 relative z-10">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full badge-academic text-xs font-medium">
-              <Globe2 className="w-3.5 h-3.5 text-amber-800" />
-              <span>International Higher Education Atlas</span>
-            </div>
-
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-normal tracking-tight font-editorial text-slate-950 leading-[1.12]">
-              Study Across 25 Premier Global Destinations
+      {/* Page Hero */}
+      <section className="py-16 sm:py-20 bg-radial-[at_84%_4%] from-[#dfeaff] via-[#edf3ff] to-[#f7f9fc] border-b border-[#dce4ef]">
+        <div className="max-w-[1160px] mx-auto px-4 sm:px-6">
+          <div className="max-w-3xl space-y-4">
+            <div className="eyebrow-accent">Find your somewhere</div>
+            <h1 className="font-display text-4xl sm:text-5xl lg:text-[56px] font-bold leading-[1.08] tracking-[-0.07em] text-[#172b43]">
+              A world of possibilities.<br />
+              One that feels like yours.
             </h1>
-
-            <p className="text-lg sm:text-xl text-slate-700 leading-relaxed font-light max-w-3xl">
-              Comparative dossiers on tuition fees, post-study work regulations, cost of living, and university accreditations across North America, the UK, Europe, and Asia-Pacific.
+            <p className="text-base sm:text-lg text-[#64748b] leading-relaxed max-w-2xl">
+              Explore a few of the destinations students consider. The right choice depends on your course, goals, budget and personal priorities.
             </p>
           </div>
-        </Container>
+        </div>
       </section>
 
-      {/* Filter and Country Grid */}
-      <section className="py-16">
-        <Container size="large">
-          {/* Search & Tabs */}
-          <div className="space-y-6 mb-12">
-            <div className="max-w-xl relative">
-              <Search className="w-4 h-4 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
-              <input
-                type="text"
-                placeholder="Search country, work permit, or keyword (e.g. Germany, OPT, 3-year visa)..."
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                className="w-full pl-11 pr-4 py-3 rounded-xl border border-[#ded9cd] focus:border-blue-950 focus:ring-1 focus:ring-blue-950 text-sm outline-none bg-white shadow-xs font-normal"
-              />
-            </div>
-
-            <div className="flex flex-wrap gap-2">
-              {regions.map((region) => (
-                <button
-                  key={region}
-                  onClick={() => setSelectedRegion(region)}
-                  className={`px-4 py-2 text-xs font-medium rounded-lg transition-all cursor-pointer ${
-                    selectedRegion === region
-                      ? "bg-[#0a192f] text-amber-100 shadow-xs"
-                      : "bg-white text-slate-700 border border-[#ded9cd] hover:bg-[#f5f2eb]"
-                  }`}
-                >
-                  {region}
-                </button>
-              ))}
-            </div>
+      {/* 25 Destinations Grid */}
+      <section className="py-16 sm:py-20">
+        <div className="max-w-[1160px] mx-auto px-4 sm:px-6">
+          <div className="mb-10">
+            <div className="eyebrow-accent">Explore all 25 countries we represent</div>
+            <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-[#172b43] mt-2">
+              A world of study destinations, ready to explore.
+            </h2>
           </div>
 
-          {/* Grid of Countries */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filtered.map((country) => {
-              const bgPhoto =
-                country.image ||
-                "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80";
-
-              return (
-                <div
-                  key={country.slug}
-                  className="card-editorial overflow-hidden flex flex-col justify-between group hover:shadow-md transition-all"
-                >
-                  {/* Photo Header */}
-                  <div className="relative h-44 w-full overflow-hidden bg-slate-900 border-b border-[#ded9cd]">
-                    <img
-                      src={bgPhoto}
-                      alt={country.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent" />
-                    
-                    <div className="absolute top-3 left-3 flex items-center gap-2">
-                      <span className="text-2xl drop-shadow-sm">{country.flag}</span>
-                      <span className="px-2.5 py-0.5 rounded-full bg-black/60 backdrop-blur-xs text-white text-[11px] font-medium border border-white/20">
-                        {country.region}
-                      </span>
-                    </div>
-
-                    <div className="absolute bottom-3 left-3 right-3 text-white">
-                      <h3 className="text-xl font-normal font-editorial drop-shadow-xs">
-                        {country.name}
-                      </h3>
-                      <p className="text-[11px] text-amber-200/90 font-light truncate">
-                        {country.tagline}
-                      </p>
-                    </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {DESTINATIONS_25.map((c) => (
+              <div
+                key={c.slug}
+                className="card-clean overflow-hidden group flex flex-col justify-between"
+              >
+                <div>
+                  {/* Photo with Flag */}
+                  <div
+                    className="relative h-[160px] bg-cover bg-center overflow-hidden country-photo-overlay"
+                    style={{ backgroundImage: `url('${c.photo}')` }}
+                  >
+                    <span className="absolute right-3.5 bottom-2.5 z-10 text-2xl drop-shadow-md select-none">
+                      {c.flag}
+                    </span>
                   </div>
 
-                  {/* Body Content */}
-                  <div className="p-6 flex-1 flex flex-col justify-between space-y-5">
-                    <p className="text-xs text-slate-600 line-clamp-3 leading-relaxed font-light">
-                      {country.description}
+                  <div className="p-5 sm:p-6 pb-2">
+                    <h2 className="font-display text-lg sm:text-xl font-bold text-[#172b43] mb-1.5 group-hover:text-[#1a56db] transition-colors">
+                      {c.name}
+                    </h2>
+                    <p className="text-xs sm:text-[13px] text-[#64748b] leading-relaxed">
+                      {c.description}
                     </p>
-
-                    <div className="space-y-2 pt-3 border-t border-[#ded9cd] text-xs">
-                      <div className="flex items-center justify-between text-slate-600">
-                        <span className="flex items-center gap-1.5 font-light">
-                          <Coins className="w-3.5 h-3.5 text-amber-800" /> Avg Tuition:
-                        </span>
-                        <span className="font-semibold text-slate-900">
-                          {country.avgTuitionINR.split("/")[0]}
-                        </span>
-                      </div>
-
-                      <div className="flex items-center justify-between text-slate-600">
-                        <span className="flex items-center gap-1.5 font-light">
-                          <Briefcase className="w-3.5 h-3.5 text-blue-900" /> Work Permit:
-                        </span>
-                        <span className="font-semibold text-emerald-800">
-                          {country.postStudyWork.split("(")[0]}
-                        </span>
-                      </div>
-
-                      <div className="flex items-center justify-between text-slate-600">
-                        <span className="flex items-center gap-1.5 font-light">
-                          <Building2 className="w-3.5 h-3.5 text-slate-700" /> Key Unis:
-                        </span>
-                        <span className="font-medium text-slate-800 truncate max-w-[150px]">
-                          {country.topUniversities[0]?.name || "Multiple Universities"}
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="pt-4 border-t border-[#ded9cd] flex items-center justify-between">
-                      <Link
-                        href={`/destinations/${country.slug}`}
-                        className="text-xs font-semibold text-blue-950 hover:text-amber-900 flex items-center gap-1 transition-colors"
-                      >
-                        <span>Country Dossier</span>
-                        <ArrowRight className="w-3.5 h-3.5" />
-                      </Link>
-
-                      <Link
-                        href="/#register"
-                        className="text-[11px] font-semibold px-3 py-1.5 rounded-lg bg-[#0a192f] text-amber-100 hover:bg-[#132a4a] transition-colors"
-                      >
-                        Apply for Intake
-                      </Link>
-                    </div>
                   </div>
                 </div>
-              );
-            })}
+
+                <div className="px-5 sm:px-6 pb-5 pt-3">
+                  <Link
+                    href={`/contact?country=${c.slug}`}
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#1a56db] hover:text-[#1243b4] transition-colors"
+                  >
+                    <span>Explore with an advisor</span>
+                    <span>↗</span>
+                  </Link>
+                </div>
+              </div>
+            ))}
           </div>
-        </Container>
+
+          <p className="text-xs text-[#64748b] mt-8 leading-relaxed max-w-3xl">
+            Study options, entry requirements, tuition and visa rules vary and can change. Confirm current details with the relevant institution and official authorities.
+          </p>
+        </div>
+      </section>
+
+      {/* Bottom CTA Box */}
+      <section className="pb-20">
+        <div className="max-w-[1160px] mx-auto px-4 sm:px-6">
+          <div className="bg-[#123b7a] text-white p-8 sm:p-12 rounded-[5px] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 shadow-xl">
+            <div className="space-y-2">
+              <div className="text-[11px] font-bold uppercase tracking-[0.17em] text-[#b9d0ff]">
+                Not sure where to start?
+              </div>
+              <h2 className="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                Let’s find the right fit for you.
+              </h2>
+              <p className="text-xs sm:text-sm text-[#c2d0e4]">
+                A personal conversation can help you compare your options.
+              </p>
+            </div>
+
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 bg-[#1a56db] hover:bg-[#1243b4] text-white px-6 py-3.5 rounded text-[13px] font-bold transition-all shadow-md flex-shrink-0"
+            >
+              <span>Talk through your options</span>
+              <span>↗</span>
+            </Link>
+          </div>
+        </div>
       </section>
 
       <Footer />
+
+      <LeadModal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        initialCountry={selectedCountry}
+      />
     </div>
   );
 }

@@ -1,17 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..800&display=swap');
 @import "tailwindcss";
 
-/* ─── High-Prestige Editorial Design System ───────────────────────── */
-
 :root {
-  --color-primary: #1e3a8a;
-  --color-primary-dark: #0a192f;
-  --color-primary-light: #2563eb;
-  --color-accent: #b45309;
-  --color-accent-light: #d97706;
-  --color-success: #15803d;
-  --color-bg: #faf8f5;
-  --color-bg-card: #ffffff;
-  --color-border: #e7e4dc;
+  --blue: #1a56db;
+  --navy: #102b50;
+  --ink: #172b43;
+  --muted: #64748b;
+  --paper: #f7f9fc;
+  --line: #dce4ef;
+  --gold: #f2a900;
+  --font: 'DM Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  --display: 'Plus Jakarta Sans', 'DM Sans', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  --serif: Georgia, 'Times New Roman', serif;
 }
 
 *,
@@ -22,92 +22,121 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 85px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  background-color: var(--color-bg);
-  color: #1e293b;
+  margin: 0;
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 16px;
   line-height: 1.6;
 }
 
-/* Editorial serif typography for stately headlines */
-.font-editorial {
-  font-family: "Baskerville", "Playfair Display", "Georgia", "Cambria", "Times New Roman", serif;
-  letter-spacing: -0.015em;
+.font-display {
+  font-family: var(--display);
+  letter-spacing: -0.05em;
 }
 
-.font-sans-ui {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+.font-serif {
+  font-family: var(--serif);
 }
 
-/* ─── Premium Editorial Surfaces & Textures ────────────────────────── */
-
-.bg-canvas-warm {
-  background-color: #faf8f5;
+.font-sans-body {
+  font-family: var(--font);
 }
 
-.card-editorial {
-  background: #ffffff;
-  border: 1px solid #e7e4dc;
-  box-shadow: 0 4px 20px -2px rgba(26, 38, 57, 0.04), 0 2px 6px -1px rgba(26, 38, 57, 0.02);
+/* ─── Buttons & Badges ─────────────────────────────────────────────── */
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--blue);
+  border: 1px solid var(--blue);
+  color: #ffffff;
+  padding: 13px 20px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 13px;
+  transition: all 0.2s ease;
+  cursor: pointer;
 }
 
-.card-editorial-hover {
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+.btn-primary:hover {
+  background-color: #1243b4;
+  border-color: #1243b4;
+  transform: translateY(-1px);
 }
-.card-editorial-hover:hover {
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: transparent;
+  border: 1px solid #aac2b7;
+  color: var(--blue);
+  padding: 13px 20px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 13px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-outline:hover {
+  background-color: #e8f0ff;
+  border-color: var(--blue);
+}
+
+.eyebrow-accent {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.17em;
+  font-weight: 700;
+  color: var(--blue);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.eyebrow-accent::before {
+  content: '';
+  width: 22px;
+  height: 1px;
+  background-color: var(--gold);
+}
+
+/* ─── Cards ────────────────────────────────────────────────────────── */
+
+.card-clean {
+  background-color: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  box-shadow: 0 8px 24px rgba(25, 54, 91, 0.04);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.card-clean:hover {
   transform: translateY(-3px);
-  box-shadow: 0 20px 30px -10px rgba(26, 38, 57, 0.08), 0 4px 12px -2px rgba(26, 38, 57, 0.04);
-  border-color: #cbd5e1;
+  box-shadow: 0 15px 32px rgba(25, 54, 91, 0.08);
 }
 
-.badge-academic {
-  background: #f4f1ea;
-  color: #4a4233;
-  border: 1px solid #ded9cd;
+.country-photo-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 40% 0 0;
+  background: linear-gradient(0deg, rgba(16, 43, 80, 0.65), transparent);
 }
 
-.text-gradient-heritage {
-  background: linear-gradient(135deg, #0a192f 0%, #1e3a8a 60%, #1d4ed8 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.text-gradient-gold {
-  background: linear-gradient(135deg, #92400e 0%, #b45309 50%, #d97706 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.bg-academic-mesh {
-  background-color: #faf8f5;
-  background-image: 
-    radial-gradient(at 15% 15%, rgba(219, 234, 254, 0.45) 0px, transparent 55%),
-    radial-gradient(at 85% 10%, rgba(254, 243, 199, 0.4) 0px, transparent 50%),
-    radial-gradient(at 50% 90%, rgba(241, 245, 249, 0.6) 0px, transparent 60%);
-}
-
-.bg-academic-grid {
-  background-image: radial-gradient(#d5d1c5 0.75px, transparent 0.75px);
-  background-size: 24px 24px;
-}
-
-/* Custom scrollbars */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: #f1f0eb;
-}
-::-webkit-scrollbar-thumb {
-  background: #ccc7ba;
-  border-radius: 9999px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #a9a394;
+.visual-hero-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 35% 0 0;
+  background: linear-gradient(0deg, rgba(11, 35, 75, 0.88), transparent);
 }
