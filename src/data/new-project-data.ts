@@ -746,6 +746,12 @@ export interface LoanPartner {
   collateral: string;
   highlight: string;
   badge?: string;
+  speed: string;
+  moratorium: string;
+  tenure: string;
+  features: string[];
+  destinations: string[];
+  checklist: string[];
 }
 
 export const LOAN_PARTNERS_12: LoanPartner[] = [
@@ -758,6 +764,22 @@ export const LOAN_PARTNERS_12: LoanPartner[] = [
     collateral: "Secured / Property or FD",
     highlight: "SBI Global Ed-Vantage scheme with lowest interest rates and 0.50% concession for girl students.",
     badge: "Lowest Interest Rates",
+    speed: "5–7 Days Sanction",
+    moratorium: "Course + 12 Months",
+    tenure: "Up to 15 Years",
+    features: [
+      "Lowest interest rate in India",
+      "0.50% concession for girl students",
+      "100% tax deduction under Sec 80E",
+      "No hidden processing charges",
+    ],
+    destinations: ["USA", "UK", "Germany", "Canada", "Australia", "Ireland"],
+    checklist: [
+      "Student & Co-Applicant KYC / PAN",
+      "Official University Offer Letter",
+      "Academic Marksheets & Test Scores",
+      "Property / FD Collateral Documents",
+    ],
   },
   {
     id: "hdfc-credila",
@@ -768,6 +790,22 @@ export const LOAN_PARTNERS_12: LoanPartner[] = [
     collateral: "Both Collateral & Non-Collateral",
     highlight: "Doorstep document pickup, pre-visa sanction letters, and loan disbursement before university admission.",
     badge: "Most Popular for US & UK",
+    speed: "3–5 Days Sanction",
+    moratorium: "Course + 12 Months",
+    tenure: "Up to 15 Years",
+    features: [
+      "Doorstep document pickup across TN",
+      "Pre-visa sanction letter for Embassy",
+      "Disbursement before admission fee deadline",
+      "Living expenses & travel covered",
+    ],
+    destinations: ["USA", "UK", "Canada", "Germany", "Australia", "France"],
+    checklist: [
+      "Completed loan application form",
+      "University admit letter & fee schedule",
+      "Co-borrower 6-month bank statement",
+      "Salary slips / 2-year ITR proofs",
+    ],
   },
   {
     id: "avanse",
@@ -778,6 +816,22 @@ export const LOAN_PARTNERS_12: LoanPartner[] = [
     collateral: "Both Options Available",
     highlight: "100% complete coverage including living costs, airfare, laptop, exam fees, and travel insurance.",
     badge: "100% Expense Coverage",
+    speed: "3–4 Days Fast Track",
+    moratorium: "Course + 6 Months",
+    tenure: "Up to 12 Years",
+    features: [
+      "100% complete cost of education funded",
+      "Laptop, airfare & exam coaching covered",
+      "Fast-track processing & digital approval",
+      "Flexible repayment options during study",
+    ],
+    destinations: ["USA", "UK", "Ireland", "Germany", "Australia", "Canada"],
+    checklist: [
+      "Student academic records (10th, 12th, Degree)",
+      "University conditional / unconditional offer",
+      "Co-signer income & KYC documents",
+      "Cost of education breakdown estimate",
+    ],
   },
   {
     id: "prodigy",
@@ -788,6 +842,22 @@ export const LOAN_PARTNERS_12: LoanPartner[] = [
     collateral: "Zero Collateral, Zero Co-Signer",
     highlight: "No Indian property or parent co-signer needed; assessed on future earning potential at top global schools.",
     badge: "No Indian Co-Signer Required",
+    speed: "Digital Approval in 48h",
+    moratorium: "Course + 6 Months",
+    tenure: "Up to 20 Years",
+    features: [
+      "Zero Indian collateral or property",
+      "No parent co-signer required",
+      "Direct disbursement to university",
+      "Builds US / UK international credit score",
+    ],
+    destinations: ["USA", "UK", "France", "Canada", "Singapore", "Netherlands"],
+    checklist: [
+      "Admit letter to supported global university",
+      "Valid Indian passport copy",
+      "Undergraduate transcripts & resume",
+      "Proof of address in India",
+    ],
   },
   {
     id: "icici",
@@ -798,6 +868,22 @@ export const LOAN_PARTNERS_12: LoanPartner[] = [
     collateral: "Both Options Available",
     highlight: "Pre-visa digital sanction letter in 48 hours for US F-1, German blocked accounts, and Canadian GIC.",
     badge: "48-Hour Digital Sanction",
+    speed: "48-Hour In-Principle",
+    moratorium: "Course + 6 Months",
+    tenure: "Up to 15 Years",
+    features: [
+      "Digital sanction letter in 48 hours",
+      "Direct German Blocked Account funding",
+      "Canadian GIC account transfer support",
+      "Doorstep branch executive assistance",
+    ],
+    destinations: ["USA", "Germany", "Canada", "UK", "Australia", "New Zealand"],
+    checklist: [
+      "University admit letter / I-20 / CAS",
+      "Student & Co-Applicant KYC details",
+      "Co-applicant 3-year ITR & Form 16",
+      "Property papers (if secured loan)",
+    ],
   },
   {
     id: "axis",
@@ -808,6 +894,22 @@ export const LOAN_PARTNERS_12: LoanPartner[] = [
     collateral: "Unsecured up to ₹40L",
     highlight: "Simple documentation, zero prepayment penalties, and flexible repayment tenures up to 15 years.",
     badge: "Flexible Moratorium",
+    speed: "4–6 Working Days",
+    moratorium: "Course + 12 Months",
+    tenure: "Up to 15 Years",
+    features: [
+      "Unsecured loans up to ₹40 Lakhs",
+      "Zero prepayment charges anytime",
+      "Subsidized rate for QS Top 100 universities",
+      "Pre-visa disbursement letter included",
+    ],
+    destinations: ["USA", "UK", "Australia", "Canada", "Ireland", "Germany"],
+    checklist: [
+      "Proof of admission & fee schedule",
+      "Academic records (10th, 12th, Degree)",
+      "Co-borrower KYC & 6-month salary credits",
+      "Asset documents (for loans above ₹40L)",
+    ],
   },
   {
     id: "incred",
@@ -818,6 +920,22 @@ export const LOAN_PARTNERS_12: LoanPartner[] = [
     collateral: "No Collateral for STEM / MBA",
     highlight: "Specialized credit underwriting for tech, data analytics, and business master programs globally.",
     badge: "STEM & Tech Specialized",
+    speed: "3–5 Days Sanction",
+    moratorium: "Course + 6 Months",
+    tenure: "Up to 12 Years",
+    features: [
+      "Fast underwriting for STEM, AI & MBA",
+      "High unsecured limits up to ₹60 Lakhs",
+      "Covers living costs & health insurance",
+      "Tailored solutions for tech graduates",
+    ],
+    destinations: ["USA", "Germany", "UK", "Ireland", "Canada", "Australia"],
+    checklist: [
+      "Admit letter to STEM / MBA master program",
+      "GRE / GMAT / IELTS scorecard (if any)",
+      "Co-borrower KYC & last 2 years ITR",
+      "Academic mark sheets & degree certificate",
+    ],
   },
   {
     id: "auxilo",
@@ -828,6 +946,22 @@ export const LOAN_PARTNERS_12: LoanPartner[] = [
     collateral: "Customized Collateral Rules",
     highlight: "Pre-admission sanction letters and funding for exam coaching, visa application fees, and flight deposits.",
     badge: "Pre-Admission Sanctions",
+    speed: "3–5 Days Sanction",
+    moratorium: "Course + 12 Months",
+    tenure: "Up to 12 Years",
+    features: [
+      "Pre-admission sanction for proof of funds",
+      "Funds exam prep, visa fees & flight tickets",
+      "Multi-co-borrower flexibilities",
+      "Personalized loan structuring",
+    ],
+    destinations: ["USA", "UK", "Canada", "Germany", "France", "Australia"],
+    checklist: [
+      "Target universities list or admit letter",
+      "Student KYC & educational documents",
+      "Co-signer income / salary statements",
+      "Bank account statements for 6 months",
+    ],
   },
   {
     id: "mpower",
@@ -838,6 +972,22 @@ export const LOAN_PARTNERS_12: LoanPartner[] = [
     collateral: "No Collateral or Co-Signer",
     highlight: "Fixed-rate international student loans for 400+ top universities in the US & Canada without collateral.",
     badge: "Fixed Interest USD Loans",
+    speed: "Digital Approval in 48h",
+    moratorium: "Course + 6 Months",
+    tenure: "Up to 10 Years",
+    features: [
+      "Fixed interest rates — no rate hikes",
+      "Zero collateral & zero Indian co-signer",
+      "Accepted by 400+ US & Canadian colleges",
+      "Free immigration & career mentoring",
+    ],
+    destinations: ["USA", "Canada"],
+    checklist: [
+      "Offer letter from supported US/Canadian school",
+      "Valid passport & student visa proof",
+      "Undergraduate transcripts & resume",
+      "Basic online identity verification",
+    ],
   },
   {
     id: "baroda",
@@ -848,6 +998,22 @@ export const LOAN_PARTNERS_12: LoanPartner[] = [
     collateral: "Secured / Tangible Asset",
     highlight: "Baroda Scholar scheme offering subsidized interest for QS Top 150 global institutions and free forex cards.",
     badge: "Baroda Scholar Scheme",
+    speed: "5–8 Days Sanction",
+    moratorium: "Course + 12 Months",
+    tenure: "Up to 15 Years",
+    features: [
+      "Subsidized interest for QS Top 150 schools",
+      "Complimentary international forex card",
+      "Full Section 80E tax deduction benefits",
+      "Low processing fees with public bank security",
+    ],
+    destinations: ["USA", "UK", "Germany", "Canada", "Australia", "New Zealand"],
+    checklist: [
+      "Admission letter with detailed cost sheet",
+      "Student academic certificates (10th to Degree)",
+      "Co-borrower KYC & last 3 years ITR",
+      "Title deed / legal scrutiny of property",
+    ],
   },
   {
     id: "idfc",
@@ -858,6 +1024,22 @@ export const LOAN_PARTNERS_12: LoanPartner[] = [
     collateral: "Unsecured Options Available",
     highlight: "Paperless digital processing with repayment periods extending up to 12 years post-moratorium.",
     badge: "Paperless Digital Flow",
+    speed: "Instant Pre-Approval",
+    moratorium: "Course + 6 Months",
+    tenure: "Up to 12 Years",
+    features: [
+      "100% paperless digital onboarding",
+      "Unsecured options with competitive ROI",
+      "Doorstep biometric KYC verification",
+      "No hidden terms or pre-closure penalties",
+    ],
+    destinations: ["USA", "UK", "Canada", "Ireland", "Germany", "Australia"],
+    checklist: [
+      "Aadhaar & PAN for student and co-borrower",
+      "University admission letter & fee receipt",
+      "Salary slips / IT return verification",
+      "Net banking credential for instant statement",
+    ],
   },
   {
     id: "flywire",
@@ -868,6 +1050,22 @@ export const LOAN_PARTNERS_12: LoanPartner[] = [
     collateral: "Direct Digital Transfer",
     highlight: "Seamless cross-currency tuition transfers, German Blocked Accounts, and student forex cards.",
     badge: "Forex & Tuition Settlement",
+    speed: "Same-Day Settlement",
+    moratorium: "Immediate Processing",
+    tenure: "Real-Time Tracking",
+    features: [
+      "Wholesale interbank foreign exchange rates",
+      "Direct settlement into 2,000+ universities",
+      "German Blocked Account (Coracle / Expatrio)",
+      "Zero hidden intermediary bank deducts",
+    ],
+    destinations: ["Germany", "USA", "UK", "Canada", "Australia", "Ireland"],
+    checklist: [
+      "University invoice or student ID number",
+      "Student passport & PAN card copy",
+      "A2 form for RBI LRS declaration",
+      "Indian bank account with online transfer",
+    ],
   },
 ];
 
