@@ -91,13 +91,13 @@ export function ConsultationForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-white p-8 md:p-12 rounded-3xl shadow-2xl border border-slate-200 space-y-5 text-slate-900"
+      className="bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-[#ded9cd] space-y-5 text-slate-900"
     >
       <div className="space-y-1">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-black uppercase tracking-wider">
-          <Calendar className="w-3.5 h-3.5" /> Book 1-on-1 Free Session
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#f4f1ea] border border-[#ded9cd] text-xs font-bold text-slate-800 uppercase tracking-wider">
+          <Calendar className="w-3.5 h-3.5 text-blue-900" /> Book 1-on-1 Free Session
         </div>
-        <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+        <h3 className="font-editorial text-2xl sm:text-3xl font-bold text-slate-950 tracking-tight">
           Start Your Study Abroad Journey
         </h3>
         <p className="text-xs text-slate-500 font-medium">
@@ -230,7 +230,7 @@ export function ConsultationForm() {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="w-full py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-black text-sm uppercase tracking-wider shadow-xl hover:shadow-2xl hover:scale-[1.01] active:scale-[0.99] transition-all cursor-pointer flex items-center justify-center gap-2 mt-2"
+        className="w-full py-4 rounded-xl bg-blue-900 hover:bg-blue-950 text-white font-extrabold text-sm uppercase tracking-wider shadow-md hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all cursor-pointer flex items-center justify-center gap-2 mt-2"
       >
         <span>Submit for Free Consultation</span>
         <Send className="w-4 h-4 text-white" />

@@ -76,17 +76,17 @@ export default function CostCalculatorPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f8fafc] text-slate-900">
+    <div className="min-h-screen bg-[#faf8f5] text-slate-900 font-sans-ui">
       <Navbar />
 
       {/* Light Header Banner */}
-      <section className="pt-36 pb-16 gradient-hero-light bg-academic-mesh border-b border-slate-200/80">
+      <section className="pt-36 pb-16 bg-academic-mesh border-b border-[#ded9cd]">
         <Container size="large">
           <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-900 border border-emerald-200 text-xs font-black uppercase tracking-wider">
-              <Calculator className="w-3.5 h-3.5 text-emerald-700" /> Financial Planning & Budgeting
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#f4f1ea] border border-[#ded9cd] text-xs font-bold text-slate-800 uppercase tracking-wider">
+              <Calculator className="w-3.5 h-3.5 text-blue-900" /> Financial Planning & Budgeting
             </div>
-            <h1 className="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight">
+            <h1 className="font-editorial text-4xl sm:text-5xl font-bold text-slate-950 tracking-tight">
               Study Abroad Cost & Budget Planner
             </h1>
             <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">

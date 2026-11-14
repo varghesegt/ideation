@@ -33,33 +33,33 @@ export function Navbar() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-xs transition-all">
+      <header className="fixed top-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-b border-[#e7e4dc] shadow-2xs transition-all">
         {/* Top Advisory Notice Bar */}
-        <div className="bg-slate-50 border-b border-slate-200/70 text-slate-600 text-xs py-1.5 px-4 hidden lg:block">
+        <div className="bg-[#faf8f5] border-b border-[#ded9cd]/70 text-slate-700 text-xs py-1.5 px-4 hidden lg:block font-medium">
           <Container size="large">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-4">
-                <span className="flex items-center gap-1.5 text-emerald-700 font-bold">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                  Admissions Open for Fall 2026 & Spring 2027 Intakes
+                <span className="flex items-center gap-1.5 text-slate-900 font-bold">
+                  <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse" />
+                  Fall 2026 & Spring 2027 Admissions Open
                 </span>
                 <span className="text-slate-300">|</span>
-                <span className="text-slate-500 font-medium">
-                  100% Free Counseling & Direct University Applications
+                <span className="text-slate-600">
+                  100% Free Counseling & Direct University Representations
                 </span>
               </div>
-              <div className="flex items-center gap-5 font-semibold text-slate-700">
+              <div className="flex items-center gap-5 font-bold text-slate-800">
                 <a
                   href="tel:+919488553344"
-                  className="hover:text-blue-600 flex items-center gap-1.5 transition-colors"
+                  className="hover:text-blue-900 flex items-center gap-1.5 transition-colors"
                 >
-                  <Phone className="w-3 h-3 text-blue-600" />
+                  <Phone className="w-3.5 h-3.5 text-blue-800" />
                   <span>+91 94885 53344</span>
                 </a>
                 <span className="text-slate-300">|</span>
                 <a
                   href="mailto:info@ideationedu.com"
-                  className="hover:text-blue-600 transition-colors"
+                  className="hover:text-blue-900 transition-colors"
                 >
                   info@ideationedu.com
                 </a>
@@ -73,15 +73,15 @@ export function Navbar() {
           <div className="flex items-center justify-between py-3.5">
             {/* Brand Logo */}
             <Link href="/" className="flex items-center gap-3 group">
-              <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-blue-700 via-blue-600 to-indigo-600 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform flex-shrink-0">
+              <div className="w-11 h-11 rounded-2xl bg-blue-900 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform flex-shrink-0">
                 <GraduationCap className="w-6 h-6 text-white" />
               </div>
               <div>
                 <div className="flex items-center gap-1.5">
-                  <span className="font-black text-xl tracking-tight text-slate-900">
+                  <span className="font-editorial text-2xl font-bold tracking-tight text-slate-950">
                     IDEATION
                   </span>
-                  <span className="text-blue-700 text-xs font-black tracking-wider uppercase px-2 py-0.5 rounded-md bg-blue-50 border border-blue-200">
+                  <span className="text-blue-900 text-xs font-black tracking-wider uppercase px-2 py-0.5 rounded-md bg-[#f4f1ea] border border-[#ded9cd]">
                     Edu Services
                   </span>
                 </div>
@@ -283,7 +283,7 @@ export function Navbar() {
               </Link>
 
               <a href="/#register">
-                <button className="px-5 py-2.5 rounded-xl font-black text-xs uppercase tracking-wider bg-blue-600 hover:bg-blue-700 text-white shadow-md hover:shadow-lg hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center gap-2">
+                <button className="px-5 py-2.5 rounded-xl font-black text-xs uppercase tracking-wider bg-blue-900 hover:bg-blue-950 text-white shadow-xs hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 transition-all cursor-pointer flex items-center gap-2">
                   <span>Free Consultation</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>

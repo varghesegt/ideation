@@ -52,14 +52,13 @@ export function TeamSection() {
         }`}
       >
         {filteredMembers.map((member) => (
-          <Card
+          <div
             key={member.name}
-            variant="default"
-            className="p-8 rounded-3xl border border-slate-100 shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col justify-between bg-gradient-to-b from-white to-slate-50/50"
+            className="p-8 rounded-3xl border border-[#ded9cd] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between bg-white"
           >
             <div className="space-y-6">
               <div className="flex items-center gap-5">
-                <div className="relative w-20 h-20 rounded-2xl overflow-hidden bg-gradient-to-tr from-blue-600 to-indigo-600 p-0.5 shadow-lg flex-shrink-0">
+                <div className="relative w-20 h-20 rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 p-0.5 shadow-sm flex-shrink-0">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={member.image}
@@ -68,13 +67,13 @@ export function TeamSection() {
                   />
                 </div>
                 <div>
-                  <Badge variant="primary" size="sm" className="mb-1">
+                  <span className="px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-900 border border-blue-200 text-xs font-black uppercase mb-1 inline-block">
                     {member.role}
-                  </Badge>
-                  <h4 className="text-xl font-extrabold text-slate-900 tracking-tight">
+                  </span>
+                  <h4 className="font-editorial text-2xl font-bold text-slate-950 tracking-tight">
                     {member.name}
                   </h4>
-                  <p className="text-xs text-blue-600 font-semibold">
+                  <p className="text-xs text-slate-500 font-semibold">
                     Ideation Edu Services
                   </p>
                 </div>
@@ -111,7 +110,7 @@ export function TeamSection() {
                 <Mail className="w-3.5 h-3.5" /> Contact Advisor
               </a>
             </div>
-          </Card>
+          </div>
         ))}
       </div>
     </div>

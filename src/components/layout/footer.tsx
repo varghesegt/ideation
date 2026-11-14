@@ -23,21 +23,21 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-slate-50 text-slate-600 pt-16 pb-12 border-t border-slate-200">
+    <footer className="bg-[#faf8f5] text-slate-600 pt-16 pb-12 border-t border-[#ded9cd]">
       <Container size="large">
         {/* Main 4-Column Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-200">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-[#ded9cd]">
           {/* Column 1: Brand & Credibility */}
           <div className="lg:col-span-2 space-y-4">
             <Link href="/" className="flex items-center gap-3 group inline-block">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-700 via-blue-600 to-indigo-600 flex items-center justify-center text-white shadow-md">
-                <GraduationCap className="w-6 h-6" />
+              <div className="w-10 h-10 rounded-xl bg-blue-900 flex items-center justify-center text-white shadow-md">
+                <GraduationCap className="w-6 h-6 text-white" />
               </div>
               <div>
-                <span className="font-black text-xl text-slate-900 tracking-tight">
+                <span className="font-editorial text-2xl font-bold text-slate-950 tracking-tight">
                   IDEATION
                 </span>
-                <span className="text-blue-700 text-xs ml-1.5 font-black uppercase px-1.5 py-0.5 rounded bg-blue-100">
+                <span className="text-blue-900 text-xs ml-2 font-black uppercase px-2 py-0.5 rounded-md bg-[#f4f1ea] border border-[#ded9cd]">
                   Edu Services
                 </span>
                 <p className="text-[10px] text-slate-500 uppercase tracking-wider font-bold">

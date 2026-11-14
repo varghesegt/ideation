@@ -6,6 +6,7 @@ export interface DestinationData {
   region: "Americas" | "UK & Ireland" | "Europe" | "Asia-Pacific & Middle East";
   tagline: string;
   description: string;
+  image?: string;
   avgTuitionINR: string;
   avgLivingCostINR: string;
   postStudyWork: string;
@@ -33,6 +34,7 @@ export const DESTINATIONS: DestinationData[] = [
     region: "Americas",
     tagline: "World-leading research & STEM OPT opportunities",
     description: "Home to the world's most prestigious universities and global tech hubs. Enjoy up to 3 years of STEM OPT post-study work authorization.",
+    image: "https://images.unsplash.com/photo-1485738422979-f5c462d49f74?auto=format&fit=crop&w=800&q=80",
     avgTuitionINR: "₹18L - ₹45L / year",
     avgLivingCostINR: "₹10L - ₹15L / year",
     postStudyWork: "Up to 3 Years (STEM OPT) / 1 Year (Non-STEM)",
@@ -64,6 +66,7 @@ export const DESTINATIONS: DestinationData[] = [
     region: "UK & Ireland",
     tagline: "1-year Master's degrees & 2-year Graduate Route visa",
     description: "World-class historic universities, fast-track 1-year master's degrees for quick ROI, and post-study Graduate Route work visas.",
+    image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=800&q=80",
     avgTuitionINR: "₹14L - ₹32L / year",
     avgLivingCostINR: "₹9L - ₹14L / year",
     postStudyWork: "2 Years Graduate Route (3 Years for PhD)",
@@ -95,6 +98,7 @@ export const DESTINATIONS: DestinationData[] = [
     region: "Americas",
     tagline: "Up to 3-year PGWP & clear permanent residency pathways",
     description: "Renowned for safety, diverse culture, high standard of living, and straightforward post-graduation work permits (PGWP) linked to PR pathways.",
+    image: "https://images.unsplash.com/photo-1517935703635-271907604688?auto=format&fit=crop&w=800&q=80",
     avgTuitionINR: "₹12L - ₹28L / year",
     avgLivingCostINR: "₹8L - ₹12L / year",
     postStudyWork: "Up to 3 Years PGWP",
@@ -126,6 +130,7 @@ export const DESTINATIONS: DestinationData[] = [
     region: "Asia-Pacific & Middle East",
     tagline: "Group of Eight excellence & generous post-study work rights",
     description: "World-class education infrastructure, high minimum wages, sunny climate, and up to 4-year Subclass 485 post-study visas.",
+    image: "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=800&q=80",
     avgTuitionINR: "₹16L - ₹34L / year",
     avgLivingCostINR: "₹10L - ₹14L / year",
     postStudyWork: "2 to 4 Years (depending on qualification & regional bonus)",
@@ -157,6 +162,7 @@ export const DESTINATIONS: DestinationData[] = [
     region: "Europe",
     tagline: "Tuition-free public universities & EU industrial powerhouse",
     description: "Enjoy zero or nominal tuition fees at public universities, world-leading engineering standards, and an 18-month job search visa.",
+    image: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=800&q=80",
     avgTuitionINR: "₹0 - ₹3L / year (Public) / ₹8L - ₹16L (Private)",
     avgLivingCostINR: "₹8L - ₹11L / year",
     postStudyWork: "18 Months Job Seeker Visa -> EU Blue Card",
@@ -188,6 +194,7 @@ export const DESTINATIONS: DestinationData[] = [
     region: "UK & Ireland",
     tagline: "The Silicon Valley of Europe with English-speaking work rights",
     description: "European headquarters for Google, Meta, Apple, Pfizer, and TikTok. 2-year Third Level Graduate Scheme work permit for Master's graduates.",
+    image: "https://images.unsplash.com/photo-1549918864-48ac978761a4?auto=format&fit=crop&w=800&q=80",
     avgTuitionINR: "₹11L - ₹24L / year",
     avgLivingCostINR: "₹8L - ₹12L / year",
     postStudyWork: "2 Years for Master's / 1 Year for Bachelor's",
@@ -219,6 +226,7 @@ export const DESTINATIONS: DestinationData[] = [
     region: "Europe",
     tagline: "Grandes Écoles excellence, luxury management & 5-year Schengen visa",
     description: "Triple-accredited business schools, world-leading aerospace and fashion industries, housing subsidies (CAF), and 5-year alumni visas for Indian master's grads.",
+    image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80",
     avgTuitionINR: "₹6L - ₹18L / year",
     avgLivingCostINR: "₹7L - ₹10L / year (up to 40% subsidized by French CAF)",
     postStudyWork: "2-Year APS / Job Search visa + 5-Year Schengen circulation visa",
@@ -250,6 +258,7 @@ export const DESTINATIONS: DestinationData[] = [
     region: "Asia-Pacific & Middle East",
     tagline: "Unmatched quality of life, scenic innovation & 3-year post-study work",
     description: "Every single state university is ranked within the global top 3%. Safe, peaceful environment with up to 3 years post-study work rights.",
+    image: "https://images.unsplash.com/photo-1507699622108-4be3abd695ad?auto=format&fit=crop&w=800&q=80",
     avgTuitionINR: "₹14L - ₹26L / year",
     avgLivingCostINR: "₹9L - ₹13L / year",
     postStudyWork: "Up to 3 Years open post-study work visa",
@@ -281,6 +290,7 @@ export const DESTINATIONS: DestinationData[] = [
     region: "Europe",
     tagline: "Continental Europe's largest English-taught curriculum hub",
     description: "Over 95% of Dutch citizens speak fluent English. Tech headquarters for ASML, Philips, Booking.com, and Shell with a 1-year 'Zoekjaar' visa.",
+    image: "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=800&q=80",
     avgTuitionINR: "₹8L - ₹18L / year",
     avgLivingCostINR: "₹8L - ₹12L / year",
     postStudyWork: "1 Year 'Orientation Year' (Zoekjaar) work permit",
@@ -312,6 +322,7 @@ export const DESTINATIONS: DestinationData[] = [
     region: "Asia-Pacific & Middle East",
     tagline: "Asia's premier financial and technological capital",
     description: "Home to NUS and NTU (both ranked top 15 in the world). Close proximity to India, low taxes, and direct multinational corporate recruiting.",
+    image: "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=800&q=80",
     avgTuitionINR: "₹15L - ₹30L / year",
     avgLivingCostINR: "₹10L - ₹14L / year",
     postStudyWork: "1-year Long Term Visit Pass (LTVP) -> Employment Pass",
