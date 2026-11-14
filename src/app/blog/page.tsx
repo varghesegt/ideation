@@ -6,7 +6,6 @@ import {
   Calendar,
   Clock,
   ArrowRight,
-  Sparkles,
   Tag,
 } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
@@ -26,21 +25,21 @@ export const metadata: Metadata = {
 
 export default function BlogIndexPage() {
   return (
-    <div className="min-h-screen bg-[var(--color-bg)]">
+    <div className="min-h-screen bg-[#f8fafc] text-slate-900">
       <Navbar />
 
-      {/* Header Banner */}
-      <section className="pt-36 pb-20 bg-gradient-to-b from-[#06183d] via-[#09265f] to-[#0d3b8e] text-white">
+      {/* Light Header Banner */}
+      <section className="pt-36 pb-16 gradient-hero-light bg-academic-mesh border-b border-slate-200/80">
         <Container size="large">
           <div className="max-w-3xl space-y-4">
-            <Badge variant="glass" size="md">
-              Articles & Guides
-            </Badge>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100 text-blue-900 border border-blue-200 text-xs font-black uppercase tracking-wider">
+              <BookOpen className="w-3.5 h-3.5 text-blue-700" /> Articles & Country Guides
+            </div>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-slate-900 tracking-tight">
               Study Abroad Knowledge Hub
             </h1>
-            <p className="text-lg text-blue-100 leading-relaxed">
-              Stay ahead with verified visa policies, university admission trends, scholarship secrets, and destination guides curated by senior counselors.
+            <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
+              Stay ahead with verified visa policies, university admission trends, scholarship deadlines, and destination guides curated by senior counselors.
             </p>
           </div>
         </Container>
@@ -54,19 +53,19 @@ export default function BlogIndexPage() {
               <Card
                 key={blog.slug}
                 variant="default"
-                className="rounded-3xl border border-slate-200 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden p-0"
+                className="rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden p-0 bg-white"
               >
                 {/* Visual Header */}
-                <div className={`p-8 bg-gradient-to-tr ${blog.coverGradient} text-white space-y-3`}>
+                <div className="p-8 bg-gradient-to-tr from-blue-700 to-indigo-800 text-white space-y-3">
                   <div className="flex items-center justify-between">
-                    <Badge variant="glass" size="sm">
+                    <span className="px-2.5 py-0.5 rounded-full bg-white/20 text-white text-xs font-bold">
                       {blog.category}
-                    </Badge>
-                    <span className="text-xs text-blue-200 font-medium">
+                    </span>
+                    <span className="text-xs text-blue-100 font-medium">
                       {blog.readTime}
                     </span>
                   </div>
-                  <h3 className="text-xl font-bold leading-snug">
+                  <h3 className="text-xl font-black leading-snug">
                     {blog.title}
                   </h3>
                 </div>
@@ -93,7 +92,7 @@ export default function BlogIndexPage() {
                       <span>By {blog.author.split(",")[0]}</span>
                       <Link
                         href={`/blog/${blog.slug}`}
-                        className="font-bold text-blue-600 hover:text-blue-800 flex items-center gap-1"
+                        className="font-bold text-blue-700 hover:text-blue-900 flex items-center gap-1"
                       >
                         <span>Read Full Guide</span>
                         <ArrowRight className="w-3.5 h-3.5" />

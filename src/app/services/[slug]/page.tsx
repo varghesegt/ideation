@@ -4,12 +4,12 @@ import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import {
   ArrowLeft,
-  ArrowRight,
   CheckCircle2,
   Clock,
-  HelpCircle,
   ShieldCheck,
-  Sparkles,
+  HelpCircle,
+  ArrowRight,
+  TrendingUp,
 } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
@@ -50,33 +50,33 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
   }
 
   return (
-    <div className="min-h-screen bg-[var(--color-bg)]">
+    <div className="min-h-screen bg-[#f8fafc] text-slate-900">
       <Navbar />
 
-      {/* Header Banner */}
-      <section className="pt-36 pb-20 bg-gradient-to-b from-[#06183d] via-[#09265f] to-[#0d3b8e] text-white">
+      {/* Light Header Banner */}
+      <section className="pt-36 pb-16 gradient-hero-light bg-academic-mesh border-b border-slate-200/80">
         <Container size="large">
           <div className="max-w-3xl space-y-4">
             <Link
               href="/services"
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-200 hover:text-white mb-2"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-700 hover:text-blue-900 mb-2"
             >
               <ArrowLeft className="w-3.5 h-3.5" /> Back to All Services
             </Link>
 
             <div className="flex items-center gap-2">
-              <span className="w-8 h-8 rounded-lg bg-blue-500 text-white font-extrabold flex items-center justify-center text-xs">
+              <span className="w-8 h-8 rounded-lg bg-blue-600 text-white font-black flex items-center justify-center text-xs">
                 {service.stepNumber}
               </span>
-              <Badge variant="glass" size="md">
+              <span className="px-3 py-1 rounded-full bg-blue-100 text-blue-900 border border-blue-200 text-xs font-black uppercase tracking-wider">
                 Stage {service.stepNumber} of 8
-              </Badge>
+              </span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight">
+            <h1 className="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight">
               {service.title}
             </h1>
-            <p className="text-lg text-blue-100 leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
               {service.shortDesc}
             </p>
           </div>
@@ -90,7 +90,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
             {/* Left Column: Deep Dive */}
             <div className="lg:col-span-8 space-y-10">
               <div className="space-y-4">
-                <h2 className="text-2xl font-extrabold text-slate-900">
+                <h2 className="text-2xl font-black text-slate-900">
                   Comprehensive Overview
                 </h2>
                 <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
@@ -100,14 +100,14 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
               {/* Deliverables */}
               <div className="space-y-4">
-                <h3 className="text-xl font-bold text-slate-900">
+                <h3 className="text-xl font-black text-slate-900">
                   Deliverables & Execution Checklist
                 </h3>
                 <div className="grid grid-cols-1 gap-3">
                   {service.deliverables.map((item, i) => (
                     <div
                       key={i}
-                      className="p-4 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-start gap-3"
+                      className="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs flex items-start gap-3"
                     >
                       <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
                       <span className="text-sm font-medium text-slate-800 leading-relaxed">
@@ -119,8 +119,8 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               </div>
 
               {/* Why Crucial */}
-              <div className="p-6 rounded-3xl bg-blue-50 border border-blue-100 space-y-2">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-blue-800">
+              <div className="p-6 rounded-3xl bg-blue-50 border border-blue-200 space-y-2">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-blue-900">
                   Why This Stage is Crucial for Admissions Success:
                 </h4>
                 <p className="text-sm text-slate-700 leading-relaxed">
@@ -131,17 +131,17 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               {/* FAQs */}
               {service.faq && service.faq.length > 0 && (
                 <div className="space-y-4">
-                  <h3 className="text-xl font-bold text-slate-900">
+                  <h3 className="text-xl font-black text-slate-900">
                     Frequently Asked Questions About This Stage
                   </h3>
                   <div className="space-y-3">
                     {service.faq.map((f, i) => (
                       <div
                         key={i}
-                        className="p-6 rounded-2xl bg-white border border-slate-200 space-y-2"
+                        className="p-6 rounded-2xl bg-white border border-slate-200 space-y-2 shadow-xs"
                       >
                         <h5 className="font-bold text-slate-900 text-base flex items-center gap-2">
-                          <HelpCircle className="w-4 h-4 text-blue-600" />
+                          <HelpCircle className="w-4 h-4 text-blue-600 flex-shrink-0" />
                           <span>{f.q}</span>
                         </h5>
                         <p className="text-sm text-slate-600 leading-relaxed pl-6">
@@ -158,10 +158,10 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
             <div className="lg:col-span-4">
               <div className="sticky top-28 p-8 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-6">
                 <div className="space-y-1">
-                  <Badge variant="primary" size="sm">
+                  <span className="px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-black uppercase tracking-wider inline-block">
                     100% Free Service
-                  </Badge>
-                  <h4 className="text-xl font-extrabold text-slate-900">
+                  </span>
+                  <h4 className="text-xl font-black text-slate-900 mt-2">
                     Need Help With {service.title}?
                   </h4>
                   <p className="text-xs text-slate-500">

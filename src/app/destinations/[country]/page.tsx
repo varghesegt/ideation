@@ -4,16 +4,14 @@ import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import {
   ArrowLeft,
-  ArrowRight,
-  Globe2,
+  CheckCircle2,
+  Clock,
+  ShieldCheck,
+  Building2,
   Coins,
   Briefcase,
   Calendar,
-  Building2,
-  CheckCircle2,
-  ShieldCheck,
-  FileCheck,
-  BookOpen,
+  Globe2,
 } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
@@ -22,7 +20,7 @@ import { Section } from "@/components/ui/section";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
-import { DESTINATIONS, DestinationData } from "@/data/destinations";
+import { DESTINATIONS } from "@/data/destinations";
 
 export async function generateStaticParams() {
   return DESTINATIONS.map((c) => ({
@@ -54,36 +52,36 @@ export default async function CountryDetailPage({ params }: CountryPageProps) {
   }
 
   return (
-    <div className="min-h-screen bg-[var(--color-bg)]">
+    <div className="min-h-screen bg-[#f8fafc] text-slate-900">
       <Navbar />
 
-      {/* Hero Header */}
-      <section className="pt-36 pb-20 bg-gradient-to-b from-[#06183d] via-[#09265f] to-[#0d3b8e] text-white">
+      {/* Light Hero Header */}
+      <section className="pt-36 pb-16 gradient-hero-light bg-academic-mesh border-b border-slate-200/80">
         <Container size="large">
           <div className="max-w-4xl space-y-4">
             <Link
               href="/destinations"
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-200 hover:text-white mb-2"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-700 hover:text-blue-900 mb-2"
             >
               <ArrowLeft className="w-3.5 h-3.5" /> Back to All 25 Destinations
             </Link>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-4">
               <span className="text-5xl sm:text-6xl">{country.flag}</span>
               <div>
-                <Badge variant="glass" size="md">
+                <span className="px-3 py-1 rounded-full bg-blue-100 text-blue-900 border border-blue-200 text-xs font-black uppercase tracking-wider inline-block">
                   {country.region}
-                </Badge>
-                <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight mt-1">
+                </span>
+                <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-slate-900 mt-1">
                   Study in {country.name}
                 </h1>
               </div>
             </div>
 
-            <p className="text-lg text-blue-100 font-medium leading-relaxed">
+            <p className="text-base sm:text-lg text-blue-900 font-bold leading-relaxed">
               {country.tagline}
             </p>
-            <p className="text-sm text-blue-200/90 max-w-3xl leading-relaxed">
+            <p className="text-sm text-slate-600 max-w-3xl leading-relaxed">
               {country.description}
             </p>
           </div>
@@ -95,37 +93,37 @@ export default async function CountryDetailPage({ params }: CountryPageProps) {
         <Container size="large">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-slate-800">
             <div className="space-y-1">
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
+              <span className="text-xs font-black uppercase tracking-wider text-slate-400">
                 Average Tuition
               </span>
-              <p className="text-base sm:text-lg font-extrabold text-blue-700">
+              <p className="text-base sm:text-lg font-black text-blue-700">
                 {country.avgTuitionINR}
               </p>
             </div>
 
             <div className="space-y-1">
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
+              <span className="text-xs font-black uppercase tracking-wider text-slate-400">
                 Average Living Cost
               </span>
-              <p className="text-base sm:text-lg font-extrabold text-slate-900">
+              <p className="text-base sm:text-lg font-black text-slate-900">
                 {country.avgLivingCostINR}
               </p>
             </div>
 
             <div className="space-y-1">
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
+              <span className="text-xs font-black uppercase tracking-wider text-slate-400">
                 Post-Study Work
               </span>
-              <p className="text-base sm:text-lg font-extrabold text-emerald-600">
+              <p className="text-base sm:text-lg font-black text-emerald-700">
                 {country.postStudyWork.split("(")[0]}
               </p>
             </div>
 
             <div className="space-y-1">
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
+              <span className="text-xs font-black uppercase tracking-wider text-slate-400">
                 Work During Study
               </span>
-              <p className="text-base sm:text-lg font-extrabold text-slate-900">
+              <p className="text-base sm:text-lg font-black text-slate-900">
                 {country.workWhileStudy}
               </p>
             </div>
@@ -141,14 +139,14 @@ export default async function CountryDetailPage({ params }: CountryPageProps) {
             <div className="lg:col-span-8 space-y-10">
               {/* Key Advantages */}
               <div className="space-y-4">
-                <h2 className="text-2xl font-extrabold text-slate-900">
+                <h2 className="text-2xl font-black text-slate-900">
                   Why Study in {country.name}?
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {country.keyAdvantages.map((adv, i) => (
                     <div
                       key={i}
-                      className="p-5 rounded-2xl bg-white border border-slate-200/90 shadow-sm flex items-start gap-3"
+                      className="p-5 rounded-2xl bg-white border border-slate-200 shadow-xs flex items-start gap-3"
                     >
                       <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
                       <span className="text-sm font-medium text-slate-800 leading-snug">
@@ -162,11 +160,11 @@ export default async function CountryDetailPage({ params }: CountryPageProps) {
               {/* Top Partner Universities */}
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-xl font-extrabold text-slate-900">
+                  <h3 className="text-xl font-black text-slate-900">
                     Top Universities in {country.name}
                   </h3>
-                  <span className="text-xs font-semibold text-blue-600">
-                    Official Ideation Partners
+                  <span className="text-xs font-bold text-blue-700">
+                    Official Ideation Network
                   </span>
                 </div>
 
@@ -174,21 +172,21 @@ export default async function CountryDetailPage({ params }: CountryPageProps) {
                   {country.topUniversities.map((uni, i) => (
                     <div
                       key={i}
-                      className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3"
+                      className="p-6 rounded-2xl bg-white border border-slate-200 shadow-xs space-y-3"
                     >
                       <div className="flex items-center justify-between">
-                        <h4 className="text-lg font-bold text-slate-900">
+                        <h4 className="text-lg font-black text-slate-900">
                           {uni.name}
                         </h4>
                         {uni.ranking && (
-                          <Badge variant="primary" size="sm">
+                          <span className="px-2.5 py-1 rounded-full bg-blue-50 text-blue-900 border border-blue-200 text-xs font-black">
                             {uni.ranking}
-                          </Badge>
+                          </span>
                         )}
                       </div>
 
                       <div>
-                        <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                        <span className="text-xs font-black uppercase tracking-wider text-slate-400">
                           Popular Programs:
                         </span>
                         <div className="flex flex-wrap gap-2 mt-1">
@@ -208,15 +206,15 @@ export default async function CountryDetailPage({ params }: CountryPageProps) {
               </div>
 
               {/* Intakes & Admission Cycles */}
-              <div className="p-6 rounded-3xl bg-slate-50 border border-slate-200/90 space-y-3">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500">
+              <div className="p-6 rounded-3xl bg-slate-50 border border-slate-200 space-y-3">
+                <h4 className="text-xs font-black uppercase tracking-wider text-slate-500">
                   Major Intake Cycles in {country.name}:
                 </h4>
                 <div className="flex flex-wrap gap-3">
                   {country.intakes.map((intake, i) => (
                     <span
                       key={i}
-                      className="px-4 py-2 rounded-xl bg-white border border-slate-200 text-xs font-bold text-slate-800 shadow-sm"
+                      className="px-4 py-2 rounded-xl bg-white border border-slate-200 text-xs font-bold text-slate-800 shadow-xs"
                     >
                       📅 {intake}
                     </span>
@@ -226,12 +224,12 @@ export default async function CountryDetailPage({ params }: CountryPageProps) {
 
               {/* Visa Highlights */}
               <div className="space-y-4">
-                <h3 className="text-xl font-extrabold text-slate-900">
+                <h3 className="text-xl font-black text-slate-900">
                   Student Visa Requirements
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div className="p-5 rounded-2xl bg-white border border-slate-200 space-y-2">
-                    <span className="text-xs font-bold uppercase text-slate-400">
+                  <div className="p-5 rounded-2xl bg-white border border-slate-200 space-y-2 shadow-xs">
+                    <span className="text-xs font-black uppercase text-slate-400">
                       Processing Time
                     </span>
                     <p className="text-sm font-bold text-slate-900">
@@ -239,8 +237,8 @@ export default async function CountryDetailPage({ params }: CountryPageProps) {
                     </p>
                   </div>
 
-                  <div className="p-5 rounded-2xl bg-white border border-slate-200 space-y-2">
-                    <span className="text-xs font-bold uppercase text-slate-400">
+                  <div className="p-5 rounded-2xl bg-white border border-slate-200 space-y-2 shadow-xs">
+                    <span className="text-xs font-black uppercase text-slate-400">
                       Financial Proof
                     </span>
                     <p className="text-xs text-slate-700">
@@ -248,8 +246,8 @@ export default async function CountryDetailPage({ params }: CountryPageProps) {
                     </p>
                   </div>
 
-                  <div className="p-5 rounded-2xl bg-white border border-slate-200 space-y-2">
-                    <span className="text-xs font-bold uppercase text-slate-400">
+                  <div className="p-5 rounded-2xl bg-white border border-slate-200 space-y-2 shadow-xs">
+                    <span className="text-xs font-black uppercase text-slate-400">
                       Language Criteria
                     </span>
                     <p className="text-xs text-slate-700">
@@ -264,10 +262,10 @@ export default async function CountryDetailPage({ params }: CountryPageProps) {
             <div className="lg:col-span-4">
               <div className="sticky top-28 p-8 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-6">
                 <div className="space-y-1">
-                  <Badge variant="primary" size="sm">
+                  <span className="px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-black uppercase tracking-wider inline-block">
                     100% Free Application
-                  </Badge>
-                  <h4 className="text-xl font-extrabold text-slate-900">
+                  </span>
+                  <h4 className="text-xl font-black text-slate-900 mt-2">
                     Apply to {country.name}
                   </h4>
                   <p className="text-xs text-slate-500">
@@ -297,7 +295,7 @@ export default async function CountryDetailPage({ params }: CountryPageProps) {
                 </Link>
 
                 <p className="text-[11px] text-center text-slate-400">
-                  Official partner of leading institutions in {country.name}
+                  Official guidance for leading institutions in {country.name}
                 </p>
               </div>
             </div>

@@ -7,7 +7,7 @@ import {
   ShieldCheck,
   CheckCircle2,
   Clock,
-  Sparkles,
+  Compass,
 } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
@@ -26,20 +26,20 @@ export const metadata: Metadata = {
 
 export default function ServicesPage() {
   return (
-    <div className="min-h-screen bg-[var(--color-bg)]">
+    <div className="min-h-screen bg-[#f8fafc] text-slate-900">
       <Navbar />
 
-      {/* Header Banner */}
-      <section className="pt-36 pb-20 bg-gradient-to-b from-[#06183d] via-[#09265f] to-[#0d3b8e] text-white">
+      {/* Light Header Banner */}
+      <section className="pt-36 pb-16 gradient-hero-light bg-academic-mesh border-b border-slate-200/80">
         <Container size="large">
           <div className="max-w-3xl space-y-4">
-            <Badge variant="glass" size="md">
-              Complete End-to-End Solutions
-            </Badge>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100 text-blue-900 border border-blue-200 text-xs font-black uppercase tracking-wider">
+              <TrendingUp className="w-3.5 h-3.5 text-blue-700" /> Complete End-to-End Solutions
+            </div>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-slate-900 tracking-tight">
               The 8-Stage Study Abroad Roadmap
             </h1>
-            <p className="text-lg text-blue-100 leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
               Every step of your international journey is meticulously mapped, executed, and supervised by certified counselors with zero hidden fees.
             </p>
           </div>
@@ -50,28 +50,28 @@ export default function ServicesPage() {
       <Section spacing="lg" bg="default">
         <Container size="large">
           <div className="space-y-12">
-            {SERVICES.map((s, index) => (
+            {SERVICES.map((s) => (
               <div
                 key={s.slug}
                 id={s.slug}
-                className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/90 shadow-lg hover:shadow-xl transition-all grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"
+                className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-xl transition-all grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"
               >
                 {/* Step indicator & overview */}
                 <div className="lg:col-span-4 space-y-3">
                   <div className="flex items-center gap-3">
-                    <span className="w-12 h-12 rounded-2xl bg-blue-600 text-white font-extrabold flex items-center justify-center text-lg shadow-md">
+                    <span className="w-12 h-12 rounded-2xl bg-blue-600 text-white font-black flex items-center justify-center text-lg shadow-md">
                       {s.stepNumber}
                     </span>
-                    <Badge variant="primary" size="sm">
+                    <span className="px-3 py-1 rounded-full bg-blue-50 text-blue-900 border border-blue-200 text-xs font-black uppercase tracking-wider">
                       Stage {s.stepNumber}
-                    </Badge>
+                    </span>
                   </div>
 
-                  <h3 className="text-2xl font-extrabold text-slate-900 tracking-tight">
+                  <h3 className="text-2xl font-black text-slate-900 tracking-tight">
                     {s.title}
                   </h3>
 
-                  <p className="text-xs font-semibold text-slate-500 flex items-center gap-1.5">
+                  <p className="text-xs font-bold text-slate-500 flex items-center gap-1.5">
                     <Clock className="w-4 h-4 text-blue-600" />
                     <span>Typical Timeline: {s.timeline}</span>
                   </p>
@@ -83,7 +83,7 @@ export default function ServicesPage() {
                   <div className="pt-2">
                     <Link
                       href={`/services/${s.slug}`}
-                      className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-800"
+                      className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-700 hover:text-blue-900"
                     >
                       <span>Read Deep-Dive Guide</span>
                       <ArrowRight className="w-3.5 h-3.5" />
@@ -92,8 +92,8 @@ export default function ServicesPage() {
                 </div>
 
                 {/* Deliverables & Benefits */}
-                <div className="lg:col-span-8 bg-slate-50/80 rounded-2xl p-6 sm:p-8 border border-slate-100 space-y-4">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                <div className="lg:col-span-8 bg-slate-50 rounded-2xl p-6 sm:p-8 border border-slate-200 space-y-4">
+                  <h4 className="text-xs font-black uppercase tracking-wider text-slate-500">
                     What We Deliver in This Stage:
                   </h4>
 
@@ -101,19 +101,19 @@ export default function ServicesPage() {
                     {s.deliverables.map((d, i) => (
                       <div
                         key={i}
-                        className="flex items-start gap-2.5 p-3 rounded-xl bg-white border border-slate-200/60 text-xs text-slate-700"
+                        className="flex items-start gap-2.5 p-3 rounded-xl bg-white border border-slate-200 text-xs text-slate-700 shadow-2xs"
                       >
                         <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
-                        <span className="leading-snug">{d}</span>
+                        <span className="leading-snug font-medium">{d}</span>
                       </div>
                     ))}
                   </div>
 
-                  <div className="pt-3 border-t border-slate-200/60 flex items-center justify-between text-xs text-slate-500">
+                  <div className="pt-3 border-t border-slate-200 flex items-center justify-between text-xs text-slate-600">
                     <span className="italic">&ldquo;{s.whyCrucial}&rdquo;</span>
                     <Link
                       href="/#register"
-                      className="font-bold text-blue-600 hover:underline flex-shrink-0 ml-4"
+                      className="font-bold text-blue-700 hover:underline flex-shrink-0 ml-4"
                     >
                       Book This Service →
                     </Link>
@@ -129,11 +129,11 @@ export default function ServicesPage() {
       <Section spacing="lg" bg="alt">
         <Container size="large">
           <div className="text-center max-w-2xl mx-auto space-y-6">
-            <h2 className="text-3xl font-extrabold text-slate-900">
+            <h2 className="text-3xl font-black text-slate-900">
               Get Started with Your Free Profile Evaluation
             </h2>
             <p className="text-slate-600">
-              Speak directly with our senior counselors. Receive a customized university shortlist tailored to your budget and background.
+              Speak directly with our senior counselors. Receive a customized university shortlist tailored to your budget and academic goals.
             </p>
             <Link href="/#register">
               <Button size="xl" variant="primary" className="font-bold">

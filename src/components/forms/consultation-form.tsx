@@ -60,7 +60,7 @@ export function ConsultationForm() {
         </p>
         <div className="pt-4 flex flex-col sm:flex-row gap-3 justify-center">
           <a
-            href={`https://wa.me/919876543210?text=Hi%20Ideation%20Edu%20Services,%20I%20am%20${encodeURIComponent(formData.fullName)}%20and%20I%20just%20submitted%20a%20consultation%20request%20for%20${encodeURIComponent(formData.destination)}.`}
+            href={`https://wa.me/919488553344?text=Hi%20Ideation%20Edu%20Services,%20I%20am%20${encodeURIComponent(formData.fullName)}%20and%20I%20just%20submitted%20a%20consultation%20request%20for%20${encodeURIComponent(formData.destination)}.`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-emerald-600 text-white font-bold text-xs uppercase tracking-wider hover:bg-emerald-700 transition-colors gap-2"

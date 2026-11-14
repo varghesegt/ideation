@@ -15,11 +15,11 @@ const spacingClasses = {
 };
 
 const bgClasses = {
-  default: "bg-[var(--color-bg)]",
-  alt: "bg-[var(--color-bg-alt)] border-y border-[var(--color-border)]",
-  dark: "bg-[var(--color-bg-dark)] text-white",
-  gradient: "gradient-hero text-white",
-  transparent: "bg-transparent",
+  default: "bg-[#f8fafc] text-slate-900",
+  alt: "bg-slate-50 border-y border-slate-200 text-slate-900",
+  dark: "bg-slate-100 border-y border-slate-200 text-slate-900",
+  gradient: "bg-gradient-to-br from-blue-50/80 via-indigo-50/40 to-white border-y border-slate-200 text-slate-900",
+  transparent: "bg-transparent text-slate-900",
 };
 
 export function Section({

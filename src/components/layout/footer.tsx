@@ -11,7 +11,7 @@ import {
   CheckCircle2,
   Globe2,
   Phone,
-  Sparkles,
+  Compass,
 } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { DESTINATIONS } from "@/data/destinations";
@@ -23,58 +23,64 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-[#061533] text-slate-300 pt-16 pb-12 border-t border-slate-800">
+    <footer className="bg-slate-50 text-slate-600 pt-16 pb-12 border-t border-slate-200">
       <Container size="large">
         {/* Main 4-Column Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800/80">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-200">
           {/* Column 1: Brand & Credibility */}
           <div className="lg:col-span-2 space-y-4">
             <Link href="/" className="flex items-center gap-3 group inline-block">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-700 via-blue-600 to-indigo-500 flex items-center justify-center text-white shadow-md">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-700 via-blue-600 to-indigo-600 flex items-center justify-center text-white shadow-md">
                 <GraduationCap className="w-6 h-6" />
               </div>
               <div>
-                <span className="font-extrabold text-xl text-white tracking-tight">
+                <span className="font-black text-xl text-slate-900 tracking-tight">
                   IDEATION
                 </span>
-                <span className="text-blue-400 text-sm ml-1.5 font-bold uppercase">
+                <span className="text-blue-700 text-xs ml-1.5 font-black uppercase px-1.5 py-0.5 rounded bg-blue-100">
                   Edu Services
                 </span>
-                <p className="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">
-                  Study Abroad Experts · Est. 2015
+                <p className="text-[10px] text-slate-500 uppercase tracking-wider font-bold">
+                  Overseas Education Experts · Est. 2015
                 </p>
               </div>
             </Link>
 
-            <p className="text-sm text-slate-400 leading-relaxed max-w-md">
+            <p className="text-sm text-slate-600 leading-relaxed max-w-md">
               Ideation Edu Services (OPC) Private Limited empowers students to achieve their international education dreams through transparent counseling, tailored university shortlisting, and high-success visa processing.
             </p>
 
-            <div className="pt-2 space-y-2 text-xs text-slate-400">
+            <div className="pt-2 space-y-2 text-xs text-slate-600">
               <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-blue-400 flex-shrink-0" />
+                <MapPin className="w-4 h-4 text-blue-600 flex-shrink-0" />
                 <span>Headquarters: Tiruchirappalli / Manapparai, Tamil Nadu, India</span>
               </div>
               <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-blue-400 flex-shrink-0" />
+                <Phone className="w-4 h-4 text-blue-600 flex-shrink-0" />
+                <a href="tel:+919488553344" className="hover:text-blue-700 font-semibold transition-colors">
+                  +91 94885 53344
+                </a>
+              </div>
+              <div className="flex items-center gap-2">
+                <Mail className="w-4 h-4 text-blue-600 flex-shrink-0" />
                 <a
                   href="mailto:info@ideationedu.com"
-                  className="hover:text-white transition-colors"
+                  className="hover:text-blue-700 font-semibold transition-colors"
                 >
                   info@ideationedu.com
                 </a>
               </div>
               <div className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                <ShieldCheck className="w-4 h-4 text-emerald-600 flex-shrink-0" />
                 <span>100% Free Consultation · 98% First-Time Visa Success Rate</span>
               </div>
             </div>
 
-            <div className="pt-4 flex items-center gap-3">
-              <div className="px-3 py-1.5 rounded-lg bg-blue-950/60 border border-blue-800/60 text-xs font-semibold text-blue-300">
-                ✓ 1,000+ Students Placed
+            <div className="pt-3 flex items-center gap-3">
+              <div className="px-3 py-1.5 rounded-xl bg-white border border-slate-200 text-xs font-bold text-blue-800 shadow-xs">
+                ✓ 1,000+ Placements
               </div>
-              <div className="px-3 py-1.5 rounded-lg bg-indigo-950/60 border border-indigo-800/60 text-xs font-semibold text-indigo-300">
+              <div className="px-3 py-1.5 rounded-xl bg-white border border-slate-200 text-xs font-bold text-slate-800 shadow-xs">
                 ✓ 500+ Partner Universities
               </div>
             </div>
@@ -82,48 +88,48 @@ export function Footer() {
 
           {/* Column 2: Quick Links */}
           <div className="space-y-4">
-            <h4 className="text-sm font-bold uppercase tracking-wider text-white border-l-2 border-blue-500 pl-2">
-              Quick Links
+            <h4 className="text-xs font-black uppercase tracking-wider text-slate-900 border-l-2 border-blue-600 pl-2">
+              Admissions Hub
             </h4>
-            <ul className="space-y-2 text-sm text-slate-400">
+            <ul className="space-y-2.5 text-sm text-slate-600">
               <li>
-                <Link href="/" className="hover:text-white transition-colors">
+                <Link href="/" className="hover:text-blue-700 transition-colors">
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="hover:text-white transition-colors">
+                <Link href="/about" className="hover:text-blue-700 transition-colors">
                   About Us & Leadership
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="hover:text-white transition-colors">
+                <Link href="/services" className="hover:text-blue-700 transition-colors">
                   Our 8-Stage Process
                 </Link>
               </li>
               <li>
-                <Link href="/destinations" className="hover:text-white transition-colors">
+                <Link href="/destinations" className="hover:text-blue-700 transition-colors">
                   All 25 Destinations
                 </Link>
               </li>
               <li>
-                <Link href="/tools/profile-evaluator" className="hover:text-white transition-colors flex items-center gap-1.5 text-amber-400 font-medium">
-                  <Sparkles className="w-3.5 h-3.5" /> AI Profile Evaluator
+                <Link href="/tools/profile-evaluator" className="hover:text-blue-700 transition-colors flex items-center gap-1.5 font-bold text-blue-700">
+                  <Compass className="w-3.5 h-3.5 text-blue-600" /> Admissions Evaluator
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="hover:text-white transition-colors">
-                  Study Abroad Blog
+                <Link href="/tools/cost-calculator" className="hover:text-blue-700 transition-colors">
+                  Cost & Budget Calculator
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-white transition-colors">
-                  Contact Us
+                <Link href="/blog" className="hover:text-blue-700 transition-colors">
+                  Study Abroad Guides
                 </Link>
               </li>
               <li>
-                <Link href="/student-login" className="hover:text-white transition-colors">
-                  Student Portal Login
+                <Link href="/contact" className="hover:text-blue-700 transition-colors">
+                  Contact Headquarters
                 </Link>
               </li>
             </ul>
@@ -131,17 +137,17 @@ export function Footer() {
 
           {/* Column 3: Services */}
           <div className="space-y-4">
-            <h4 className="text-sm font-bold uppercase tracking-wider text-white border-l-2 border-blue-500 pl-2">
-              Our Services
+            <h4 className="text-xs font-black uppercase tracking-wider text-slate-900 border-l-2 border-blue-600 pl-2">
+              Admissions Stages
             </h4>
-            <ul className="space-y-2 text-sm text-slate-400">
+            <ul className="space-y-2 text-sm text-slate-600">
               {SERVICES.map((s) => (
                 <li key={s.slug}>
                   <Link
                     href={`/services/${s.slug}`}
-                    className="hover:text-white transition-colors block truncate"
+                    className="hover:text-blue-700 transition-colors block truncate"
                   >
-                    {s.title}
+                    Stage {s.stepNumber}: {s.title}
                   </Link>
                 </li>
               ))}
@@ -150,15 +156,15 @@ export function Footer() {
 
           {/* Column 4: Key Destinations */}
           <div className="space-y-4">
-            <h4 className="text-sm font-bold uppercase tracking-wider text-white border-l-2 border-blue-500 pl-2">
+            <h4 className="text-xs font-black uppercase tracking-wider text-slate-900 border-l-2 border-blue-600 pl-2">
               Top Destinations
             </h4>
-            <ul className="space-y-2 text-sm text-slate-400">
+            <ul className="space-y-2 text-sm text-slate-600">
               {DESTINATIONS.slice(0, 8).map((c) => (
                 <li key={c.slug}>
                   <Link
                     href={`/destinations/${c.slug}`}
-                    className="hover:text-white transition-colors flex items-center gap-2"
+                    className="hover:text-blue-700 transition-colors flex items-center gap-2"
                   >
                     <span>{c.flag}</span>
                     <span>Study in {c.name}</span>
@@ -170,11 +176,11 @@ export function Footer() {
         </div>
 
         {/* 25 Destinations Comprehensive Pills */}
-        <div className="py-8 border-b border-slate-800/80">
+        <div className="py-8 border-b border-slate-200">
           <div className="flex items-center gap-2 mb-3">
-            <Globe2 className="w-4 h-4 text-blue-400" />
-            <h5 className="text-xs font-bold uppercase tracking-wider text-slate-300">
-              All 25 Countries We Represent:
+            <Globe2 className="w-4 h-4 text-blue-600" />
+            <h5 className="text-xs font-bold uppercase tracking-wider text-slate-800">
+              Explore All 25 Countries We Represent:
             </h5>
           </div>
           <div className="flex flex-wrap gap-2 text-xs">
@@ -182,7 +188,7 @@ export function Footer() {
               <Link
                 key={c.slug}
                 href={`/destinations/${c.slug}`}
-                className="px-3 py-1.5 rounded-lg bg-slate-900/80 border border-slate-800 text-slate-300 hover:text-white hover:border-blue-500/50 hover:bg-blue-950/40 transition-all flex items-center gap-1.5"
+                className="px-3 py-1.5 rounded-xl bg-white border border-slate-200/90 text-slate-700 hover:text-blue-700 hover:border-blue-400 hover:bg-blue-50/50 shadow-2xs transition-all flex items-center gap-1.5 font-medium"
               >
                 <span>{c.flag}</span>
                 <span>{c.name}</span>
@@ -192,23 +198,25 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar & Copyright */}
-        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-          <div className="flex items-center gap-4">
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+          <div className="flex items-center gap-3 flex-wrap">
             <p>© 2026 Ideation Education Services. All rights reserved.</p>
             <span>·</span>
             <span>Ideation Edu Services (OPC) Private Limited</span>
+            <span>·</span>
+            <span className="text-emerald-700 font-semibold">ISO 9001:2015 Certified Processes</span>
           </div>
 
           <div className="flex items-center gap-6">
-            <Link href="/privacy" className="hover:text-white transition-colors">
-              Privacy Policy
+            <Link href="/student-login" className="hover:text-blue-700 font-medium transition-colors">
+              Student Portal
             </Link>
-            <Link href="/terms" className="hover:text-white transition-colors">
-              Terms of Service
+            <Link href="/admin-dashboard" className="hover:text-blue-700 font-medium transition-colors">
+              Counselor CRM
             </Link>
             <button
               onClick={scrollToTop}
-              className="p-2 rounded-xl bg-slate-800 hover:bg-blue-600 text-white transition-colors flex items-center gap-1 cursor-pointer"
+              className="p-2.5 rounded-xl bg-white border border-slate-200 hover:bg-blue-600 hover:text-white hover:border-blue-600 text-slate-700 shadow-xs transition-colors flex items-center gap-1 cursor-pointer"
               aria-label="Scroll to top"
             >
               <ArrowUp className="w-4 h-4" />

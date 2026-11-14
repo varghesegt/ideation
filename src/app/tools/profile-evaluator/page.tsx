@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import {
-  Sparkles,
+  Compass,
   ArrowRight,
   ArrowLeft,
   CheckCircle2,
@@ -13,13 +13,13 @@ import {
   ShieldCheck,
   RefreshCw,
   TrendingUp,
+  FileCheck,
 } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { DESTINATIONS } from "@/data/destinations";
 
@@ -52,7 +52,6 @@ export default function ProfileEvaluatorPage() {
   const handleRunEvaluation = () => {
     setAnalyzing(true);
     setTimeout(() => {
-      // Calculate realistic score based on inputs
       const cgpaNum = parseFloat(profile.cgpa) || 7.5;
       const baseScore = Math.min(Math.round(cgpaNum * 10 + (profile.ieltsScore ? 10 : 0) + (parseInt(profile.workExpYears) > 0 ? 5 : 0)), 96);
 
@@ -86,33 +85,33 @@ export default function ProfileEvaluatorPage() {
         targetUnis: target,
         safetyUnis: safety,
         recommendations: [
-          `Your ${profile.cgpa} CGPA in ${profile.currentEducation} qualifies you strongly for top programs in ${profile.targetCountry}.`,
-          `Highlight your ${profile.workExpYears} year(s) of experience in your Statement of Purpose to offset competitive applicant pools.`,
-          `Target scholarships early: Deadlines for major institutional grants occur 4 to 6 months prior to intake.`,
-          `Schedule a personalized session with Ideation counselors to review individual university course prerequisites.`,
+          `Your ${profile.cgpa} CGPA in ${profile.currentEducation} qualifies you strongly for accredited programs in ${profile.targetCountry}.`,
+          `Highlight your ${profile.workExpYears} year(s) of experience in your Statement of Purpose to stand out during admissions committee reviews.`,
+          `Target university scholarships early: Deadlines for major institutional grants typically occur 4 to 6 months prior to intake.`,
+          `Connect with an Ideation counselor to verify university course prerequisites, syllabus mapping, and APS/credential evaluations.`,
         ],
       });
       setAnalyzing(false);
       setStep(4);
-    }, 1200);
+    }, 900);
   };
 
   return (
-    <div className="min-h-screen bg-[var(--color-bg)]">
+    <div className="min-h-screen bg-[#f8fafc] text-slate-900">
       <Navbar />
 
-      {/* Header Banner */}
-      <section className="pt-36 pb-16 bg-gradient-to-b from-[#06183d] via-[#09265f] to-[#0d3b8e] text-white">
+      {/* Light Header Banner */}
+      <section className="pt-36 pb-16 gradient-hero-light bg-academic-mesh border-b border-slate-200/80">
         <Container size="large">
           <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-400/20 text-amber-300 border border-amber-400/30 text-xs font-bold uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5" /> AI Admissions Diagnostic
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100 text-blue-900 border border-blue-200 text-xs font-black uppercase tracking-wider">
+              <Compass className="w-3.5 h-3.5 text-blue-700" /> Admissions Eligibility Tool
             </div>
-            <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight">
-              AI Profile Evaluator
+            <h1 className="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight">
+              Admissions Eligibility Assessment
             </h1>
-            <p className="text-lg text-blue-100 leading-relaxed">
-              Analyze your admission probability, receive categorized Safety, Target, and Reach universities, and calculate scholarship chances in under 2 minutes.
+            <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
+              Evaluate your academic profile, review categorized Safety, Target, and Reach universities, and calculate scholarship chances based on 2026/2027 entry standards.
             </p>
           </div>
         </Container>
@@ -144,7 +143,7 @@ export default function ProfileEvaluatorPage() {
                     </span>
                     <span
                       className={`text-xs font-bold hidden sm:inline ${
-                        step === s.num ? "text-blue-600" : "text-slate-500"
+                        step === s.num ? "text-blue-700" : "text-slate-500"
                       }`}
                     >
                       {s.label}
@@ -156,13 +155,13 @@ export default function ProfileEvaluatorPage() {
 
             {/* Step 1: Academics */}
             {step === 1 && (
-              <Card className="p-8 sm:p-10 rounded-3xl shadow-xl space-y-6 animate-fade-in">
+              <Card className="p-8 sm:p-10 rounded-3xl shadow-xl space-y-6 animate-fade-in bg-white border border-slate-200">
                 <div className="space-y-1">
-                  <h3 className="text-2xl font-bold text-slate-900">
+                  <h3 className="text-2xl font-black text-slate-900">
                     Step 1: Your Academic Background
                   </h3>
                   <p className="text-xs text-slate-500">
-                    Enter your recent qualification and academic performance.
+                    Enter your current qualification and academic performance.
                   </p>
                 </div>
 
@@ -174,7 +173,7 @@ export default function ProfileEvaluatorPage() {
                     <select
                       value={profile.degreeLevel}
                       onChange={(e) => setProfile({ ...profile, degreeLevel: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm outline-none bg-white focus:border-blue-600"
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm outline-none bg-white focus:border-blue-600 font-medium"
                     >
                       <option>Master&apos;s (Postgraduate - MS / MBA / MA)</option>
                       <option>Bachelor&apos;s (Undergraduate - BS / BBA)</option>
@@ -191,7 +190,7 @@ export default function ProfileEvaluatorPage() {
                       type="text"
                       value={profile.currentEducation}
                       onChange={(e) => setProfile({ ...profile, currentEducation: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm outline-none focus:border-blue-600"
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm outline-none focus:border-blue-600 font-medium"
                     />
                   </div>
 
@@ -205,7 +204,7 @@ export default function ProfileEvaluatorPage() {
                         placeholder="e.g. 8.2 or 78%"
                         value={profile.cgpa}
                         onChange={(e) => setProfile({ ...profile, cgpa: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm outline-none focus:border-blue-600"
+                        className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm outline-none focus:border-blue-600 font-medium"
                       />
                     </div>
 
@@ -216,7 +215,7 @@ export default function ProfileEvaluatorPage() {
                       <select
                         value={profile.backlogs}
                         onChange={(e) => setProfile({ ...profile, backlogs: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm outline-none bg-white focus:border-blue-600"
+                        className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm outline-none bg-white focus:border-blue-600 font-medium"
                       >
                         <option value="0">0 (Zero backlogs)</option>
                         <option value="1-2">1 to 2 (Cleared)</option>
@@ -233,7 +232,7 @@ export default function ProfileEvaluatorPage() {
                     <select
                       value={profile.workExpYears}
                       onChange={(e) => setProfile({ ...profile, workExpYears: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm outline-none bg-white focus:border-blue-600"
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm outline-none bg-white focus:border-blue-600 font-medium"
                     >
                       <option value="0">Fresher / Final Year Student (0 years)</option>
                       <option value="1">1 Year</option>
@@ -258,9 +257,9 @@ export default function ProfileEvaluatorPage() {
 
             {/* Step 2: Test Scores */}
             {step === 2 && (
-              <Card className="p-8 sm:p-10 rounded-3xl shadow-xl space-y-6 animate-fade-in">
+              <Card className="p-8 sm:p-10 rounded-3xl shadow-xl space-y-6 animate-fade-in bg-white border border-slate-200">
                 <div className="space-y-1">
-                  <h3 className="text-2xl font-bold text-slate-900">
+                  <h3 className="text-2xl font-black text-slate-900">
                     Step 2: Standardized Test Scores
                   </h3>
                   <p className="text-xs text-slate-500">
@@ -277,7 +276,7 @@ export default function ProfileEvaluatorPage() {
                       <select
                         value={profile.ieltsStatus}
                         onChange={(e) => setProfile({ ...profile, ieltsStatus: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm outline-none bg-white focus:border-blue-600"
+                        className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm outline-none bg-white focus:border-blue-600 font-medium"
                       >
                         <option>Already Taken</option>
                         <option>Planning to Take in 1-2 Months</option>
@@ -294,7 +293,7 @@ export default function ProfileEvaluatorPage() {
                         placeholder="e.g. 7.0 (IELTS) or 68 (PTE)"
                         value={profile.ieltsScore}
                         onChange={(e) => setProfile({ ...profile, ieltsScore: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm outline-none focus:border-blue-600"
+                        className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm outline-none focus:border-blue-600 font-medium"
                       />
                     </div>
                   </div>
@@ -306,7 +305,7 @@ export default function ProfileEvaluatorPage() {
                     <select
                       value={profile.greStatus}
                       onChange={(e) => setProfile({ ...profile, greStatus: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm outline-none bg-white focus:border-blue-600"
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm outline-none bg-white focus:border-blue-600 font-medium"
                     >
                       <option>Not Required / Applying to Test-Waived Universities</option>
                       <option>Already Taken (310+ GRE / 650+ GMAT)</option>
@@ -336,9 +335,9 @@ export default function ProfileEvaluatorPage() {
 
             {/* Step 3: Destination & Budget */}
             {step === 3 && (
-              <Card className="p-8 sm:p-10 rounded-3xl shadow-xl space-y-6 animate-fade-in">
+              <Card className="p-8 sm:p-10 rounded-3xl shadow-xl space-y-6 animate-fade-in bg-white border border-slate-200">
                 <div className="space-y-1">
-                  <h3 className="text-2xl font-bold text-slate-900">
+                  <h3 className="text-2xl font-black text-slate-900">
                     Step 3: Destination & Financial Target
                   </h3>
                   <p className="text-xs text-slate-500">
@@ -354,7 +353,7 @@ export default function ProfileEvaluatorPage() {
                     <select
                       value={profile.targetCountry}
                       onChange={(e) => setProfile({ ...profile, targetCountry: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm outline-none bg-white focus:border-blue-600"
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm outline-none bg-white focus:border-blue-600 font-medium"
                     >
                       {DESTINATIONS.map((c) => (
                         <option key={c.slug} value={c.name}>
@@ -399,10 +398,10 @@ export default function ProfileEvaluatorPage() {
                     onClick={handleRunEvaluation}
                     size="lg"
                     isLoading={analyzing}
-                    className="bg-amber-500 hover:bg-amber-600 text-white font-bold"
-                    rightIcon={<Sparkles className="w-4 h-4" />}
+                    className="bg-blue-600 hover:bg-blue-700 text-white font-bold"
+                    rightIcon={<Compass className="w-4 h-4" />}
                   >
-                    Run AI Evaluation
+                    Calculate Eligibility Scorecard
                   </Button>
                 </div>
               </Card>
@@ -411,48 +410,48 @@ export default function ProfileEvaluatorPage() {
             {/* Step 4: Diagnostic Results */}
             {step === 4 && result && (
               <div className="space-y-8 animate-fade-in">
-                {/* Score Card */}
-                <Card className="p-8 sm:p-10 rounded-3xl bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 text-white shadow-2xl">
+                {/* Score Card - Light Theme */}
+                <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-6">
                   <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
                     <div className="space-y-2 text-center sm:text-left">
-                      <Badge variant="glass" size="md">
+                      <span className="px-3.5 py-1 rounded-full bg-blue-100 text-blue-900 border border-blue-200 text-xs font-black uppercase tracking-wider inline-block">
                         Admissions Competitiveness Score
-                      </Badge>
-                      <h3 className="text-3xl font-extrabold text-white">
+                      </span>
+                      <h3 className="text-3xl font-black text-slate-900">
                         Profile Rating: {result.tier}
                       </h3>
-                      <p className="text-xs text-blue-200">
+                      <p className="text-xs text-slate-500">
                         Evaluated for {profile.targetCountry} · {profile.degreeLevel}
                       </p>
                     </div>
 
-                    <div className="w-28 h-28 rounded-full bg-white/10 border-4 border-amber-400 flex flex-col items-center justify-center text-center shadow-lg flex-shrink-0">
-                      <span className="text-3xl font-extrabold text-white">
+                    <div className="w-28 h-28 rounded-full bg-blue-50 border-4 border-blue-600 flex flex-col items-center justify-center text-center shadow-md flex-shrink-0">
+                      <span className="text-3xl font-black text-blue-900">
                         {result.score}
                       </span>
-                      <span className="text-[10px] uppercase tracking-wider text-amber-300 font-bold">
+                      <span className="text-[10px] uppercase tracking-wider text-slate-500 font-bold">
                         / 100
                       </span>
                     </div>
                   </div>
 
-                  <div className="mt-6 pt-6 border-t border-white/10 flex items-center justify-between text-xs text-blue-200">
-                    <span>Scholarship Potential:</span>
-                    <span className="font-bold text-amber-300">{result.scholarshipProbability}</span>
+                  <div className="mt-6 pt-6 border-t border-slate-100 flex items-center justify-between text-xs text-slate-600">
+                    <span>Estimated Scholarship Potential:</span>
+                    <span className="font-extrabold text-emerald-700">{result.scholarshipProbability}</span>
                   </div>
-                </Card>
+                </div>
 
                 {/* Categorized University Shortlist Tiers */}
                 <div className="space-y-4">
-                  <h3 className="text-xl font-extrabold text-slate-900">
-                    Recommended University Match Portfolios
+                  <h3 className="text-xl font-black text-slate-900">
+                    Recommended University Portfolios
                   </h3>
 
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {/* Reach */}
-                    <div className="p-6 rounded-2xl bg-white border border-rose-200 shadow-sm space-y-3">
-                      <span className="px-2.5 py-1 rounded-full bg-rose-100 text-rose-800 text-xs font-bold uppercase">
-                        🎯 Reach (Dream 20-40%)
+                    <div className="p-6 rounded-2xl bg-white border border-amber-200 shadow-xs space-y-3">
+                      <span className="px-2.5 py-1 rounded-full bg-amber-50 text-amber-900 text-xs font-black uppercase">
+                        🎯 Reach (Top Tier)
                       </span>
                       <div className="space-y-2 pt-2">
                         {result.reachUnis.map((u, i) => (
@@ -464,9 +463,9 @@ export default function ProfileEvaluatorPage() {
                     </div>
 
                     {/* Target */}
-                    <div className="p-6 rounded-2xl bg-white border border-blue-200 shadow-sm space-y-3">
-                      <span className="px-2.5 py-1 rounded-full bg-blue-100 text-blue-800 text-xs font-bold uppercase">
-                        ⭐ Target (Match 60-80%)
+                    <div className="p-6 rounded-2xl bg-white border border-blue-200 shadow-xs space-y-3">
+                      <span className="px-2.5 py-1 rounded-full bg-blue-50 text-blue-900 text-xs font-black uppercase">
+                        ⭐ Target (Strong Match)
                       </span>
                       <div className="space-y-2 pt-2">
                         {result.targetUnis.map((u, i) => (
@@ -478,9 +477,9 @@ export default function ProfileEvaluatorPage() {
                     </div>
 
                     {/* Safety */}
-                    <div className="p-6 rounded-2xl bg-white border border-emerald-200 shadow-sm space-y-3">
-                      <span className="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase">
-                        🛡️ Safety (Guaranteed 90%+)
+                    <div className="p-6 rounded-2xl bg-white border border-emerald-200 shadow-xs space-y-3">
+                      <span className="px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-900 text-xs font-black uppercase">
+                        🛡️ Safety (High Viability)
                       </span>
                       <div className="space-y-2 pt-2">
                         {result.safetyUnis.map((u, i) => (
@@ -495,8 +494,8 @@ export default function ProfileEvaluatorPage() {
 
                 {/* Strategic Advice */}
                 <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 space-y-4">
-                  <h4 className="text-base font-bold text-slate-900">
-                    AI Strategic Recommendations for Your Next Steps:
+                  <h4 className="text-base font-black text-slate-900">
+                    Counselor Strategic Recommendations for Your Next Steps:
                   </h4>
                   <div className="space-y-2.5 text-xs text-slate-700">
                     {result.recommendations.map((rec, i) => (
@@ -511,17 +510,17 @@ export default function ProfileEvaluatorPage() {
                 {/* Final CTA */}
                 <div className="p-8 rounded-3xl bg-blue-50 border border-blue-200 flex flex-col sm:flex-row items-center justify-between gap-6">
                   <div>
-                    <h4 className="text-lg font-bold text-slate-900">
+                    <h4 className="text-lg font-black text-slate-900">
                       Want to Apply with 100% Free Guidance?
                     </h4>
                     <p className="text-xs text-slate-600 mt-1">
-                      Our certified advisors will personally guide your SOP, applications, and visa.
+                      Our certified advisors will personally guide your SOP, applications, and visa documentation.
                     </p>
                   </div>
                   <div className="flex gap-3">
                     <button
                       onClick={() => setStep(1)}
-                      className="px-4 py-2.5 rounded-xl border border-slate-300 text-xs font-semibold text-slate-700 hover:bg-slate-100 transition-colors cursor-pointer"
+                      className="px-4 py-2.5 rounded-xl border border-slate-300 text-xs font-bold text-slate-700 hover:bg-slate-100 transition-colors cursor-pointer"
                     >
                       Re-evaluate
                     </button>

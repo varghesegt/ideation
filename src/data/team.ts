@@ -50,7 +50,7 @@ export const TEAM_MEMBERS: TeamMemberData[] = [
     credentials: [
       "Architect of the Ideation 8-Stage University Application Pipeline",
       "Directs university admissions operations across 25 destination countries",
-      "Pioneered AI-assisted visa document pre-screening"
+      "Pioneered multi-tier visa document pre-screening & mock embassy interviews"
     ],
     image: "https://ideationedu.com/wp-content/uploads/2026/06/Sherwin-Issac-Avatar.avif",
     linkedin: "https://linkedin.com/in/sherwin-isaac",

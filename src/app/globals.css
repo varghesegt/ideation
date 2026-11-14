@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
-/* ─── Design System Custom Tokens ─────────────────────────────────── */
+/* ─── High-Prestige Light Theme Design System ──────────────────────── */
 
 :root {
-  --color-primary: #1a56db;
+  --color-primary: #1d4ed8;
+  --color-primary-dark: #0f172a;
   --color-primary-light: #3b82f6;
-  --color-primary-dark: #071d49;
-  --color-accent: #f59e0b;
-  --color-accent-light: #fbbf24;
-  --color-success: #10b981;
+  --color-accent: #d97706;
+  --color-accent-light: #f59e0b;
+  --color-success: #059669;
   --color-bg: #f8fafc;
   --color-bg-card: #ffffff;
   --color-border: #e2e8f0;
@@ -33,40 +33,57 @@ body {
   line-height: 1.6;
 }
 
-/* Headings inherit color naturally so Tailwind text-white / text-slate-900 works cleanly */
+/* Headings inherit color naturally so Tailwind text-slate-900 / text-blue-900 works cleanly */
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.25;
   font-weight: 800;
+  color: #0f172a;
 }
 
-/* Custom Gradients */
-.gradient-hero-bg {
-  background: linear-gradient(135deg, #041026 0%, #071d49 35%, #0b3888 75%, #134db3 100%);
+/* ─── Premium Light Gradients & Surfaces ──────────────────────────── */
+
+.gradient-hero-light {
+  background: radial-gradient(120% 100% at 50% 0%, #eff6ff 0%, #f8fafc 65%, #ffffff 100%);
 }
 
-.gradient-card-dark {
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+.gradient-card-light {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.04), 0 2px 6px -1px rgba(15, 23, 42, 0.02);
+}
+
+.bg-academic-mesh {
+  background-color: #f8fafc;
+  background-image: 
+    radial-gradient(at 10% 10%, rgba(219, 234, 254, 0.4) 0px, transparent 50%),
+    radial-gradient(at 90% 10%, rgba(254, 243, 199, 0.35) 0px, transparent 50%),
+    radial-gradient(at 50% 90%, rgba(224, 231, 255, 0.3) 0px, transparent 50%);
+}
+
+.bg-academic-grid {
+  background-image: radial-gradient(#cbd5e1 0.75px, transparent 0.75px);
+  background-size: 24px 24px;
+}
+
+.text-gradient-royal {
+  background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 50%, #2563eb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-amber {
+  background: linear-gradient(135deg, #b45309 0%, #d97706 50%, #f59e0b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.gradient-gold {
-  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-}
-
-.text-gradient-cyan {
-  background: linear-gradient(135deg, #67e8f9 0%, #38bdf8 50%, #93c5fd 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.text-gradient-gold {
-  background: linear-gradient(135deg, #fde047 0%, #fbbf24 50%, #f59e0b 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  border: 1px solid rgba(226, 232, 240, 0.9);
 }
 
 /* Custom scrollbars */

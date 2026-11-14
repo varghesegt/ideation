@@ -49,21 +49,21 @@ export default function UniversityMatcherPage() {
   });
 
   return (
-    <div className="min-h-screen bg-[var(--color-bg)]">
+    <div className="min-h-screen bg-[#f8fafc] text-slate-900">
       <Navbar />
 
-      {/* Header Banner */}
-      <section className="pt-36 pb-20 bg-gradient-to-b from-[#06183d] via-[#09265f] to-[#0d3b8e] text-white">
+      {/* Light Header Banner */}
+      <section className="pt-36 pb-16 gradient-hero-light bg-academic-mesh border-b border-slate-200/80">
         <Container size="large">
           <div className="max-w-3xl space-y-4">
-            <Badge variant="glass" size="md">
-              Institutional Database
-            </Badge>
-            <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight">
-              Global University Matcher
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100 text-blue-900 border border-blue-200 text-xs font-black uppercase tracking-wider">
+              <Building2 className="w-3.5 h-3.5 text-blue-700" /> Institutional Course Directory
+            </div>
+            <h1 className="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight">
+              Global University & Course Directory
             </h1>
-            <p className="text-lg text-blue-100 leading-relaxed">
-              Explore 500+ world-class partner universities across 25 countries. Filter by country, field of study, and global ranking.
+            <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
+              Explore 500+ world-class partner universities across 25 countries. Filter by country, field of study, and global ranking with 100% free application support from Ideation counselors.
             </p>
           </div>
         </Container>
@@ -81,7 +81,7 @@ export default function UniversityMatcherPage() {
                   placeholder="Search by university name or program (e.g. Stanford, Robotics, MBA, Data Science)..."
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
-                  className="w-full pl-12 pr-4 py-3.5 rounded-2xl border border-slate-200 text-sm outline-none bg-white shadow-sm focus:border-blue-600 focus:ring-2 focus:ring-blue-100"
+                  className="w-full pl-12 pr-4 py-3.5 rounded-2xl border border-slate-200 text-sm outline-none bg-white shadow-xs focus:border-blue-600 focus:ring-2 focus:ring-blue-100 font-medium"
                 />
               </div>
 
@@ -89,7 +89,7 @@ export default function UniversityMatcherPage() {
                 <select
                   value={selectedCountry}
                   onChange={(e) => setSelectedCountry(e.target.value)}
-                  className="w-full px-4 py-3.5 rounded-2xl border border-slate-200 text-sm outline-none bg-white shadow-sm focus:border-blue-600"
+                  className="w-full px-4 py-3.5 rounded-2xl border border-slate-200 text-sm outline-none bg-white shadow-xs focus:border-blue-600 font-medium"
                 >
                   <option value="All">🌍 All 25 Countries</option>
                   {DESTINATIONS.map((c) => (
@@ -102,8 +102,8 @@ export default function UniversityMatcherPage() {
             </div>
 
             <div className="flex items-center justify-between text-xs text-slate-500">
-              <span>Showing {filteredUnis.length} partner universities</span>
-              <span>100% Free Application Processing with Ideation</span>
+              <span className="font-bold text-slate-700">Showing {filteredUnis.length} accredited universities</span>
+              <span className="text-emerald-700 font-semibold">✓ 100% Free Application Processing with Ideation</span>
             </div>
           </div>
 
@@ -113,66 +113,68 @@ export default function UniversityMatcherPage() {
               <Card
                 key={index}
                 variant="default"
-                className="p-8 rounded-3xl border border-slate-200 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+                className="p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between bg-white"
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <span className="text-3xl">{uni.countryFlag}</span>
-                    {uni.ranking && (
-                      <Badge variant="primary" size="sm">
-                        {uni.ranking}
-                      </Badge>
-                    )}
+                    <span className="text-xs font-black px-3 py-1 rounded-full bg-blue-50 text-blue-900 border border-blue-200">
+                      {uni.ranking}
+                    </span>
                   </div>
 
                   <div>
-                    <h3 className="text-xl font-bold text-slate-900">
+                    <h3 className="text-xl font-black text-slate-900">
                       {uni.name}
                     </h3>
-                    <p className="text-xs text-blue-600 font-semibold mt-0.5">
+                    <Link
+                      href={`/destinations/${uni.countrySlug}`}
+                      className="text-xs font-bold text-blue-700 hover:underline mt-1 inline-block"
+                    >
                       {uni.country}
-                    </p>
+                    </Link>
                   </div>
 
-                  <div className="space-y-1.5 pt-2 border-t border-slate-100 text-xs">
-                    <div className="text-slate-500 font-medium">Popular Courses:</div>
+                  <div className="space-y-2 pt-2 border-t border-slate-100 text-xs">
+                    <div className="flex justify-between text-slate-600">
+                      <span>Post-Study Work:</span>
+                      <span className="font-bold text-emerald-700">{uni.postStudyWork.split("(")[0]}</span>
+                    </div>
+                    <div className="flex justify-between text-slate-600">
+                      <span>Avg Tuition:</span>
+                      <span className="font-bold text-slate-900">{uni.avgTuition.split("/")[0]}</span>
+                    </div>
+                  </div>
+
+                  <div className="pt-2">
+                    <p className="text-[11px] font-black uppercase tracking-wider text-slate-400 mb-2">
+                      Popular Degree Tracks:
+                    </p>
                     <div className="flex flex-wrap gap-1.5">
                       {uni.popularCourses.map((c, i) => (
                         <span
                           key={i}
-                          className="px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 text-[11px] font-medium"
+                          className="px-2.5 py-1 rounded-lg bg-slate-50 border border-slate-200 text-[11px] font-medium text-slate-700"
                         >
                           {c}
                         </span>
                       ))}
                     </div>
                   </div>
-
-                  <div className="pt-2 text-xs space-y-1 text-slate-600">
-                    <div className="flex justify-between">
-                      <span>Tuition Est:</span>
-                      <span className="font-semibold text-slate-900">{uni.avgTuition.split("/")[0]}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Post-Study Work:</span>
-                      <span className="font-semibold text-emerald-600">{uni.postStudyWork.split("(")[0]}</span>
-                    </div>
-                  </div>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+                <div className="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between">
                   <Link
                     href={`/destinations/${uni.countrySlug}`}
-                    className="text-xs font-bold text-blue-600 hover:text-blue-800"
+                    className="text-xs font-black text-blue-700 hover:text-blue-900"
                   >
-                    Country Guide →
+                    Country Details →
                   </Link>
 
-                  <Link
-                    href="/#register"
-                    className="text-xs font-bold px-3 py-1.5 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors"
-                  >
-                    Apply Free
+                  <Link href="/#register">
+                    <Button size="sm" variant="primary">
+                      Apply via Ideation
+                    </Button>
                   </Link>
                 </div>
               </Card>

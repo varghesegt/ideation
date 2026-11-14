@@ -9,7 +9,8 @@ import {
   TrendingDown,
   ShieldCheck,
   CheckCircle2,
-  Sparkles,
+  DollarSign,
+  Award,
 } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
@@ -75,20 +76,20 @@ export default function CostCalculatorPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[var(--color-bg)]">
+    <div className="min-h-screen bg-[#f8fafc] text-slate-900">
       <Navbar />
 
-      {/* Header Banner */}
-      <section className="pt-36 pb-20 bg-gradient-to-b from-[#06183d] via-[#09265f] to-[#0d3b8e] text-white">
+      {/* Light Header Banner */}
+      <section className="pt-36 pb-16 gradient-hero-light bg-academic-mesh border-b border-slate-200/80">
         <Container size="large">
           <div className="max-w-3xl space-y-4">
-            <Badge variant="glass" size="md">
-              Smart Financial Planner
-            </Badge>
-            <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight">
-              Study Abroad Cost & Budget Calculator
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-900 border border-emerald-200 text-xs font-black uppercase tracking-wider">
+              <Calculator className="w-3.5 h-3.5 text-emerald-700" /> Financial Planning & Budgeting
+            </div>
+            <h1 className="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight">
+              Study Abroad Cost & Budget Planner
             </h1>
-            <p className="text-lg text-blue-100 leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
               Estimate your annual tuition fees, accommodation, living expenses, and offset with legal part-time student earnings in Indian Rupees (INR).
             </p>
           </div>
@@ -117,7 +118,7 @@ export default function CostCalculatorPage() {
                     </option>
                   ))}
                 </select>
-                <p className="text-xs text-blue-600 font-medium">
+                <p className="text-xs text-blue-700 font-medium">
                   {countryData.flag} {countryData.tagline}
                 </p>
               </div>
@@ -130,7 +131,7 @@ export default function CostCalculatorPage() {
                     <label className="text-sm font-bold text-slate-900">
                       Annual Tuition Fee
                     </label>
-                    <span className="text-lg font-extrabold text-blue-600">
+                    <span className="text-lg font-black text-blue-700">
                       ₹{tuitionLakhs} Lakhs / year
                     </span>
                   </div>
@@ -156,7 +157,7 @@ export default function CostCalculatorPage() {
                     <label className="text-sm font-bold text-slate-900">
                       Monthly Accommodation / Rent
                     </label>
-                    <span className="text-base font-extrabold text-slate-900">
+                    <span className="text-base font-black text-slate-900">
                       ₹{monthlyRent.toLocaleString()} / month
                     </span>
                   </div>
@@ -182,7 +183,7 @@ export default function CostCalculatorPage() {
                     <label className="text-sm font-bold text-slate-900">
                       Food, Transport & Health Insurance
                     </label>
-                    <span className="text-base font-extrabold text-slate-900">
+                    <span className="text-base font-black text-slate-900">
                       ₹{monthlyLiving.toLocaleString()} / month
                     </span>
                   </div>
@@ -238,43 +239,43 @@ export default function CostCalculatorPage() {
               </div>
             </div>
 
-            {/* Right Summary Card */}
+            {/* Right Summary Card - Light Theme */}
             <div className="lg:col-span-5 sticky top-28 space-y-6">
-              <Card className="p-8 sm:p-10 rounded-3xl bg-gradient-to-b from-[#092257] to-[#0d3b8e] text-white shadow-2xl space-y-6">
+              <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-6 text-slate-900">
                 <div>
-                  <Badge variant="glass" size="sm">
+                  <span className="px-3.5 py-1 rounded-full bg-blue-50 text-blue-900 border border-blue-200 text-xs font-black uppercase tracking-wider inline-block">
                     {selectedCountry} Summary
-                  </Badge>
-                  <h3 className="text-2xl font-extrabold text-white mt-2">
+                  </span>
+                  <h3 className="text-2xl font-black text-slate-900 mt-2">
                     Estimated Net 1st Year Cost
                   </h3>
                   <div className="mt-3 flex items-baseline gap-2">
-                    <span className="text-4xl sm:text-5xl font-extrabold text-amber-300">
+                    <span className="text-4xl sm:text-5xl font-black text-blue-700">
                       ₹{(netYearlyCost / 100000).toFixed(1)}
                     </span>
-                    <span className="text-xl font-bold text-blue-200">Lakhs</span>
+                    <span className="text-xl font-bold text-slate-500">Lakhs</span>
                   </div>
-                  <p className="text-xs text-blue-200 mt-1">
-                    (₹{Math.round(netYearlyCost / 12).toLocaleString()} / month net)
+                  <p className="text-xs text-slate-500 mt-1">
+                    (~₹{Math.round(netYearlyCost / 12).toLocaleString()} / month net)
                   </p>
                 </div>
 
                 {/* Line Item Breakdown */}
-                <div className="space-y-3 pt-4 border-t border-white/10 text-xs">
-                  <div className="flex justify-between text-blue-100">
+                <div className="space-y-3 pt-4 border-t border-slate-100 text-xs">
+                  <div className="flex justify-between text-slate-600">
                     <span>1st Year Tuition Fee:</span>
-                    <span className="font-bold text-white">₹{(yearlyTuition / 100000).toFixed(1)} Lakhs</span>
+                    <span className="font-bold text-slate-900">₹{(yearlyTuition / 100000).toFixed(1)} Lakhs</span>
                   </div>
-                  <div className="flex justify-between text-blue-100">
+                  <div className="flex justify-between text-slate-600">
                     <span>12 Months Living & Housing:</span>
-                    <span className="font-bold text-white">₹{(yearlyLiving / 100000).toFixed(1)} Lakhs</span>
+                    <span className="font-bold text-slate-900">₹{(yearlyLiving / 100000).toFixed(1)} Lakhs</span>
                   </div>
-                  <div className="flex justify-between text-blue-100">
+                  <div className="flex justify-between text-slate-600">
                     <span>Gross Annual Investment:</span>
-                    <span className="font-bold text-white">₹{(grossYearlyCost / 100000).toFixed(1)} Lakhs</span>
+                    <span className="font-bold text-slate-900">₹{(grossYearlyCost / 100000).toFixed(1)} Lakhs</span>
                   </div>
                   {worksPartTime && (
-                    <div className="flex justify-between text-emerald-300 font-bold pt-2 border-t border-white/10">
+                    <div className="flex justify-between text-emerald-700 font-bold pt-2 border-t border-slate-100">
                       <span>- Part-Time Student Earnings:</span>
                       <span>- ₹{(yearlyPartTimeEarnings / 100000).toFixed(1)} Lakhs</span>
                     </div>
@@ -282,30 +283,26 @@ export default function CostCalculatorPage() {
                 </div>
 
                 {/* Scholarship Tip */}
-                <div className="p-4 rounded-2xl bg-white/10 border border-white/20 text-xs text-blue-100 space-y-1">
-                  <div className="flex items-center gap-1.5 font-bold text-amber-300">
-                    <Sparkles className="w-3.5 h-3.5" /> Scholarship Opportunity
+                <div className="p-4 rounded-2xl bg-amber-50 border border-amber-200 text-xs text-amber-900 space-y-1">
+                  <div className="flex items-center gap-1.5 font-bold text-amber-800">
+                    <Award className="w-3.5 h-3.5" /> Scholarship Opportunity
                   </div>
-                  <p className="text-[11px] leading-relaxed text-blue-200">
+                  <p className="text-[11px] leading-relaxed text-amber-800">
                     Ideation students frequently secure 20% to 100% scholarships in {selectedCountry}, further reducing this outlay.
                   </p>
                 </div>
 
                 <Link href="/#register" className="block">
-                  <Button
-                    size="lg"
-                    fullWidth
-                    className="bg-white text-blue-900 hover:bg-blue-50 font-bold shadow-xl"
-                    rightIcon={<ArrowRight className="w-4 h-4 text-blue-600" />}
-                  >
-                    Discuss Financial Planning
-                  </Button>
+                  <button className="w-full py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-black text-sm uppercase tracking-wider shadow-lg shadow-blue-600/20 cursor-pointer flex items-center justify-center gap-2 transition-all">
+                    <span>Discuss Financial Planning</span>
+                    <ArrowRight className="w-4 h-4 text-white" />
+                  </button>
                 </Link>
 
-                <p className="text-[11px] text-center text-blue-300">
-                  Education loan tie-ups available with leading Indian banks.
+                <p className="text-[11px] text-center text-slate-500 font-medium">
+                  Education loan guidance available with leading nationalized Indian banks.
                 </p>
-              </Card>
+              </div>
             </div>
           </div>
         </Container>
