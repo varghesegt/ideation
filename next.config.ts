@@ -1,17 +1,16 @@
 import type { NextConfig } from "next";
 
+const isGithubActions = process.env.GITHUB_ACTIONS || false;
+const repoName = "ideation";
+
 const nextConfig: NextConfig = {
-  /* config options here */
-  cacheComponents: true,
-  partialPrefetching: true,
-  turbopack: {
-    rules: {
-      "*.css": {
-        loaders: ["@tailwindcss/turbopack"],
-        as: "*.css",
-      },
-    },
+  output: "export",
+  basePath: isGithubActions ? `/${repoName}` : "",
+  assetPrefix: isGithubActions ? `/${repoName}/` : "",
+  images: {
+    unoptimized: true,
   },
+  trailingSlash: true,
 };
 
 export default nextConfig;
