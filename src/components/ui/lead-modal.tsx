@@ -77,10 +77,22 @@ export function LeadModal({ isOpen, onClose, initialCountry = "" }: LeadModalPro
 
         <div className="flex items-center gap-3 mb-4">
           <img
-            src="/images/logo-dark.png"
-            alt="Ideation Education Services"
-            className="h-12 w-auto object-contain"
+            src="/images/logo-emblem-dark.png"
+            alt="Ideation Education Crest"
+            className="h-11 w-auto object-contain flex-shrink-0"
           />
+          <div className="flex flex-col select-none">
+            <span className="font-serif font-black text-[20px] tracking-[0.03em] leading-tight text-[#102b50]">
+              IDEATION
+            </span>
+            <div className="flex items-center gap-1.5 mt-0.5">
+              <span className="h-[1px] w-3 bg-[#c59b27]/60" />
+              <span className="text-[9px] font-extrabold tracking-[0.22em] uppercase text-[#c59b27] leading-none">
+                EDU SERVICES
+              </span>
+              <span className="h-[1px] w-3 bg-[#c59b27]/60" />
+            </div>
+          </div>
         </div>
 
         <div className="text-[11px] font-bold uppercase tracking-[0.17em] text-[#1a56db] flex items-center gap-2 mb-2">

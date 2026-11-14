@@ -10,14 +10,26 @@ export function Footer() {
           <div className="space-y-4">
             <Link
               href="/"
-              className="inline-flex flex-col items-start select-none group"
+              className="inline-flex items-center gap-3 select-none group"
               aria-label="Ideation Education Services"
             >
               <img
-                src="/images/logo-white.png"
-                alt="Ideation Education Services"
-                className="h-16 w-auto object-contain transition-transform group-hover:scale-105 duration-300"
+                src="/images/logo-emblem-white.png"
+                alt="Ideation Education Crest"
+                className="h-14 w-auto object-contain transition-transform group-hover:scale-105 duration-300 flex-shrink-0"
               />
+              <div className="flex flex-col select-none">
+                <span className="font-serif font-black text-[22px] tracking-[0.04em] leading-tight text-white group-hover:text-[#f7c948] transition-colors">
+                  IDEATION
+                </span>
+                <div className="flex items-center gap-1.5 mt-1">
+                  <span className="h-[1px] w-3.5 bg-[#f7c948]/70" />
+                  <span className="text-[9.5px] font-extrabold tracking-[0.22em] uppercase text-[#f7c948] leading-none">
+                    EDU SERVICES
+                  </span>
+                  <span className="h-[1px] w-3.5 bg-[#f7c948]/70" />
+                </div>
+              </div>
             </Link>
             <p className="text-[13px] text-[#bdcbe0] leading-relaxed max-w-[260px]">
               Thoughtful guidance for the next chapter of your education journey.
