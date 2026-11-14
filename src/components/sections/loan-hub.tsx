@@ -13,7 +13,6 @@ import {
   ChevronUp,
   FileCheck2,
   Globe2,
-  Clock,
   Sparkles,
   Building2,
   Check,
@@ -182,23 +181,9 @@ export function LoanHub({ onOpenModal, isDetailed = false }: LoanHubProps) {
                 <div className="h-1 w-full bg-gradient-to-r from-[#1a56db]/10 via-[#1a56db] to-[#1a56db]/10 opacity-70 group-hover:opacity-100 transition-opacity" />
 
                 <div className="p-5 sm:p-6 space-y-4">
-                  {/* Top Header: Logo + Badges */}
-                  <div className="flex items-start justify-between gap-3">
-                    <div className="h-10 flex items-center">
-                      <BankLogo id={partner.id} className="h-9 w-auto object-contain" />
-                    </div>
-
-                    <div className="flex flex-col items-end gap-1 flex-shrink-0">
-                      {partner.badge && (
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-[#1a56db] bg-[#eaf1ff] border border-[#cadbfa] px-2.5 py-0.5 rounded-full whitespace-nowrap">
-                          {partner.badge}
-                        </span>
-                      )}
-                      <span className="text-[10px] font-semibold text-[#15803d] bg-[#f0fdf4] border border-[#dcfce7] px-2 py-0.5 rounded-md flex items-center gap-1">
-                        <Clock className="w-3 h-3" />
-                        <span>{partner.speed}</span>
-                      </span>
-                    </div>
+                  {/* Top Header: Official Bank Logo */}
+                  <div className="h-11 flex items-center">
+                    <BankLogo id={partner.id} className="h-9 sm:h-10 w-auto object-contain" />
                   </div>
 
                   {/* Micro-Dashboard Numbers Box */}
@@ -461,31 +446,6 @@ export function LoanHub({ onOpenModal, isDetailed = false }: LoanHubProps) {
               </button>
             </div>
           </div>
-        </div>
-
-        {/* Tamil Nadu Doorstep & Paperwork Assistance Notice */}
-        <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-5 sm:p-6 rounded-xl bg-white border border-[#dce4ef] text-xs text-[#64748b] shadow-xs">
-          <div className="flex items-start sm:items-center gap-3.5">
-            <div className="w-10 h-10 rounded-lg bg-[#eaf1ff] text-[#1a56db] flex items-center justify-center flex-shrink-0">
-              <Building2 className="w-5 h-5" />
-            </div>
-            <div>
-              <strong className="text-[#0f172a] font-bold text-sm block">
-                Local Banking Assistance in Tiruchirappalli, Manapparai & Across Tamil Nadu
-              </strong>
-              <span className="text-xs text-[#64748b] leading-relaxed">
-                Our dedicated loan advisors coordinate directly with local branch managers and NBFC credit officers for document collection and speedy sanction letters.
-              </span>
-            </div>
-          </div>
-
-          <button
-            onClick={() => onOpenModal("Branch Document Checklist")}
-            className="btn-secondary w-full sm:w-auto text-xs py-2 whitespace-nowrap flex-shrink-0 justify-center"
-          >
-            <span>Get document checklist</span>
-            <span>↗</span>
-          </button>
         </div>
       </div>
     </section>
