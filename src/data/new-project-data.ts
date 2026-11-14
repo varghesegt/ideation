@@ -736,3 +736,160 @@ export const TRUST_STATS = [
     subtext: "Zero hidden charges · Direct university admissions",
   },
 ];
+
+export interface LoanPartner {
+  id: string;
+  name: string;
+  type: string;
+  maxAmount: string;
+  rateEstimate: string;
+  collateral: string;
+  highlight: string;
+  badge?: string;
+}
+
+export const LOAN_PARTNERS_12: LoanPartner[] = [
+  {
+    id: "sbi",
+    name: "State Bank of India (SBI)",
+    type: "Public Sector Bank",
+    maxAmount: "Up to ₹1.5 Crore",
+    rateEstimate: "From 8.65% p.a.",
+    collateral: "Secured / Property or FD",
+    highlight: "SBI Global Ed-Vantage scheme with lowest interest rates and 0.50% concession for girl students.",
+    badge: "Lowest Interest Rates",
+  },
+  {
+    id: "hdfc-credila",
+    name: "HDFC Credila",
+    type: "Specialist Education NBFC",
+    maxAmount: "Up to ₹60 Lakhs (Unsecured)",
+    rateEstimate: "From 9.50% p.a.",
+    collateral: "Both Collateral & Non-Collateral",
+    highlight: "Doorstep document pickup, pre-visa sanction letters, and loan disbursement before university admission.",
+    badge: "Most Popular for US & UK",
+  },
+  {
+    id: "avanse",
+    name: "Avanse Financial Services",
+    type: "Specialist Education NBFC",
+    maxAmount: "Up to ₹50 Lakhs (Unsecured)",
+    rateEstimate: "From 10.25% p.a.",
+    collateral: "Both Options Available",
+    highlight: "100% complete coverage including living costs, airfare, laptop, exam fees, and travel insurance.",
+    badge: "100% Expense Coverage",
+  },
+  {
+    id: "prodigy",
+    name: "Prodigy Finance",
+    type: "Global Cross-Border Lender",
+    maxAmount: "Up to $100,000 USD",
+    rateEstimate: "USD Benchmark Rates",
+    collateral: "Zero Collateral, Zero Co-Signer",
+    highlight: "No Indian property or parent co-signer needed; assessed on future earning potential at top global schools.",
+    badge: "No Indian Co-Signer Required",
+  },
+  {
+    id: "icici",
+    name: "ICICI Bank",
+    type: "Private Sector Bank",
+    maxAmount: "Up to ₹2 Crore",
+    rateEstimate: "From 9.75% p.a.",
+    collateral: "Both Options Available",
+    highlight: "Pre-visa digital sanction letter in 48 hours for US F-1, German blocked accounts, and Canadian GIC.",
+    badge: "48-Hour Digital Sanction",
+  },
+  {
+    id: "axis",
+    name: "Axis Bank",
+    type: "Private Sector Bank",
+    maxAmount: "Up to ₹75 Lakhs",
+    rateEstimate: "From 9.90% p.a.",
+    collateral: "Unsecured up to ₹40L",
+    highlight: "Simple documentation, zero prepayment penalties, and flexible repayment tenures up to 15 years.",
+    badge: "Flexible Moratorium",
+  },
+  {
+    id: "incred",
+    name: "InCred Education Loans",
+    type: "Specialist NBFC",
+    maxAmount: "Up to ₹60 Lakhs",
+    rateEstimate: "From 10.50% p.a.",
+    collateral: "No Collateral for STEM / MBA",
+    highlight: "Specialized credit underwriting for tech, data analytics, and business master programs globally.",
+    badge: "STEM & Tech Specialized",
+  },
+  {
+    id: "auxilo",
+    name: "Auxilo Finserve",
+    type: "Pro-Student NBFC",
+    maxAmount: "Up to ₹50 Lakhs",
+    rateEstimate: "From 10.40% p.a.",
+    collateral: "Customized Collateral Rules",
+    highlight: "Pre-admission sanction letters and funding for exam coaching, visa application fees, and flight deposits.",
+    badge: "Pre-Admission Sanctions",
+  },
+  {
+    id: "mpower",
+    name: "MPOWER Financing",
+    type: "US & Canada Direct Lender",
+    maxAmount: "Up to $100,000 USD",
+    rateEstimate: "Fixed USD Interest Rate",
+    collateral: "No Collateral or Co-Signer",
+    highlight: "Fixed-rate international student loans for 400+ top universities in the US & Canada without collateral.",
+    badge: "Fixed Interest USD Loans",
+  },
+  {
+    id: "baroda",
+    name: "Bank of Baroda",
+    type: "Public Sector Bank",
+    maxAmount: "Up to ₹1.5 Crore",
+    rateEstimate: "From 8.85% p.a.",
+    collateral: "Secured / Tangible Asset",
+    highlight: "Baroda Scholar scheme offering subsidized interest for QS Top 150 global institutions and free forex cards.",
+    badge: "Baroda Scholar Scheme",
+  },
+  {
+    id: "idfc",
+    name: "IDFC FIRST Bank",
+    type: "Private Sector Bank",
+    maxAmount: "Up to ₹50 Lakhs",
+    rateEstimate: "From 9.50% p.a.",
+    collateral: "Unsecured Options Available",
+    highlight: "Paperless digital processing with repayment periods extending up to 12 years post-moratorium.",
+    badge: "Paperless Digital Flow",
+  },
+  {
+    id: "flywire",
+    name: "Flywire & International Forex",
+    type: "Tuition Settlement & Forex",
+    maxAmount: "100% Tuition & Blocked Account",
+    rateEstimate: "Wholesale Interbank Forex Rates",
+    collateral: "Direct Digital Transfer",
+    highlight: "Seamless cross-currency tuition transfers, German Blocked Accounts, and student forex cards.",
+    badge: "Forex & Tuition Settlement",
+  },
+];
+
+export const LOAN_PILLARS = [
+  {
+    step: "01",
+    title: "Collateral & Non-Collateral Options",
+    description: "Get up to ₹60 Lakhs completely unsecured without pledging property, or up to ₹2 Crore with residential or commercial collateral.",
+  },
+  {
+    step: "02",
+    title: "Pre-Visa Embassy Sanction Letters",
+    description: "Receive verifiable sanction letters accepted by German APS, US F-1 consulates, UK CAS authorities, and Canadian SDS programs.",
+  },
+  {
+    step: "03",
+    title: "100% Comprehensive Expense Coverage",
+    description: "Funding covers tuition fees, living expenses, flight tickets, laptops, books, and international health insurance.",
+  },
+  {
+    step: "04",
+    title: "Section 80E Income Tax Benefits",
+    description: "Parents and students can claim 100% tax deduction on the full education loan interest paid for up to 8 continuous financial years.",
+  },
+];

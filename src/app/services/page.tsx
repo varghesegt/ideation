@@ -5,10 +5,17 @@ import Link from "next/link";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { LeadModal } from "@/components/ui/lead-modal";
+import { LoanHub } from "@/components/sections/loan-hub";
 import { SERVICES_6 } from "@/data/new-project-data";
 
 export default function ServicesPage() {
   const [modalOpen, setModalOpen] = useState(false);
+  const [modalTopic, setModalTopic] = useState("");
+
+  const handleOpenModal = (topic = "") => {
+    setModalTopic(topic);
+    setModalOpen(true);
+  };
 
   return (
     <div className="min-h-screen bg-[#f7f9fc] text-[#172b43] font-sans-body">
@@ -80,8 +87,11 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* Education Loan & Financial Assistance Hub */}
+      <LoanHub onOpenModal={handleOpenModal} isDetailed={true} />
+
       {/* CTA Box */}
-      <section className="pb-20">
+      <section className="py-20">
         <div className="max-w-[1160px] mx-auto px-4 sm:px-6">
           <div className="bg-[#123b7a] text-white p-8 sm:p-12 rounded-[5px] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 shadow-xl">
             <div className="space-y-2">
@@ -112,6 +122,7 @@ export default function ServicesPage() {
       <LeadModal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
+        initialCountry={modalTopic}
       />
     </div>
   );
