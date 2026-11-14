@@ -44,8 +44,8 @@ export function Footer() {
               <Link href="/services" className="block hover:text-white transition-colors">
                 Our support
               </Link>
-              <Link href="/#approach" className="block hover:text-white transition-colors">
-                How it works
+              <Link href="/testimonials" className="block hover:text-white transition-colors">
+                Student stories
               </Link>
               <Link href="/destinations" className="block hover:text-white transition-colors">
                 Destinations

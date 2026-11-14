@@ -59,6 +59,14 @@ export function Navbar() {
               Our support
             </Link>
             <Link
+              href="/testimonials"
+              className={`hover:text-[#1a56db] transition-colors ${
+                pathname === "/testimonials" ? "text-[#1a56db] font-bold" : ""
+              }`}
+            >
+              Student stories
+            </Link>
+            <Link
               href="/about"
               className={`hover:text-[#1a56db] transition-colors ${
                 pathname === "/about" ? "text-[#1a56db] font-bold" : ""
@@ -122,6 +130,13 @@ export function Navbar() {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Our support
+              </Link>
+              <Link
+                href="/testimonials"
+                className="py-3 border-b border-[#dce4ef] hover:text-[#1a56db]"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Student stories
               </Link>
               <Link
                 href="/about"

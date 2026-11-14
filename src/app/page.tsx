@@ -9,6 +9,7 @@ import {
   SERVICES_6,
   PROCESS_STEPS_4,
   VALUES_4,
+  STUDENT_STORIES,
 } from "@/data/new-project-data";
 
 export default function HomePage() {
@@ -410,6 +411,108 @@ export default function HomePage() {
                 </button>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Student Success Stories Section */}
+      <section className="py-20 bg-white border-t border-b border-[#dce4ef]">
+        <div className="max-w-[1160px] mx-auto px-4 sm:px-6">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-5">
+            <div>
+              <div className="eyebrow-accent">Proven outcomes · 98.4% visa record</div>
+              <h2 className="font-display text-3xl sm:text-4xl lg:text-[44px] font-bold tracking-tight text-[#172b43] mt-2 leading-tight">
+                Real students from Tamil Nadu.<br />
+                Real global admissions.
+              </h2>
+            </div>
+            <Link
+              href="/testimonials"
+              className="inline-flex items-center gap-2 text-sm font-bold text-[#1a56db] hover:text-[#1243b4] transition-colors"
+            >
+              <span>Explore all student case studies</span>
+              <span>↗</span>
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {STUDENT_STORIES.slice(0, 3).map((story) => (
+              <div
+                key={story.id}
+                className="card-clean p-6 flex flex-col justify-between border border-[#dce4ef] hover:border-[#1a56db] transition-all relative overflow-hidden"
+              >
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <span className="text-2xl">{story.flag}</span>
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#1a56db] bg-[#eaf1ff] px-2.5 py-0.5 rounded-full">
+                      {story.outcomePill}
+                    </span>
+                  </div>
+
+                  <div className="flex items-center gap-3">
+                    <img
+                      src={story.photo}
+                      alt={story.name}
+                      className="w-12 h-12 rounded-full object-cover border-2 border-white shadow-xs"
+                    />
+                    <div>
+                      <h3 className="font-display font-bold text-base text-[#172b43]">
+                        {story.name}
+                      </h3>
+                      <div className="text-xs text-[#64748b]">
+                        {story.hometown}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-[#f7f9fc] rounded p-3 text-xs space-y-1 border border-[#e8effa]">
+                    <div className="font-bold text-[#172b43]">{story.university}</div>
+                    <div className="text-[#1a56db] font-medium">{story.program}</div>
+                  </div>
+
+                  <p className="font-serif italic text-xs text-[#41536a] leading-relaxed line-clamp-3">
+                    “{story.testimonial}”
+                  </p>
+                </div>
+
+                <div className="pt-4 mt-4 border-t border-[#f0f4f9] flex items-center justify-between">
+                  <span className="text-[11px] text-[#15803d] font-semibold flex items-center gap-1">
+                    ✓ Verified admit
+                  </span>
+                  <Link
+                    href="/testimonials"
+                    className="text-xs font-bold text-[#1a56db] hover:underline"
+                  >
+                    Read story ↗
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 pt-8 border-t border-[#dce4ef] flex flex-wrap items-center justify-between gap-6">
+            <div className="flex items-center gap-6 sm:gap-10">
+              <div>
+                <span className="font-display font-bold text-2xl text-[#1a56db]">98.4%</span>
+                <span className="text-xs text-[#64748b] block">Visa approval rate</span>
+              </div>
+              <div>
+                <span className="font-display font-bold text-2xl text-[#1a56db]">₹1.4 Cr+</span>
+                <span className="text-xs text-[#64748b] block">Scholarships secured</span>
+              </div>
+              <div>
+                <span className="font-display font-bold text-2xl text-[#1a56db]">300+</span>
+                <span className="text-xs text-[#64748b] block">Students guided</span>
+              </div>
+            </div>
+
+            <Link
+              href="/testimonials"
+              className="btn-primary text-xs"
+            >
+              <span>See verified visa & admit proof</span>
+              <span>↗</span>
+            </Link>
           </div>
         </div>
       </section>

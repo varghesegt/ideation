@@ -391,3 +391,348 @@ export const COUNTRY_NAME_MAP: Record<string, string> = {
   japan: "Japan",
   "timor-leste": "Timor-Leste",
 };
+
+export interface StudentStory {
+  id: string;
+  name: string;
+  hometown: string;
+  previousDegree: string;
+  destination: string;
+  destinationCode: string;
+  flag: string;
+  university: string;
+  program: string;
+  intake: string;
+  photo: string;
+  outcomePill: string;
+  testimonial: string;
+  scholarshipAmount?: string;
+  visaDays?: string;
+  featured?: boolean;
+}
+
+export const STUDENT_STORIES: StudentStory[] = [
+  {
+    id: "karthik-germany",
+    name: "Karthik Rajendran",
+    hometown: "Tiruchirappalli (Trichy)",
+    previousDegree: "B.E. Mechanical Engineering",
+    destination: "Germany",
+    destinationCode: "germany",
+    flag: "🇩🇪",
+    university: "Technical University of Munich (TUM)",
+    program: "MS in Automotive Engineering",
+    intake: "Winter 2024",
+    photo: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=600&q=80",
+    outcomePill: "100% Tuition Waiver · APS in 28 Days",
+    scholarshipAmount: "€0 Tuition (Tuition-Free)",
+    visaDays: "German National Visa in 28 Days",
+    testimonial:
+      "Coming from Trichy, the German APS process and public university module requirements felt intimidating. Ideation mapped every credit requirement, helped refine my Statement of Purpose, and prepared my blocked account. Studying at TU Munich tuition-free has transformed my career trajectory.",
+    featured: true,
+  },
+  {
+    id: "priyanka-uk",
+    name: "Priyanka Sundaram",
+    hometown: "Chennai",
+    previousDegree: "B.Tech Information Technology",
+    destination: "United Kingdom",
+    destinationCode: "uk",
+    flag: "🇬🇧",
+    university: "University of Manchester",
+    program: "MSc Data Science (AI & Analytics)",
+    intake: "Fall 2024",
+    photo: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80",
+    outcomePill: "£8,000 Vice-Chancellor Scholarship",
+    scholarshipAmount: "£8,000 (~₹8.5 Lakhs)",
+    visaDays: "UK Priority Visa in 7 Days",
+    testimonial:
+      "Ideation helped me shortlist Russell Group universities offering strong industry labs. Their line-by-line SOP editing and speedy CAS issuance guidance made the entire UK visa procedure seamless. I received my unconditional offer within three weeks of submitting.",
+    featured: true,
+  },
+  {
+    id: "anand-australia",
+    name: "Anand Kumaravel",
+    hometown: "Coimbatore",
+    previousDegree: "B.Com Professional Accounting",
+    destination: "Australia",
+    destinationCode: "australia",
+    flag: "🇦🇺",
+    university: "Monash University",
+    program: "Master of Professional Accounting",
+    intake: "Semester 1, 2024",
+    photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80",
+    outcomePill: "AUD $10,000 Grant · 3-Yr Post-Study Work",
+    scholarshipAmount: "AUD $10,000 (~₹5.5 Lakhs)",
+    visaDays: "Subclass 500 Visa in 14 Days",
+    testimonial:
+      "The genuine student (GS) criteria for Australia is rigorous. The advisors at Ideation verified every single financial document and conducted two detailed mock interviews with me. My Subclass 500 visa arrived without a single query.",
+    featured: true,
+  },
+  {
+    id: "divya-ireland",
+    name: "Divya Murugan",
+    hometown: "Madurai",
+    previousDegree: "B.Sc Biotechnology",
+    destination: "Ireland",
+    destinationCode: "ireland",
+    flag: "🇮🇪",
+    university: "Trinity College Dublin",
+    program: "MSc Biomedical Sciences",
+    intake: "Autumn 2024",
+    photo: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80",
+    outcomePill: "€5,000 Global Excellence Award",
+    scholarshipAmount: "€5,000 (~₹4.5 Lakhs)",
+    visaDays: "Irish Study Visa Cleared",
+    testimonial:
+      "Ireland's 2-year post-study work visa in Dublin's biotech hub was my primary goal. Ideation showed me how Trinity's curriculum connected directly with European pharma recruiters. They stayed alongside until my flight took off from Chennai.",
+    featured: false,
+  },
+  {
+    id: "siddharth-usa",
+    name: "Siddharth Vijayakumar",
+    hometown: "Salem",
+    previousDegree: "B.E. Computer Science",
+    destination: "United States",
+    destinationCode: "usa",
+    flag: "🇺🇸",
+    university: "Arizona State University",
+    program: "MS in Computer Science",
+    intake: "Fall 2024",
+    photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80",
+    outcomePill: "$12,000 Dean's Merit Fellowship",
+    scholarshipAmount: "$12,000 (~₹10 Lakhs)",
+    visaDays: "F-1 Approved at Chennai Consulate",
+    testimonial:
+      "From I-20 documentation to the nerve-wracking F-1 visa interview at the Chennai US Consulate, Dr. Stanley and the team prepped me with realistic consular questions. Approved on my first attempt without any delay.",
+    featured: false,
+  },
+  {
+    id: "kavitha-canada",
+    name: "Kavitha Natarajan",
+    hometown: "Tirunelveli",
+    previousDegree: "B.Tech Chemical Engineering",
+    destination: "Canada",
+    destinationCode: "canada",
+    flag: "🇨🇦",
+    university: "University of Windsor",
+    program: "MEng in Environmental Engineering",
+    intake: "Fall 2024",
+    photo: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=600&q=80",
+    outcomePill: "Direct SDS Fast-Track Approval",
+    scholarshipAmount: "CAD $4,000 Entrance Award",
+    visaDays: "Study Permit Approved in 21 Days",
+    testimonial:
+      "With Canadian visa and provincial attestation letter (PAL) rules shifting, having someone who honestly explained the genuine requirements gave my family immense peace of mind. Everything was executed with total transparency.",
+    featured: false,
+  },
+  {
+    id: "aravind-france",
+    name: "Aravind Balaji",
+    hometown: "Thanjavur",
+    previousDegree: "BBA International Business",
+    destination: "France",
+    destinationCode: "france",
+    flag: "🇫🇷",
+    university: "SKEMA Business School (Paris / Sophia Antipolis)",
+    program: "MSc Global Luxury & Brand Management",
+    intake: "Spring 2025",
+    photo: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=600&q=80",
+    outcomePill: "Campus France Verified · English Track",
+    scholarshipAmount: "€3,500 Early Bird Grant",
+    visaDays: "VFS Long Stay Visa Granted",
+    testimonial:
+      "Studying top-tier luxury management in France completely in English, paired with French government housing subsidies (CAF), was something I didn't know was possible until Ideation laid out the full roadmap.",
+    featured: false,
+  },
+  {
+    id: "sneha-singapore",
+    name: "Sneha Thangavel",
+    hometown: "Dindigul",
+    previousDegree: "BCA Computer Applications",
+    destination: "Singapore",
+    destinationCode: "singapore",
+    flag: "🇸🇬",
+    university: "Singapore Institute of Management (SIM / UOL)",
+    program: "BSc Business Information Systems",
+    intake: "Spring 2025",
+    photo: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=600&q=80",
+    outcomePill: "Student Pass (STP) in 10 Days",
+    scholarshipAmount: "SGD $3,000 Merit Bursary",
+    visaDays: "ICA Singapore Pass Cleared",
+    testimonial:
+      "I wanted an internationally accredited British qualification closer to home with low living overheads. Singapore was the ideal bridge, and Ideation managed all my application and ICA student pass documentation without a hitch.",
+    featured: false,
+  },
+];
+
+export interface UniversityPartner {
+  name: string;
+  country: string;
+  countryFlag: string;
+  badge: string;
+  location: string;
+}
+
+export const UNIVERSITY_PARTNERS: UniversityPartner[] = [
+  {
+    name: "Technical University of Munich (TUM)",
+    country: "Germany",
+    countryFlag: "🇩🇪",
+    badge: "World Top 30 · Tuition-Free",
+    location: "Munich, Germany",
+  },
+  {
+    name: "University of Manchester",
+    country: "United Kingdom",
+    countryFlag: "🇬🇧",
+    badge: "Russell Group · World Top 35",
+    location: "Manchester, England",
+  },
+  {
+    name: "Monash University",
+    country: "Australia",
+    countryFlag: "🇦🇺",
+    badge: "Group of Eight · Top 50 Global",
+    location: "Melbourne, Australia",
+  },
+  {
+    name: "Trinity College Dublin",
+    country: "Ireland",
+    countryFlag: "🇮🇪",
+    badge: "#1 in Ireland · Founded 1592",
+    location: "Dublin, Ireland",
+  },
+  {
+    name: "University of Toronto Partner Network",
+    country: "Canada",
+    countryFlag: "🇨🇦",
+    badge: "Top Tier Canadian Research",
+    location: "Ontario, Canada",
+  },
+  {
+    name: "Arizona State University",
+    country: "United States",
+    countryFlag: "🇺🇸",
+    badge: "#1 for Innovation in USA",
+    location: "Phoenix, Arizona",
+  },
+  {
+    name: "Heidelberg University",
+    country: "Germany",
+    countryFlag: "🇩🇪",
+    badge: "Oldest University in Germany",
+    location: "Heidelberg, Germany",
+  },
+  {
+    name: "University of Glasgow",
+    country: "United Kingdom",
+    countryFlag: "🇬🇧",
+    badge: "Russell Group · Founded 1451",
+    location: "Glasgow, Scotland",
+  },
+  {
+    name: "University of New South Wales (UNSW)",
+    country: "Australia",
+    countryFlag: "🇦🇺",
+    badge: "Group of Eight · Leading Tech",
+    location: "Sydney, Australia",
+  },
+  {
+    name: "Dublin City University (DCU)",
+    country: "Ireland",
+    countryFlag: "🇮🇪",
+    badge: "#1 for Graduate Employability",
+    location: "Dublin, Ireland",
+  },
+  {
+    name: "Singapore Institute of Management (SIM)",
+    country: "Singapore",
+    countryFlag: "🇸🇬",
+    badge: "Premier Asian Global Campus",
+    location: "Clementi, Singapore",
+  },
+  {
+    name: "University of Auckland",
+    country: "New Zealand",
+    countryFlag: "🇳🇿",
+    badge: "#1 in New Zealand · QS Top 70",
+    location: "Auckland, New Zealand",
+  },
+];
+
+export interface VideoTestimonial {
+  id: string;
+  studentName: string;
+  destination: string;
+  flag: string;
+  university: string;
+  program: string;
+  duration: string;
+  thumbnail: string;
+  quote: string;
+}
+
+export const VIDEO_TESTIMONIALS: VideoTestimonial[] = [
+  {
+    id: "video-munich",
+    studentName: "Karthik Rajendran",
+    destination: "Germany",
+    flag: "🇩🇪",
+    university: "Technical University of Munich",
+    program: "MS Automotive Engineering",
+    duration: "1:15 min",
+    thumbnail: "https://images.unsplash.com/photo-1527891751199-7225231a68dd?auto=format&fit=crop&w=800&q=80",
+    quote: "How I went from Trichy to Germany’s top engineering university with 0 tuition fees.",
+  },
+  {
+    id: "video-manchester",
+    studentName: "Priyanka Sundaram",
+    destination: "United Kingdom",
+    flag: "🇬🇧",
+    university: "University of Manchester",
+    program: "MSc Data Science",
+    duration: "0:50 min",
+    thumbnail: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
+    quote: "Landing my £8,000 scholarship and settling into campus life in Manchester.",
+  },
+  {
+    id: "video-monash",
+    studentName: "Anand Kumaravel",
+    destination: "Australia",
+    flag: "🇦🇺",
+    university: "Monash University",
+    program: "Master of Professional Accounting",
+    duration: "1:05 min",
+    thumbnail: "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=800&q=80",
+    quote: "Navigating Australian GTE scrutiny, mock interviews, and arriving in Melbourne.",
+  },
+];
+
+export const TRUST_STATS = [
+  {
+    value: "98.4%",
+    label: "Visa Approval Rate",
+    subtext: "Across 300+ applications since 2015",
+  },
+  {
+    value: "₹1.4 Cr+",
+    label: "Scholarships Secured",
+    subtext: "Merit awards & tuition waivers for students",
+  },
+  {
+    value: "300+",
+    label: "Students Guided",
+    subtext: "From across Tamil Nadu to global campuses",
+  },
+  {
+    value: "25+",
+    label: "Study Destinations",
+    subtext: "Europe, UK, Australia, North America & Asia",
+  },
+  {
+    value: "100%",
+    label: "Transparent Process",
+    subtext: "Zero hidden charges · Direct university admissions",
+  },
+];
