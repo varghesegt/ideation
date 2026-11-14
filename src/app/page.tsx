@@ -138,16 +138,15 @@ export default function HomePage() {
             {/* Right Visual Image Architecture */}
             <div className="lg:col-span-6 relative">
               <div className="relative h-[420px] sm:h-[480px] w-full max-w-[500px] mx-auto">
-                {/* Main Photo with Arch Top */}
-                <div
-                  className="absolute inset-0 sm:left-9 sm:bottom-6 rounded-t-[45%] rounded-b-md shadow-2xl bg-cover bg-center overflow-hidden"
-                  style={{
-                    backgroundImage: `linear-gradient(180deg, rgba(16,37,40,0.04), rgba(16,37,40,0.22)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=85')`,
-                  }}
-                  role="img"
-                  aria-label="University students walking together on campus"
-                >
-                  <span className="absolute right-3 bottom-8 text-white text-[11px] font-medium tracking-wider [writing-mode:vertical-rl] drop-shadow-sm select-none">
+                {/* Main Photo with Arch Top (Dome) */}
+                <div className="absolute inset-0 sm:left-9 sm:bottom-6 rounded-t-[45%] rounded-b-md shadow-2xl overflow-hidden bg-[#102b50] border border-[#dce4ef] group">
+                  <img
+                    src="/images/hero-campus.jpg"
+                    alt="University students walking together on campus"
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0c192d]/75 via-[#0c192d]/15 to-transparent pointer-events-none" />
+                  <span className="absolute right-3.5 bottom-8 z-10 text-white text-[11px] font-semibold tracking-wider [writing-mode:vertical-rl] drop-shadow-md select-none">
                     A new point of view
                   </span>
                 </div>
