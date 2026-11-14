@@ -8,114 +8,116 @@ import {
   CheckCircle2,
   Clock,
   Compass,
+  Check,
+  Layers,
 } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { Container } from "@/components/ui/container";
-import { Section } from "@/components/ui/section";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Card } from "@/components/ui/card";
 import { SERVICES } from "@/data/services";
 
 export const metadata: Metadata = {
-  title: "Our Services | 8-Stage Overseas Education Roadmap",
+  title: "Admissions Services & Roadmap | Ideation Edu Services",
   description:
-    "Explore Ideation Edu Services' end-to-end study abroad process: profile assessment, country selection, university shortlisting, SOP editing, scholarships, and visa processing.",
+    "Explore Ideation Edu Services' rigorous 8-stage admissions methodology: profile assessment, country selection, university shortlisting, SOP editing, scholarships, and visa compliance.",
 };
 
 export default function ServicesPage() {
   return (
-    <div className="min-h-screen bg-[#f8fafc] text-slate-900">
+    <div className="min-h-screen bg-[#faf8f5] text-slate-900 selection:bg-blue-900 selection:text-white">
       <Navbar />
 
-      {/* Light Header Banner */}
-      <section className="pt-36 pb-16 gradient-hero-light bg-academic-mesh border-b border-slate-200/80">
+      {/* Header Banner */}
+      <section className="pt-36 pb-20 border-b border-[#ded9cd] bg-[#faf8f5] relative overflow-hidden">
+        <div className="absolute inset-0 bg-academic-mesh opacity-60 pointer-events-none" />
         <Container size="large">
-          <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100 text-blue-900 border border-blue-200 text-xs font-black uppercase tracking-wider">
-              <TrendingUp className="w-3.5 h-3.5 text-blue-700" /> Complete End-to-End Solutions
+          <div className="max-w-4xl space-y-6 relative z-10">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full badge-academic text-xs font-medium">
+              <Layers className="w-3.5 h-3.5 text-amber-800" />
+              <span>Structured Admissions Methodology</span>
             </div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-slate-900 tracking-tight">
-              The 8-Stage Study Abroad Roadmap
+
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-normal tracking-tight font-editorial text-slate-950 leading-[1.12]">
+              The 8-Stage Overseas Education Protocol
             </h1>
-            <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
-              Every step of your international journey is meticulously mapped, executed, and supervised by certified counselors with zero hidden fees.
+
+            <p className="text-lg sm:text-xl text-slate-700 leading-relaxed font-light max-w-3xl">
+              From academic diagnostic and course matching to statement editing, scholarship procurement, and consular preparation — every stage is executed by certified counselors with zero agency surcharges.
             </p>
           </div>
         </Container>
       </section>
 
-      {/* Services Grid with deep details */}
-      <Section spacing="lg" bg="default">
+      {/* Services Grid */}
+      <section className="py-20">
         <Container size="large">
           <div className="space-y-12">
             {SERVICES.map((s) => (
               <div
                 key={s.slug}
                 id={s.slug}
-                className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-xl transition-all grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"
+                className="card-editorial p-8 sm:p-10 transition-all grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"
               >
                 {/* Step indicator & overview */}
-                <div className="lg:col-span-4 space-y-3">
+                <div className="lg:col-span-5 space-y-4">
                   <div className="flex items-center gap-3">
-                    <span className="w-12 h-12 rounded-2xl bg-blue-600 text-white font-black flex items-center justify-center text-lg shadow-md">
-                      {s.stepNumber}
+                    <span className="w-10 h-10 rounded-xl bg-[#0a192f] text-amber-200 font-bold flex items-center justify-center text-base border border-amber-500/20">
+                      0{s.stepNumber}
                     </span>
-                    <span className="px-3 py-1 rounded-full bg-blue-50 text-blue-900 border border-blue-200 text-xs font-black uppercase tracking-wider">
-                      Stage {s.stepNumber}
+                    <span className="badge-academic px-3 py-0.5 text-xs font-medium">
+                      Stage 0{s.stepNumber} of 08
                     </span>
                   </div>
 
-                  <h3 className="text-2xl font-black text-slate-900 tracking-tight">
+                  <h3 className="text-2xl font-normal font-editorial text-slate-950">
                     {s.title}
                   </h3>
 
-                  <p className="text-xs font-bold text-slate-500 flex items-center gap-1.5">
-                    <Clock className="w-4 h-4 text-blue-600" />
-                    <span>Typical Timeline: {s.timeline}</span>
+                  <p className="text-xs font-medium text-slate-500 flex items-center gap-1.5">
+                    <Clock className="w-3.5 h-3.5 text-amber-800" />
+                    <span>Average Timeline: {s.timeline}</span>
                   </p>
 
-                  <p className="text-sm text-slate-600 leading-relaxed">
+                  <p className="text-sm text-slate-700 leading-relaxed font-light">
                     {s.fullDesc}
                   </p>
 
                   <div className="pt-2">
                     <Link
                       href={`/services/${s.slug}`}
-                      className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-700 hover:text-blue-900"
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-950 hover:text-amber-900 transition-colors"
                     >
-                      <span>Read Deep-Dive Guide</span>
+                      <span>Stage Guide & Methodology</span>
                       <ArrowRight className="w-3.5 h-3.5" />
                     </Link>
                   </div>
                 </div>
 
                 {/* Deliverables & Benefits */}
-                <div className="lg:col-span-8 bg-slate-50 rounded-2xl p-6 sm:p-8 border border-slate-200 space-y-4">
-                  <h4 className="text-xs font-black uppercase tracking-wider text-slate-500">
-                    What We Deliver in This Stage:
+                <div className="lg:col-span-7 bg-[#faf8f5] rounded-xl p-6 sm:p-7 border border-[#ded9cd] space-y-4">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-amber-950">
+                    Core Stage Deliverables & Audit Points:
                   </h4>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {s.deliverables.map((d, i) => (
                       <div
                         key={i}
-                        className="flex items-start gap-2.5 p-3 rounded-xl bg-white border border-slate-200 text-xs text-slate-700 shadow-2xs"
+                        className="flex items-start gap-2.5 p-3 rounded-lg bg-white border border-[#ded9cd] text-xs text-slate-700"
                       >
-                        <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
-                        <span className="leading-snug font-medium">{d}</span>
+                        <Check className="w-3.5 h-3.5 text-emerald-800 flex-shrink-0 mt-0.5" />
+                        <span className="leading-snug font-normal">{d}</span>
                       </div>
                     ))}
                   </div>
 
-                  <div className="pt-3 border-t border-slate-200 flex items-center justify-between text-xs text-slate-600">
-                    <span className="italic">&ldquo;{s.whyCrucial}&rdquo;</span>
+                  <div className="pt-3 border-t border-[#ded9cd] flex items-center justify-between text-xs text-slate-600">
+                    <span className="italic font-light">&ldquo;{s.whyCrucial}&rdquo;</span>
                     <Link
                       href="/#register"
-                      className="font-bold text-blue-700 hover:underline flex-shrink-0 ml-4"
+                      className="font-semibold text-blue-950 hover:underline flex-shrink-0 ml-4"
                     >
-                      Book This Service →
+                      Enroll for this Stage →
                     </Link>
                   </div>
                 </div>
@@ -123,26 +125,32 @@ export default function ServicesPage() {
             ))}
           </div>
         </Container>
-      </Section>
+      </section>
 
       {/* CTA */}
-      <Section spacing="lg" bg="alt">
+      <section className="py-20 border-t border-[#ded9cd] bg-[#f5f2eb]">
         <Container size="large">
           <div className="text-center max-w-2xl mx-auto space-y-6">
-            <h2 className="text-3xl font-black text-slate-900">
-              Get Started with Your Free Profile Evaluation
+            <span className="badge-academic px-3.5 py-1 text-xs font-medium inline-block">
+              Free Preliminary Assessment
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-normal font-editorial text-slate-950">
+              Initiate Stage 01: Comprehensive Profile Audit
             </h2>
-            <p className="text-slate-600">
-              Speak directly with our senior counselors. Receive a customized university shortlist tailored to your budget and academic goals.
+            <p className="text-slate-600 text-base font-light">
+              Speak directly with our senior counseling faculty. Receive an unvarnished institutional shortlist aligned with your academic credentials and financial parameters.
             </p>
-            <Link href="/#register">
-              <Button size="xl" variant="primary" className="font-bold">
-                Schedule Free Counseling Call
-              </Button>
-            </Link>
+            <div className="pt-2">
+              <Link href="/#register">
+                <button className="px-8 py-3.5 rounded-xl bg-[#0a192f] hover:bg-[#132a4a] text-amber-100 font-semibold text-sm transition-all inline-flex items-center gap-2 cursor-pointer shadow-sm">
+                  <span>Schedule Profile Evaluation</span>
+                  <ArrowRight className="w-4 h-4 text-amber-300" />
+                </button>
+              </Link>
+            </div>
           </div>
         </Container>
-      </Section>
+      </section>
 
       <Footer />
     </div>

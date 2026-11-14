@@ -12,163 +12,187 @@ import {
   MapPin,
   Clock,
   HeartHandshake,
+  Landmark,
+  FileCheck2,
+  Scale,
 } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Card } from "@/components/ui/card";
 import { TeamSection } from "@/components/sections/team-section";
 
 export const metadata: Metadata = {
-  title: "About Us & Leadership | Ideation Edu Services",
+  title: "Institutional Heritage & Leadership | Ideation Edu Services",
   description:
-    "Learn about Ideation Edu Services, founded in 2015 to empower Indian students to study abroad. Discover our mission, values, leadership team, and university partnerships.",
+    "Learn about Ideation Edu Services (OPC) Private Limited, founded in 2015 to provide ethical, non-predatory, and rigorous admissions counsel for Indian students seeking top global universities.",
 };
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-[#f8fafc] text-slate-900">
+    <div className="min-h-screen bg-[#faf8f5] text-slate-900 selection:bg-blue-900 selection:text-white">
       <Navbar />
 
-      {/* Light Header Banner */}
-      <section className="pt-36 pb-16 gradient-hero-light bg-academic-mesh border-b border-slate-200/80">
+      {/* Hero Section */}
+      <section className="pt-36 pb-20 border-b border-[#ded9cd] bg-[#faf8f5] relative overflow-hidden">
+        <div className="absolute inset-0 bg-academic-mesh opacity-60 pointer-events-none" />
         <Container size="large">
-          <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100 text-blue-900 border border-blue-200 text-xs font-black uppercase tracking-wider">
-              <Compass className="w-3.5 h-3.5 text-blue-700" /> About Our Institution
+          <div className="max-w-4xl space-y-6 relative z-10">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full badge-academic text-xs font-medium">
+              <Landmark className="w-3.5 h-3.5 text-amber-800" />
+              <span>Institutional Profile & Academic Heritage</span>
             </div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-slate-900 tracking-tight">
-              Empowering International Education Dreams Since 2015
+
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-normal tracking-tight font-editorial text-slate-950 leading-[1.12]">
+              A Decade of Principled Stewardship in Global Higher Education
             </h1>
-            <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
-              Ideation Edu Services (OPC) Private Limited was founded on a simple principle: every student deserves transparent, ethical, and ambitious guidance to study at the world&apos;s best universities without predatory agency charges.
+
+            <p className="text-lg sm:text-xl text-slate-700 leading-relaxed font-light max-w-3xl">
+              Founded in 2015 in Tiruchirappalli, Ideation Edu Services (OPC) Private Limited was established to replace commercial agent salesmanship with academic mentorship, transparent university advocacy, and zero-compromise student safety.
             </p>
           </div>
         </Container>
       </section>
 
-      {/* Origin Story & Mission */}
-      <Section spacing="lg" bg="default">
+      {/* Founding Ethos & History */}
+      <section className="py-20 border-b border-[#ded9cd]">
         <Container size="large">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-6 space-y-6">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-blue-800 text-xs font-black uppercase tracking-wider">
-                <Compass className="w-3.5 h-3.5 text-blue-700" /> Our Origin & Purpose
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-                From Tiruchirappalli to 25 Countries Worldwide
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            <div className="lg:col-span-7 space-y-6">
+              <span className="text-xs font-semibold uppercase tracking-wider text-amber-900">
+                Origins & Philosophy
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-normal font-editorial text-slate-950 leading-tight">
+                From Central Tamil Nadu to the World’s Leading Research Campuses
               </h2>
-              <p className="text-slate-600 leading-relaxed text-base sm:text-lg">
-                Started in 2015 in Tamil Nadu, Ideation Edu Services was born out of observing students fall victim to predatory agencies charging exorbitant hidden fees while pushing students toward substandard foreign institutions.
-              </p>
-              <p className="text-slate-600 leading-relaxed text-base sm:text-lg">
-                We pioneered a 100% free, transparent counseling model backed by direct official tie-ups with over 500 accredited universities across the US, UK, Canada, Australia, and Continental Europe. Over the last decade, we have successfully guided more than 1,000 students into global careers.
-              </p>
+              
+              <div className="space-y-4 text-slate-700 leading-relaxed text-base font-normal">
+                <p>
+                  In 2015, Dr. Stanley D. Isaac and Mrs. Rameeza Stanley Isaac observed that aspiring students across Tier-2 and Tier-3 Indian cities were routinely steered toward low-tier private foreign institutions by transactional brokers chasing high agent commissions.
+                </p>
+                <p>
+                  Ideation Edu Services was founded on the fundamental principle that higher education counsel must function as an academic fiduciary. Every student is evaluated strictly on merit, financial feasibility, and career trajectory, ensuring that applications are lodged with accredited, research-intensive, and career-advancing global universities.
+                </p>
+                <p>
+                  Today, having advised over 1,000 successful scholars across 25 destination countries, Ideation continues to uphold its founding charter: 100% free consultation, direct university articulation, and absolute transparency in visa and financial compliance.
+                </p>
+              </div>
 
-              <div className="pt-2 grid grid-cols-2 gap-4">
-                <div className="p-4 rounded-2xl bg-blue-50 border border-blue-100">
-                  <p className="text-2xl font-black text-blue-800">10+ Years</p>
-                  <p className="text-xs text-slate-600 mt-1 font-semibold">Excellence in Global Admissions</p>
+              <div className="grid grid-cols-3 gap-6 pt-6 border-t border-[#ded9cd]">
+                <div>
+                  <p className="text-3xl sm:text-4xl font-normal font-editorial text-blue-950">2015</p>
+                  <p className="text-xs text-slate-600 mt-1 font-medium">Year Established</p>
                 </div>
-                <div className="p-4 rounded-2xl bg-emerald-50 border border-emerald-100">
-                  <p className="text-2xl font-black text-emerald-700">98%</p>
-                  <p className="text-xs text-slate-600 mt-1 font-semibold">First-Time Visa Approval Rate</p>
+                <div>
+                  <p className="text-3xl sm:text-4xl font-normal font-editorial text-blue-950">1,000+</p>
+                  <p className="text-xs text-slate-600 mt-1 font-medium">Scholars Placed</p>
+                </div>
+                <div>
+                  <p className="text-3xl sm:text-4xl font-normal font-editorial text-blue-950">98%</p>
+                  <p className="text-xs text-slate-600 mt-1 font-medium">First-Time Visa Rate</p>
                 </div>
               </div>
             </div>
 
-            <div className="lg:col-span-6">
-              <div className="rounded-3xl bg-white border border-slate-200 text-slate-900 p-8 sm:p-10 shadow-xl space-y-6">
-                <h3 className="text-2xl font-black tracking-tight text-slate-900">
-                  Our Core Pillars of Service
-                </h3>
+            <div className="lg:col-span-5">
+              <div className="card-editorial p-8 sm:p-10 space-y-6">
+                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-900 pb-3 border-b border-[#ded9cd]">
+                  <Scale className="w-4 h-4 text-amber-800" />
+                  <span>The Ideation Transparency Charter</span>
+                </div>
 
-                <div className="space-y-4">
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-200 text-blue-700 flex items-center justify-center font-black flex-shrink-0">
-                      1
+                <div className="space-y-5 text-sm">
+                  <div className="flex items-start gap-3.5">
+                    <div className="w-7 h-7 rounded-lg bg-blue-950 text-amber-200 flex items-center justify-center font-bold text-xs flex-shrink-0 mt-0.5">
+                      01
                     </div>
                     <div>
-                      <h4 className="font-bold text-base text-slate-900">100% Free & Transparent Guidance</h4>
+                      <h4 className="font-bold text-slate-900">Zero Student Advisory Surcharges</h4>
                       <p className="text-xs text-slate-600 mt-1 leading-relaxed">
-                        We never charge students for advisory, profile reviews, or application submissions. Direct university partnerships keep our counsel ethical.
+                        We never charge students for advisory sessions, document audits, or university applications. Direct institutional partnerships sustain our counsel.
                       </p>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-indigo-50 border border-indigo-200 text-indigo-700 flex items-center justify-center font-black flex-shrink-0">
-                      2
+                  <div className="flex items-start gap-3.5">
+                    <div className="w-7 h-7 rounded-lg bg-blue-950 text-amber-200 flex items-center justify-center font-bold text-xs flex-shrink-0 mt-0.5">
+                      02
                     </div>
                     <div>
-                      <h4 className="font-bold text-base text-slate-900">Student-First University Matching</h4>
+                      <h4 className="font-bold text-slate-900">Student-Led Institutional Matching</h4>
                       <p className="text-xs text-slate-600 mt-1 leading-relaxed">
-                        We match institutions strictly according to student capability, long-term ROI, and career goals rather than agency quotas.
+                        Programs are shortlisted based solely on the applicant’s academic profile, post-study work regulations, and long-term economic return.
                       </p>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-700 flex items-center justify-center font-black flex-shrink-0">
-                      3
+                  <div className="flex items-start gap-3.5">
+                    <div className="w-7 h-7 rounded-lg bg-blue-950 text-amber-200 flex items-center justify-center font-bold text-xs flex-shrink-0 mt-0.5">
+                      03
                     </div>
                     <div>
-                      <h4 className="font-bold text-base text-slate-900">Comprehensive Pre- & Post-Arrival Care</h4>
+                      <h4 className="font-bold text-slate-900">Pre- & Post-Arrival Safety Continuity</h4>
                       <p className="text-xs text-slate-600 mt-1 leading-relaxed">
-                        From airport landing and student accommodation to part-time job tips and alumni networking, we stand by students until settlement.
+                        Guidance extends beyond visa grant to secured student housing, compliant forex transfers, blocked accounts, and on-campus arrival briefings.
                       </p>
                     </div>
+                  </div>
+                </div>
+
+                <div className="pt-4 border-t border-[#ded9cd]">
+                  <div className="p-4 rounded-xl bg-[#faf8f5] border border-[#ded9cd] text-xs text-slate-700 leading-relaxed">
+                    <span className="font-semibold text-slate-900">Corporate Incorporation:</span> Registered with the Ministry of Corporate Affairs (MCA), Government of India as Ideation Edu Services (OPC) Private Limited, Tiruchirappalli, Tamil Nadu.
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </Container>
-      </Section>
+      </section>
 
       {/* Leadership Team */}
-      <Section spacing="lg" bg="alt">
+      <section className="py-20 border-b border-[#ded9cd] bg-[#f5f2eb]">
         <Container size="large">
-          <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
-            <span className="px-3.5 py-1 rounded-full bg-blue-100 text-blue-900 border border-blue-200 text-xs font-black uppercase tracking-wider inline-block">
-              Leadership & Mentors
+          <div className="text-center max-w-3xl mx-auto space-y-3 mb-14">
+            <span className="inline-block px-3 py-1 rounded-full badge-academic text-xs font-medium">
+              Academic Directorship & Counseling Faculty
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-normal font-editorial text-slate-950">
               Meet Our Executive Leadership
             </h2>
-            <p className="text-slate-600 text-base">
-              Hands-on guidance from industry veterans committed to your personal academic and career success.
+            <p className="text-slate-600 text-base max-w-xl mx-auto font-light">
+              Personalized mentorship from experienced educators dedicated to student integrity and academic advancement.
             </p>
           </div>
 
           <TeamSection />
         </Container>
-      </Section>
+      </section>
 
       {/* Call to Action */}
-      <Section spacing="lg" bg="default">
+      <section className="py-20">
         <Container size="large">
-          <div className="rounded-3xl bg-gradient-to-br from-blue-50 via-indigo-50/50 to-white border border-blue-200 p-8 md:p-14 text-center max-w-4xl mx-auto space-y-6 shadow-lg">
-            <h2 className="text-3xl sm:text-4xl font-black text-slate-900">
-              Ready to Discuss Your Study Abroad Future?
+          <div className="card-editorial p-10 md:p-16 text-center max-w-4xl mx-auto space-y-6">
+            <span className="text-xs font-semibold uppercase tracking-wider text-amber-900">
+              Admissions Session Booking
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-normal font-editorial text-slate-950">
+              Begin Your University Advisory Assessment
             </h2>
-            <p className="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto">
-              Book a free counseling call with Dr. Stanley, Mrs. Rameeza, or one of our certified international education advisors today.
+            <p className="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto font-light">
+              Connect directly with our senior counseling faculty in Tiruchirappalli or schedule a secure virtual advisory session from anywhere in India.
             </p>
             <div className="pt-2">
               <Link href="/#register">
-                <button className="px-8 py-4 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-black text-sm uppercase tracking-wider shadow-lg shadow-blue-600/20 cursor-pointer transition-all inline-flex items-center gap-2">
-                  <span>Book Free Consultation Now</span>
-                  <ArrowRight className="w-4 h-4 text-white" />
+                <button className="px-8 py-3.5 rounded-xl bg-[#0a192f] hover:bg-[#132a4a] text-amber-100 font-semibold text-sm transition-all inline-flex items-center gap-2 cursor-pointer shadow-sm">
+                  <span>Schedule Consultation</span>
+                  <ArrowRight className="w-4 h-4 text-amber-300" />
                 </button>
               </Link>
             </div>
           </div>
         </Container>
-      </Section>
+      </section>
 
       <Footer />
     </div>
