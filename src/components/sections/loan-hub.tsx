@@ -9,7 +9,6 @@ import {
   ShieldCheck,
   ArrowUpRight,
   Calculator,
-  Sparkles,
   Building2,
 } from "lucide-react";
 
@@ -19,8 +18,6 @@ interface LoanHubProps {
 }
 
 export function LoanHub({ onOpenModal, isDetailed = false }: LoanHubProps) {
-  const [selectedFilter, setSelectedFilter] = useState<string>("all");
-
   // EMI Calculator State
   const [loanAmount, setLoanAmount] = useState<number>(30); // in Lakhs
   const [loanTenure, setLoanTenure] = useState<number>(10); // in Years
@@ -35,31 +32,6 @@ export function LoanHub({ onOpenModal, isDetailed = false }: LoanHubProps) {
       (Math.pow(1 + monthlyRate, totalMonths) - 1)
   );
 
-  const filterTabs = [
-    { id: "all", label: "All 12 Partners" },
-    { id: "unsecured", label: "Non-Collateral (Unsecured)" },
-    { id: "public", label: "Public Banks (Lowest ROI)" },
-    { id: "international", label: "No Co-Signer (USD/Global)" },
-  ];
-
-  const filteredPartners = LOAN_PARTNERS_12.filter((p) => {
-    if (selectedFilter === "all") return true;
-    if (selectedFilter === "unsecured") {
-      return (
-        p.collateral.toLowerCase().includes("no collateral") ||
-        p.collateral.toLowerCase().includes("unsecured") ||
-        p.collateral.toLowerCase().includes("both")
-      );
-    }
-    if (selectedFilter === "public") {
-      return p.type.includes("Public Sector Bank");
-    }
-    if (selectedFilter === "international") {
-      return p.type.includes("Global") || p.type.includes("Direct Lender");
-    }
-    return true;
-  });
-
   return (
     <section id="loan-hub" className="py-16 sm:py-24 bg-[#f8fafc] border-t border-b border-[#dce4ef] relative overflow-hidden">
       {/* Background Subtle Ambience */}
@@ -68,11 +40,7 @@ export function LoanHub({ onOpenModal, isDetailed = false }: LoanHubProps) {
       <div className="max-w-[1160px] mx-auto px-4 sm:px-6 relative z-10">
         {/* Section Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 sm:mb-16 gap-6">
-          <div className="max-w-2xl space-y-3.5">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#eaf1ff] border border-[#cadbfa] text-[#1a56db] text-[11px] font-bold uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Ancillary Financial Ecosystem · End-to-End Assistance</span>
-            </div>
+          <div className="max-w-2xl space-y-3">
             <h2 className="font-display text-3xl sm:text-4xl lg:text-[44px] font-bold tracking-tight text-[#0f172a] leading-tight">
               Education loan & financial assistance hub.
             </h2>
@@ -121,45 +89,24 @@ export function LoanHub({ onOpenModal, isDetailed = false }: LoanHubProps) {
           ))}
         </div>
 
-        {/* 12+ Partner Banks & NBFCs Filter Header */}
-        <div className="mb-8">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#dce4ef] gap-4">
-            <div>
-              <div className="flex items-center gap-2">
-                <h3 className="font-display font-bold text-xl sm:text-2xl text-[#0f172a]">
-                  12+ Verified Banking & NBFC Partners
-                </h3>
-                <span className="bg-[#1a56db] text-white text-[11px] font-bold px-2 py-0.5 rounded-full">
-                  {filteredPartners.length}
-                </span>
-              </div>
-              <p className="text-xs sm:text-sm text-[#64748b] mt-0.5">
-                Pre-approved tie-ups for fast sanction letters and dedicated application processing.
-              </p>
-            </div>
-
-            {/* Mobile Scrollable Filter Tabs */}
-            <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap flex-nowrap">
-              {filterTabs.map((tab) => (
-                <button
-                  key={tab.id}
-                  onClick={() => setSelectedFilter(tab.id)}
-                  className={`px-3.5 py-2 rounded-lg text-xs font-semibold whitespace-nowrap transition-all cursor-pointer flex-shrink-0 ${
-                    selectedFilter === tab.id
-                      ? "bg-[#1a56db] text-white shadow-xs"
-                      : "bg-white text-[#475569] border border-[#dce4ef] hover:border-[#1a56db] hover:text-[#1a56db]"
-                  }`}
-                >
-                  {tab.label}
-                </button>
-              ))}
-            </div>
+        {/* 12+ Partner Banks & NBFCs Header */}
+        <div className="mb-8 pb-4 border-b border-[#dce4ef]">
+          <div className="flex items-center gap-2.5">
+            <h3 className="font-display font-bold text-xl sm:text-2xl text-[#0f172a]">
+              12+ Verified Banking & NBFC Partners
+            </h3>
+            <span className="bg-[#1a56db] text-white text-[11px] font-bold px-2.5 py-0.5 rounded-full">
+              12 Partners
+            </span>
           </div>
+          <p className="text-xs sm:text-sm text-[#64748b] mt-1">
+            Pre-approved tie-ups for fast sanction letters and dedicated application processing.
+          </p>
         </div>
 
         {/* Highly Designed Partner Cards Grid (12 Institutions) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 mb-16">
-          {filteredPartners.map((partner) => (
+          {LOAN_PARTNERS_12.map((partner) => (
             <article
               key={partner.id}
               className="relative rounded-2xl bg-white border border-[#dce4ef] hover:border-[#1a56db]/50 hover:shadow-[0_16px_36px_-12px_rgba(26,86,219,0.15)] transition-all duration-300 flex flex-col justify-between overflow-hidden group"
