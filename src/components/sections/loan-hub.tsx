@@ -91,14 +91,9 @@ export function LoanHub({ onOpenModal, isDetailed = false }: LoanHubProps) {
 
         {/* 12+ Partner Banks & NBFCs Header */}
         <div className="mb-8 pb-4 border-b border-[#dce4ef]">
-          <div className="flex items-center gap-2.5">
-            <h3 className="font-display font-bold text-xl sm:text-2xl text-[#0f172a]">
-              12+ Verified Banking & NBFC Partners
-            </h3>
-            <span className="bg-[#1a56db] text-white text-[11px] font-bold px-2.5 py-0.5 rounded-full">
-              12 Partners
-            </span>
-          </div>
+          <h3 className="font-display font-bold text-xl sm:text-2xl text-[#0f172a]">
+            12+ Verified Banking & NBFC Partners
+          </h3>
           <p className="text-xs sm:text-sm text-[#64748b] mt-1">
             Pre-approved tie-ups for fast sanction letters and dedicated application processing.
           </p>
