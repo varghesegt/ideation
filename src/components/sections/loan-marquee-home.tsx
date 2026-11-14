@@ -27,7 +27,7 @@ export function LoanMarqueeHome({ onOpenModal }: LoanMarqueeHomeProps) {
               Pre-approved education loans with 12+ trusted partners.
             </h2>
             <p className="text-sm sm:text-base text-[#64748b] leading-relaxed">
-              Fast collateral and non-collateral sanctions with doorstep document collection in Tamil Nadu. Click any partner below to compare schemes, interest rates, and calculate your monthly EMI.
+              Fast collateral and non-collateral sanctions with dedicated application assistance. Click any partner below to compare schemes, interest rates, and calculate your monthly EMI.
             </p>
           </div>
 

@@ -788,13 +788,13 @@ export const LOAN_PARTNERS_12: LoanPartner[] = [
     maxAmount: "Up to ₹60 Lakhs (Unsecured)",
     rateEstimate: "From 9.50% p.a.",
     collateral: "Both Collateral & Non-Collateral",
-    highlight: "Doorstep document pickup, pre-visa sanction letters, and loan disbursement before university admission.",
+    highlight: "Fast pre-visa sanction letters and expedited loan disbursement before university admission deadlines.",
     badge: "Most Popular for US & UK",
     speed: "3–5 Days Sanction",
     moratorium: "Course + 12 Months",
     tenure: "Up to 15 Years",
     features: [
-      "Doorstep document pickup across TN",
+      "Sanction letters before university admission",
       "Pre-visa sanction letter for Embassy",
       "Disbursement before admission fee deadline",
       "Living expenses & travel covered",
@@ -875,7 +875,7 @@ export const LOAN_PARTNERS_12: LoanPartner[] = [
       "Digital sanction letter in 48 hours",
       "Direct German Blocked Account funding",
       "Canadian GIC account transfer support",
-      "Doorstep branch executive assistance",
+      "Dedicated senior banking executive support",
     ],
     destinations: ["USA", "Germany", "Canada", "UK", "Australia", "New Zealand"],
     checklist: [
@@ -1030,7 +1030,7 @@ export const LOAN_PARTNERS_12: LoanPartner[] = [
     features: [
       "100% paperless digital onboarding",
       "Unsecured options with competitive ROI",
-      "Doorstep biometric KYC verification",
+      "Instant video KYC & digital verification",
       "No hidden terms or pre-closure penalties",
     ],
     destinations: ["USA", "UK", "Canada", "Ireland", "Germany", "Australia"],

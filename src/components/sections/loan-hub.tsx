@@ -9,13 +9,8 @@ import {
   ShieldCheck,
   ArrowUpRight,
   Calculator,
-  ChevronDown,
-  ChevronUp,
-  FileCheck2,
-  Globe2,
   Sparkles,
   Building2,
-  Check,
 } from "lucide-react";
 
 interface LoanHubProps {
@@ -25,7 +20,6 @@ interface LoanHubProps {
 
 export function LoanHub({ onOpenModal, isDetailed = false }: LoanHubProps) {
   const [selectedFilter, setSelectedFilter] = useState<string>("all");
-  const [expandedCardId, setExpandedCardId] = useState<string | null>(null);
 
   // EMI Calculator State
   const [loanAmount, setLoanAmount] = useState<number>(30); // in Lakhs
@@ -66,10 +60,6 @@ export function LoanHub({ onOpenModal, isDetailed = false }: LoanHubProps) {
     return true;
   });
 
-  const toggleExpand = (id: string) => {
-    setExpandedCardId(expandedCardId === id ? null : id);
-  };
-
   return (
     <section id="loan-hub" className="py-16 sm:py-24 bg-[#f8fafc] border-t border-b border-[#dce4ef] relative overflow-hidden">
       {/* Background Subtle Ambience */}
@@ -81,13 +71,13 @@ export function LoanHub({ onOpenModal, isDetailed = false }: LoanHubProps) {
           <div className="max-w-2xl space-y-3.5">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#eaf1ff] border border-[#cadbfa] text-[#1a56db] text-[11px] font-bold uppercase tracking-wider">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>Ancillary Financial Ecosystem · Doorstep Assistance</span>
+              <span>Ancillary Financial Ecosystem · End-to-End Assistance</span>
             </div>
             <h2 className="font-display text-3xl sm:text-4xl lg:text-[44px] font-bold tracking-tight text-[#0f172a] leading-tight">
               Education loan & financial assistance hub.
             </h2>
             <p className="text-sm sm:text-base text-[#64748b] leading-relaxed">
-              Funding your international master’s or bachelor’s shouldn’t hold you back. Through Ideation’s verified partnerships with 12+ national banks and global NBFCs, students across Tamil Nadu receive pre-visa sanction letters, non-collateral approvals up to ₹60 Lakhs, and doorstep document collection.
+              Funding your international master’s or bachelor’s shouldn’t hold you back. Through Ideation’s verified partnerships with 12+ national banks and global NBFCs, students receive pre-visa sanction letters, non-collateral approvals up to ₹60 Lakhs, and dedicated application guidance.
             </p>
           </div>
 
@@ -144,7 +134,7 @@ export function LoanHub({ onOpenModal, isDetailed = false }: LoanHubProps) {
                 </span>
               </div>
               <p className="text-xs sm:text-sm text-[#64748b] mt-0.5">
-                Pre-approved tie-ups for fast sanction letters and doorstep application processing in Tamil Nadu.
+                Pre-approved tie-ups for fast sanction letters and dedicated application processing.
               </p>
             </div>
 
@@ -169,147 +159,90 @@ export function LoanHub({ onOpenModal, isDetailed = false }: LoanHubProps) {
 
         {/* Highly Designed Partner Cards Grid (12 Institutions) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 mb-16">
-          {filteredPartners.map((partner) => {
-            const isExpanded = expandedCardId === partner.id;
+          {filteredPartners.map((partner) => (
+            <article
+              key={partner.id}
+              className="relative rounded-2xl bg-white border border-[#dce4ef] hover:border-[#1a56db]/50 hover:shadow-[0_16px_36px_-12px_rgba(26,86,219,0.15)] transition-all duration-300 flex flex-col justify-between overflow-hidden group"
+            >
+              {/* Subtle Top Accent Hairline */}
+              <div className="h-1 w-full bg-gradient-to-r from-[#1a56db]/10 via-[#1a56db] to-[#1a56db]/10 opacity-70 group-hover:opacity-100 transition-opacity" />
 
-            return (
-              <article
-                key={partner.id}
-                className="relative rounded-2xl bg-white border border-[#dce4ef] hover:border-[#1a56db]/50 hover:shadow-[0_16px_36px_-12px_rgba(26,86,219,0.15)] transition-all duration-300 flex flex-col justify-between overflow-hidden group"
-              >
-                {/* Subtle Top Accent Hairline */}
-                <div className="h-1 w-full bg-gradient-to-r from-[#1a56db]/10 via-[#1a56db] to-[#1a56db]/10 opacity-70 group-hover:opacity-100 transition-opacity" />
+              <div className="p-5 sm:p-6 space-y-4">
+                {/* Top Header: Official Bank Logo */}
+                <div className="h-11 flex items-center">
+                  <BankLogo id={partner.id} className="h-9 sm:h-10 w-auto object-contain" />
+                </div>
 
-                <div className="p-5 sm:p-6 space-y-4">
-                  {/* Top Header: Official Bank Logo */}
-                  <div className="h-11 flex items-center">
-                    <BankLogo id={partner.id} className="h-9 sm:h-10 w-auto object-contain" />
-                  </div>
-
-                  {/* Micro-Dashboard Numbers Box */}
-                  <div className="bg-[#f8fafc] rounded-xl p-3.5 border border-[#e2e8f0] space-y-2.5">
-                    <div className="grid grid-cols-2 gap-2">
-                      <div>
-                        <span className="text-[10px] uppercase tracking-wider text-[#64748b] block font-semibold">
-                          Max Loan Amount
-                        </span>
-                        <strong className="text-[#0f172a] font-display font-extrabold text-[15px] sm:text-[16px] block mt-0.5">
-                          {partner.maxAmount}
-                        </strong>
-                      </div>
-                      <div>
-                        <span className="text-[10px] uppercase tracking-wider text-[#64748b] block font-semibold">
-                          Indicative Rate
-                        </span>
-                        <strong className="text-[#15803d] font-display font-extrabold text-[15px] sm:text-[16px] block mt-0.5">
-                          {partner.rateEstimate}
-                        </strong>
-                      </div>
+                {/* Micro-Dashboard Numbers Box */}
+                <div className="bg-[#f8fafc] rounded-xl p-3.5 border border-[#e2e8f0] space-y-2.5">
+                  <div className="grid grid-cols-2 gap-2">
+                    <div>
+                      <span className="text-[10px] uppercase tracking-wider text-[#64748b] block font-semibold">
+                        Max Loan Amount
+                      </span>
+                      <strong className="text-[#0f172a] font-display font-extrabold text-[15px] sm:text-[16px] block mt-0.5">
+                        {partner.maxAmount}
+                      </strong>
                     </div>
-
-                    <div className="border-t border-[#edf2f7] pt-2 flex items-center justify-between text-[11px] text-[#475569]">
-                      <span className="truncate">
-                        <strong>Moratorium:</strong> {partner.moratorium}
+                    <div>
+                      <span className="text-[10px] uppercase tracking-wider text-[#64748b] block font-semibold">
+                        Indicative Rate
                       </span>
-                      <span className="flex-shrink-0 ml-2">
-                        <strong>Tenure:</strong> {partner.tenure}
-                      </span>
+                      <strong className="text-[#15803d] font-display font-extrabold text-[15px] sm:text-[16px] block mt-0.5">
+                        {partner.rateEstimate}
+                      </strong>
                     </div>
                   </div>
 
-                  {/* Collateral Trust Indicator */}
-                  <div className="text-xs text-[#0f172a] font-semibold flex items-center gap-2 bg-[#f1f5f9]/70 px-3 py-1.5 rounded-lg border border-[#e2e8f0]">
-                    <ShieldCheck className="w-4 h-4 text-[#1a56db] flex-shrink-0" />
-                    <span>{partner.collateral}</span>
-                  </div>
-
-                  {/* Core Value Statement */}
-                  <p className="text-xs text-[#475569] leading-relaxed">
-                    {partner.highlight}
-                  </p>
-
-                  {/* Key Features Bullet Chips */}
-                  <div className="space-y-1.5 pt-1">
-                    {partner.features.slice(0, 3).map((feat, idx) => (
-                      <div key={idx} className="flex items-center gap-2 text-xs text-[#334155]">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#1a56db] flex-shrink-0" />
-                        <span className="truncate">{feat}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Expandable Scheme & Checklist Drawer */}
-                  <div className="pt-2">
-                    <button
-                      onClick={() => toggleExpand(partner.id)}
-                      className="w-full py-2 px-3 rounded-lg bg-[#f8fafc] hover:bg-[#edf2f7] text-[11px] font-bold text-[#1a56db] transition-colors flex items-center justify-between cursor-pointer border border-[#e2e8f0]"
-                      aria-expanded={isExpanded}
-                    >
-                      <span className="flex items-center gap-1.5">
-                        <FileCheck2 className="w-3.5 h-3.5" />
-                        <span>{isExpanded ? "Hide Scheme Details & Docs" : "View Scheme Checklist & Docs"}</span>
-                      </span>
-                      {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-                    </button>
-
-                    {isExpanded && (
-                      <div className="mt-3 p-3.5 bg-[#f8fafc] rounded-xl border border-[#dce4ef] text-xs space-y-3 animate-in fade-in slide-in-from-top-2 duration-200">
-                        <div>
-                          <span className="text-[10px] font-bold uppercase tracking-wider text-[#64748b] block mb-1.5">
-                            Required Application Checklist
-                          </span>
-                          <ul className="space-y-1 text-[#334155]">
-                            {partner.checklist.map((item, cIdx) => (
-                              <li key={cIdx} className="flex items-start gap-1.5">
-                                <Check className="w-3.5 h-3.5 text-[#15803d] flex-shrink-0 mt-0.5" />
-                                <span>{item}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-
-                        <div>
-                          <span className="text-[10px] font-bold uppercase tracking-wider text-[#64748b] block mb-1.5">
-                            Supported Study Destinations
-                          </span>
-                          <div className="flex flex-wrap gap-1">
-                            {partner.destinations.map((dest, dIdx) => (
-                              <span
-                                key={dIdx}
-                                className="bg-white border border-[#cbd5e1] text-[#1e293b] text-[10px] font-semibold px-2 py-0.5 rounded"
-                              >
-                                {dest}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-
-                        <div className="bg-[#eaf1ff] p-2.5 rounded-lg border border-[#cadbfa] text-[11px] text-[#1a56db] leading-relaxed">
-                          <strong>Ideation Advantage:</strong> Free doorstep document pickup and direct coordination with local branch credit officers in Tamil Nadu.
-                        </div>
-                      </div>
-                    )}
+                  <div className="border-t border-[#edf2f7] pt-2 flex items-center justify-between text-[11px] text-[#475569]">
+                    <span className="truncate">
+                      <strong>Moratorium:</strong> {partner.moratorium}
+                    </span>
+                    <span className="flex-shrink-0 ml-2">
+                      <strong>Tenure:</strong> {partner.tenure}
+                    </span>
                   </div>
                 </div>
 
-                {/* Card Action Footer */}
-                <div className="px-5 sm:px-6 py-3.5 bg-[#f8fafc] border-t border-[#edf2f7] flex items-center justify-between gap-3">
-                  <div className="flex items-center gap-1.5 text-[11px] font-medium text-[#64748b]">
-                    <Building2 className="w-3.5 h-3.5 text-[#94a3b8]" />
-                    <span className="truncate max-w-[120px] sm:max-w-[150px]">{partner.type}</span>
-                  </div>
-
-                  <button
-                    onClick={() => onOpenModal(`Education Loan Application via ${partner.name}`)}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-white bg-[#1a56db] hover:bg-[#1243b4] px-3.5 py-2 rounded-lg shadow-xs transition-all active:scale-95 cursor-pointer whitespace-nowrap"
-                  >
-                    <span>Apply with Ideation</span>
-                    <ArrowUpRight className="w-3.5 h-3.5" />
-                  </button>
+                {/* Collateral Trust Indicator */}
+                <div className="text-xs text-[#0f172a] font-semibold flex items-center gap-2 bg-[#f1f5f9]/70 px-3 py-1.5 rounded-lg border border-[#e2e8f0]">
+                  <ShieldCheck className="w-4 h-4 text-[#1a56db] flex-shrink-0" />
+                  <span>{partner.collateral}</span>
                 </div>
-              </article>
-            );
-          })}
+
+                {/* Core Value Statement */}
+                <p className="text-xs text-[#475569] leading-relaxed">
+                  {partner.highlight}
+                </p>
+
+                {/* Key Features Bullet Chips */}
+                <div className="space-y-1.5 pt-1">
+                  {partner.features.slice(0, 3).map((feat, idx) => (
+                    <div key={idx} className="flex items-center gap-2 text-xs text-[#334155]">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#1a56db] flex-shrink-0" />
+                      <span className="truncate">{feat}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Card Action Footer */}
+              <div className="px-5 sm:px-6 py-3.5 bg-[#f8fafc] border-t border-[#edf2f7] flex items-center justify-between gap-3">
+                <div className="flex items-center gap-1.5 text-[11px] font-medium text-[#64748b]">
+                  <Building2 className="w-3.5 h-3.5 text-[#94a3b8]" />
+                  <span className="truncate max-w-[120px] sm:max-w-[150px]">{partner.type}</span>
+                </div>
+
+                <button
+                  onClick={() => onOpenModal(`Education Loan Application via ${partner.name}`)}
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-white bg-[#1a56db] hover:bg-[#1243b4] px-3.5 py-2 rounded-lg shadow-xs transition-all active:scale-95 cursor-pointer whitespace-nowrap"
+                >
+                  <span>Apply with Ideation</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </article>
+          ))}
         </div>
 
         {/* Interactive Loan EMI Estimator Box */}
