@@ -26,49 +26,49 @@ export default function HomePage() {
       number: "01 / Europe",
       flag: "🇬🇧",
       tagline: "Tradition meets fresh thinking",
-      photo: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=700&q=80",
+      photo: "https://images.unsplash.com/photo-1520986606214-8b456906c813?auto=format&fit=crop&w=700&q=80",
     },
     {
       country: "Canada",
       number: "02 / North America",
       flag: "🇨🇦",
       tagline: "Room to grow, in every sense",
-      photo: "https://images.unsplash.com/photo-1517935706615-2717063c2225?auto=format&fit=crop&w=700&q=80",
+      photo: "https://images.unsplash.com/photo-1503614472-8c93d56e92ce?auto=format&fit=crop&w=700&q=80",
     },
     {
       country: "Australia",
       number: "03 / Oceania",
       flag: "🇦🇺",
       tagline: "Learning with a new perspective",
-      photo: "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=700&q=80",
+      photo: "https://images.unsplash.com/photo-1514395462725-fb4566210144?auto=format&fit=crop&w=700&q=80",
     },
     {
       country: "United States",
       number: "04 / North America",
       flag: "🇺🇸",
       tagline: "Make space for big ideas",
-      photo: "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?auto=format&fit=crop&w=700&q=80",
+      photo: "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=700&q=80",
     },
     {
       country: "Ireland",
       number: "05 / Europe",
       flag: "🇮🇪",
       tagline: "A welcoming place to begin",
-      photo: "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=700&q=80",
+      photo: "https://images.unsplash.com/photo-1590089415225-401ed6f9db8e?auto=format&fit=crop&w=700&q=80",
     },
     {
       country: "New Zealand",
       number: "06 / Oceania",
       flag: "🇳🇿",
       tagline: "Find your own kind of balance",
-      photo: "https://images.unsplash.com/photo-1509233725247-49e657c54213?auto=format&fit=crop&w=700&q=80",
+      photo: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=700&q=80",
     },
     {
       country: "Singapore",
       number: "07 / Asia",
       flag: "🇸🇬",
       tagline: "Connected to what comes next",
-      photo: "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=700&q=80",
+      photo: "https://images.unsplash.com/photo-1565967511849-76a60a516170?auto=format&fit=crop&w=700&q=80",
     },
   ];
 
@@ -362,7 +362,7 @@ export default function HomePage() {
                 <div
                   className="absolute inset-0 sm:right-12 sm:bottom-7 rounded-[4px] bg-cover bg-center shadow-lg"
                   style={{
-                    backgroundImage: `url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1000&q=85')`,
+                    backgroundImage: `url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1000&q=85')`,
                   }}
                   role="img"
                   aria-label="Students sharing ideas while studying together"

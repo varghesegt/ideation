@@ -32,7 +32,7 @@ export default function AboutPage() {
               <div
                 className="relative min-h-[300px] sm:min-h-[360px] rounded-[6px] bg-cover bg-center overflow-hidden shadow-2xl visual-hero-overlay"
                 style={{
-                  backgroundImage: `url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=85')`,
+                  backgroundImage: `url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=85')`,
                 }}
               >
                 <div className="absolute z-10 left-6 bottom-5 text-white font-display font-semibold text-sm tracking-wide">
@@ -163,7 +163,7 @@ export default function AboutPage() {
                 <div
                   className="h-[150px] -mx-6 -mt-6 sm:-mx-7 sm:-mt-7 mb-6 bg-cover bg-center relative flex items-center justify-center"
                   style={{
-                    backgroundImage: `linear-gradient(135deg, rgba(220,233,255,0.92), rgba(240,245,255,0.92)), url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=700&q=80')`,
+                    backgroundImage: `linear-gradient(135deg, rgba(220,233,255,0.92), rgba(240,245,255,0.92)), url('${leader.bannerPhoto}')`,
                   }}
                 >
                   <div className="w-[88px] h-[88px] rounded-full border border-[#aac5f7] bg-white text-[#1a56db] grid place-items-center font-display font-semibold text-xl tracking-wide shadow-md">

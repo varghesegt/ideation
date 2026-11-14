@@ -94,7 +94,7 @@ export const DESTINATIONS_25: DestinationItem[] = [
     slug: "netherlands",
     name: "Netherlands",
     flag: "🇳🇱",
-    photo: "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=700&q=80",
+    photo: "https://images.unsplash.com/photo-1534351590666-13e3e96b5017?auto=format&fit=crop&w=700&q=80",
     region: "Europe",
     number: "10",
     tagline: "Pioneering international degrees in English",
@@ -234,7 +234,7 @@ export const DESTINATIONS_25: DestinationItem[] = [
     slug: "malaysia",
     name: "Malaysia",
     flag: "🇲🇾",
-    photo: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=700&q=80",
+    photo: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=700&q=80",
     region: "Asia",
     number: "23",
     tagline: "Branch campuses of top UK and Australian universities",
@@ -344,6 +344,7 @@ export const LEADERS_3 = [
     name: "Rameeza Stanley Isaac",
     role: "Founder & Director",
     bio: "Drives the vision, strategy and operations of Ideation Edu.",
+    bannerPhoto: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=700&q=80",
   },
   {
     index: "02",
@@ -351,6 +352,7 @@ export const LEADERS_3 = [
     name: "Sherwin S Isaac",
     role: "Chief Operating Officer (COO)",
     bio: "Oversees daily operations, processes and the student experience.",
+    bannerPhoto: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=700&q=80",
   },
   {
     index: "03",
@@ -358,6 +360,7 @@ export const LEADERS_3 = [
     name: "Dr. Stanley D Isaac",
     role: "Chief Executive Officer (CEO)",
     bio: "Provides strategic guidance and industry expertise to support student decision-making.",
+    bannerPhoto: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=700&q=80",
   },
 ];
 

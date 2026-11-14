@@ -17,19 +17,34 @@ export default function ServicesPage() {
       {/* Page Hero */}
       <section className="py-16 sm:py-20 bg-radial-[at_84%_4%] from-[#dfeaff] via-[#edf3ff] to-[#f7f9fc] border-b border-[#dce4ef]">
         <div className="max-w-[1160px] mx-auto px-4 sm:px-6">
-          <div className="max-w-3xl space-y-5">
-            <div className="eyebrow-accent">Here for every next step</div>
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-[58px] font-bold leading-[1.06] tracking-[-0.07em] text-[#172b43]">
-              Good guidance makes the journey feel lighter.
-            </h1>
-            <p className="text-base sm:text-lg text-[#64748b] leading-relaxed max-w-2xl">
-              From your first questions to getting ready to go, get thoughtful support shaped around your goals and your next chapter.
-            </p>
-            <div className="pt-2">
-              <Link href="/contact" className="btn-primary">
-                <span>Talk to an advisor</span>
-                <span>↗</span>
-              </Link>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <div className="lg:col-span-6 space-y-5">
+              <div className="eyebrow-accent">Here for every next step</div>
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-[58px] font-bold leading-[1.06] tracking-[-0.07em] text-[#172b43]">
+                Good guidance makes the journey feel lighter.
+              </h1>
+              <p className="text-base sm:text-lg text-[#64748b] leading-relaxed max-w-xl">
+                From your first questions to getting ready to go, get thoughtful support shaped around your goals and your next chapter.
+              </p>
+              <div className="pt-2">
+                <Link href="/contact" className="btn-primary">
+                  <span>Talk to an advisor</span>
+                  <span>↗</span>
+                </Link>
+              </div>
+            </div>
+
+            <div className="lg:col-span-6">
+              <div
+                className="relative min-h-[280px] sm:min-h-[340px] rounded-[6px] bg-cover bg-center overflow-hidden shadow-2xl visual-hero-overlay"
+                style={{
+                  backgroundImage: `url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1000&q=85')`,
+                }}
+              >
+                <div className="absolute z-10 left-6 bottom-5 text-white font-display font-semibold text-sm tracking-wide">
+                  Shaping the path forward
+                </div>
+              </div>
             </div>
           </div>
         </div>
