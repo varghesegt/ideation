@@ -12,6 +12,7 @@ import {
   VALUES_4,
   STUDENT_STORIES,
 } from "@/data/new-project-data";
+import { asset } from "@/lib/assets";
 
 export default function HomePage() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -143,7 +144,7 @@ export default function HomePage() {
                 {/* Main Photo with Arch Top (Dome) */}
                 <div className="absolute inset-0 sm:left-9 sm:bottom-6 rounded-t-[45%] rounded-b-md shadow-2xl overflow-hidden bg-[#102b50] border border-[#dce4ef] group">
                   <img
-                    src="/images/hero-campus.jpg"
+                    src={asset("/images/hero-campus.jpg")}
                     alt="University students walking together on campus"
                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                   />

@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { COUNTRY_NAME_MAP } from "@/data/new-project-data";
+import { asset } from "@/lib/assets";
 
 function ContactFormInner() {
   const searchParams = useSearchParams();
@@ -236,7 +237,7 @@ export default function ContactPage() {
               <div className="card-clean p-6 space-y-3">
                 <div className="flex items-center gap-3 pb-2.5 border-b border-[#dce4ef]">
                   <img
-                    src="/images/logo-dark.png"
+                    src={asset("/images/logo-dark.png")}
                     alt="Ideation Education Services"
                     className="h-12 w-auto object-contain"
                   />

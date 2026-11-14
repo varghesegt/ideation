@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { asset } from "@/lib/assets";
 
 export function Footer() {
   return (
@@ -14,7 +15,7 @@ export function Footer() {
               aria-label="Ideation Education Services"
             >
               <img
-                src="/images/logo-emblem-white.png"
+                src={asset("/images/logo-emblem-white.png")}
                 alt="Ideation Education Crest"
                 className="h-14 w-auto object-contain transition-transform group-hover:scale-105 duration-300 flex-shrink-0"
               />

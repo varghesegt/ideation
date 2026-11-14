@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 export const metadata: Metadata = {
   title: "Ideation Education Services | Study abroad, thoughtfully",
   description:
     "Plan your study abroad journey with personal, end-to-end guidance from Ideation Education Services.",
   icons: {
-    icon: "/images/favicon-64.png",
-    shortcut: "/images/favicon-64.png",
-    apple: "/images/favicon-64.png",
+    icon: `${basePath}/images/favicon-64.png`,
+    shortcut: `${basePath}/images/favicon-64.png`,
+    apple: `${basePath}/images/favicon-64.png`,
   },
   openGraph: {
     title: "Ideation Education Services — Your world of possibility",
@@ -18,7 +20,7 @@ export const metadata: Metadata = {
     siteName: "Ideation Education Services",
     images: [
       {
-        url: "/images/logo-dark.png",
+        url: `${basePath}/images/logo-dark.png`,
         width: 279,
         height: 291,
         alt: "Ideation Education Services Logo",

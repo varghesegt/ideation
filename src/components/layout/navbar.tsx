@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { LeadModal } from "@/components/ui/lead-modal";
+import { asset } from "@/lib/assets";
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -26,7 +27,7 @@ export function Navbar() {
             aria-label="Ideation Education Services"
           >
             <img
-              src="/images/logo-emblem-dark.png"
+              src={asset("/images/logo-emblem-dark.png")}
               alt="Ideation Education Crest"
               className="h-[36px] sm:h-[42px] w-auto object-contain transition-transform group-hover:scale-105 duration-200 flex-shrink-0"
             />

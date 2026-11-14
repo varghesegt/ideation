@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { X } from "lucide-react";
 import { DESTINATIONS_25 } from "@/data/new-project-data";
+import { asset } from "@/lib/assets";
 
 interface LeadModalProps {
   isOpen: boolean;
@@ -77,7 +78,7 @@ export function LeadModal({ isOpen, onClose, initialCountry = "" }: LeadModalPro
 
         <div className="flex items-center gap-3 mb-4">
           <img
-            src="/images/logo-emblem-dark.png"
+            src={asset("/images/logo-emblem-dark.png")}
             alt="Ideation Education Crest"
             className="h-11 w-auto object-contain flex-shrink-0"
           />

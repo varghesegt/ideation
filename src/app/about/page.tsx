@@ -6,6 +6,7 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { LeadModal } from "@/components/ui/lead-modal";
 import { LEADERS_3 } from "@/data/new-project-data";
+import { asset } from "@/lib/assets";
 
 export default function AboutPage() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -50,7 +51,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
             <div className="lg:col-span-5 space-y-3">
               <img
-                src="/images/logo-dark.png"
+                src={asset("/images/logo-dark.png")}
                 alt="Ideation Education Services"
                 className="h-14 w-auto object-contain mb-3"
               />

@@ -11,6 +11,9 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   trailingSlash: true,
+  env: {
+    NEXT_PUBLIC_BASE_PATH: isGithubActions ? `/${repoName}` : "",
+  },
 };
 
 export default nextConfig;
