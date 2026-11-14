@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { LeadModal } from "@/components/ui/lead-modal";
-import { LoanHub } from "@/components/sections/loan-hub";
+import { LoanMarqueeHome } from "@/components/sections/loan-marquee-home";
 import {
   SERVICES_6,
   PROCESS_STEPS_4,
@@ -518,8 +518,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Education Loan & Financial Assistance Hub */}
-      <LoanHub onOpenModal={handleOpenModal} isDetailed={false} />
+      {/* Education Loan & Financial Assistance Hub (Streamlined Logo Marquee with redirection) */}
+      <LoanMarqueeHome onOpenModal={handleOpenModal} />
 
       {/* Story Card & Metrics */}
       <section className="py-12 bg-[#edf3ff]">

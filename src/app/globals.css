@@ -140,3 +140,24 @@ body {
   inset: 35% 0 0;
   background: linear-gradient(0deg, rgba(11, 35, 75, 0.88), transparent);
 }
+
+/* ─── Infinite Running Logo Marquee ────────────────────────────────── */
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
