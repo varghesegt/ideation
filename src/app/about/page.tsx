@@ -49,6 +49,11 @@ export default function AboutPage() {
         <div className="max-w-[1160px] mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
             <div className="lg:col-span-5 space-y-3">
+              <img
+                src="/images/logo-dark.png"
+                alt="Ideation Education Services"
+                className="h-14 w-auto object-contain mb-3"
+              />
               <div className="eyebrow-accent">Our story</div>
               <h2 className="font-display text-3xl sm:text-4xl font-bold leading-tight tracking-tight text-[#172b43]">
                 Every student’s story is different. Their guidance should be, too.

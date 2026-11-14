@@ -75,6 +75,14 @@ export function LeadModal({ isOpen, onClose, initialCountry = "" }: LeadModalPro
           <X className="w-5 h-5" />
         </button>
 
+        <div className="flex items-center gap-3 mb-4">
+          <img
+            src="/images/logo-dark.png"
+            alt="Ideation Education Services"
+            className="h-12 w-auto object-contain"
+          />
+        </div>
+
         <div className="text-[11px] font-bold uppercase tracking-[0.17em] text-[#1a56db] flex items-center gap-2 mb-2">
           <span className="w-5 h-[1px] bg-[#f2a900]" />
           <span>A good place to begin</span>

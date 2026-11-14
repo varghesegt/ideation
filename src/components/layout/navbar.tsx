@@ -22,17 +22,14 @@ export function Navbar() {
           {/* Brand Logo */}
           <Link
             href="/"
-            className="flex items-center gap-2.5 font-display font-extrabold text-[17px] tracking-[-0.05em] text-[#172b43] select-none group flex-shrink-0"
+            className="flex items-center gap-2 select-none group flex-shrink-0"
+            aria-label="Ideation Education Services"
           >
-            <span className="w-9 h-9 rounded-full bg-[#1a56db] text-white font-serif italic text-2xl grid place-items-center group-hover:bg-[#1243b4] transition-colors shadow-xs">
-              i
-            </span>
-            <span>
-              ideation
-              <small className="block font-semibold text-[9px] tracking-[0.16em] uppercase text-[#64748b]">
-                education services
-              </small>
-            </span>
+            <img
+              src="/images/logo-dark.png"
+              alt="Ideation Education Services"
+              className="h-[52px] sm:h-[56px] w-auto object-contain transition-transform group-hover:scale-105 duration-200"
+            />
           </Link>
 
           {/* Desktop Navigation Links */}

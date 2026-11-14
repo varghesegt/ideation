@@ -5,12 +5,25 @@ export const metadata: Metadata = {
   title: "Ideation Education Services | Study abroad, thoughtfully",
   description:
     "Plan your study abroad journey with personal, end-to-end guidance from Ideation Education Services.",
+  icons: {
+    icon: "/images/favicon-64.png",
+    shortcut: "/images/favicon-64.png",
+    apple: "/images/favicon-64.png",
+  },
   openGraph: {
     title: "Ideation Education Services — Your world of possibility",
     description:
       "Thoughtful study abroad guidance, from your first conversation to your first day on campus.",
     url: "https://ideationedu.com/",
     siteName: "Ideation Education Services",
+    images: [
+      {
+        url: "/images/logo-dark.png",
+        width: 279,
+        height: 291,
+        alt: "Ideation Education Services Logo",
+      },
+    ],
     type: "website",
   },
 };

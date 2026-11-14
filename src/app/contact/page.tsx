@@ -233,10 +233,22 @@ export default function ContactPage() {
               />
 
               {/* Office Card */}
-              <div className="card-clean p-6 space-y-2.5">
-                <h3 className="font-display font-bold text-lg text-[#172b43]">
-                  Ideation Education Services
-                </h3>
+              <div className="card-clean p-6 space-y-3">
+                <div className="flex items-center gap-3 pb-2.5 border-b border-[#dce4ef]">
+                  <img
+                    src="/images/logo-dark.png"
+                    alt="Ideation Education Services"
+                    className="h-12 w-auto object-contain"
+                  />
+                  <div>
+                    <h3 className="font-display font-bold text-base text-[#172b43] leading-tight">
+                      Ideation Education Services
+                    </h3>
+                    <span className="text-[10px] text-[#64748b] tracking-wider uppercase font-semibold">
+                      Registered Office
+                    </span>
+                  </div>
+                </div>
                 <p className="text-xs text-[#1a56db]">
                   <a href="mailto:info@ideationedu.com" className="hover:underline">
                     info@ideationedu.com
